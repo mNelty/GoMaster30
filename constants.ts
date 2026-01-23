@@ -1,0 +1,732 @@
+import { CourseData } from './types';
+
+export const COURSE_CONTENT: CourseData = {
+  title: "Go Öğrenme Rehberi - 30 Dakika/Gün",
+  weeks: [
+    {
+      id: 1,
+      title: "Hafta 1: Go'ya Merhaba & Temel Kavramlar",
+      days: [
+        {
+          id: 1,
+          dayNumber: 1,
+          title: "Kurulum ve İlk Program",
+          goal: "Go'yu kurmak ve 'Hello, World!' yazmak",
+          activities: [
+            "Go'yu indirin ve kurun (golang.org/dl)",
+            "VS Code + Go eklentisini kurun",
+            "İlk programınızı yazın ve çalıştırın"
+          ],
+          codeSnippet: `package main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("Merhaba, Dünya!")\n}`,
+          resources: [
+            { title: "Go Resmi Kurulum Kılavuzu", url: "https://go.dev/doc/install" },
+            { title: "Go Playground", url: "https://go.dev/play/" }
+          ],
+          practice: "\"Hello, World!\" programını 3 farklı mesajla çalıştırın."
+        },
+        {
+          id: 2,
+          dayNumber: 2,
+          title: "Değişkenler ve Veri Tipleri",
+          goal: "Temel veri tiplerini anlamak",
+          activities: [
+            "var ve := ile değişken tanımlama",
+            "int, float64, string, bool tiplerini öğrenme",
+            "fmt.Printf ile formatlı çıktı"
+          ],
+          codeSnippet: `name := "Ali"\nage := 25\nheight := 1.75\nisStudent := true\nfmt.Printf("%s %d yaşında, %v cm boyunda\\n", name, age, height)`,
+          resources: [
+            { title: "Go by Example: Variables", url: "https://gobyexample.com/variables" },
+            { title: "Go Tour: Basic Types", url: "https://go.dev/tour/basics/11" }
+          ],
+          practice: "Kendi bilgilerinizi içeren bir program yazın."
+        },
+        {
+          id: 3,
+          dayNumber: 3,
+          title: "Operatörler ve Koşullar",
+          goal: "if/else yapıları ve karşılaştırmalar",
+          activities: [
+            "Aritmetik operatörler (+, -, *, /, %)",
+            "Karşılaştırma operatörleri (==, !=, <, >)",
+            "if, else if, else yapıları"
+          ],
+          codeSnippet: `score := 85\nif score >= 90 {\n    fmt.Println("AA")\n} else if score >= 75 {\n    fmt.Println("BA")\n} else {\n    fmt.Println("BB")\n}`,
+          resources: [
+            { title: "Go by Example: If/Else", url: "https://gobyexample.com/if-else" }
+          ],
+          practice: "Basit bir hesap makinesi yapın (2 sayı + operatör)."
+        },
+        {
+          id: 4,
+          dayNumber: 4,
+          title: "Döngüler",
+          goal: "for döngüsünde ustalaşmak",
+          activities: [
+            "Klasik for döngüsü",
+            "While benzeri kullanım",
+            "range ile iterasyon"
+          ],
+          codeSnippet: `// Klasik\nfor i := 0; i < 5; i++ {\n    fmt.Println(i)\n}\n\n// While benzeri\nj := 0\nfor j < 5 {\n    fmt.Println(j)\n    j++\n}`,
+          resources: [
+            { title: "Go by Example: For", url: "https://gobyexample.com/for" }
+          ],
+          practice: "1-100 arası tek sayıları yazdırın, FizzBuzz oyunu yapın."
+        },
+        {
+          id: 5,
+          dayNumber: 5,
+          title: "Fonksiyonlar",
+          goal: "Fonksiyon tanımlama ve kullanma",
+          activities: [
+            "Basit fonksiyonlar",
+            "Parametreler ve dönüş değerleri",
+            "Çoklu dönüş değerleri"
+          ],
+          codeSnippet: `func toplam(a, b int) int {\n    return a + b\n}\n\nfunc bolme(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, fmt.Errorf("sıfıra bölünemez")\n    }\n    return a / b, nil\n}`,
+          resources: [
+            { title: "Go by Example: Functions", url: "https://gobyexample.com/functions" },
+            { title: "Effective Go: Functions", url: "https://go.dev/doc/effective_go#functions" }
+          ],
+          practice: "Matematik işlemleri için fonksiyon kütüphanesi oluşturun."
+        }
+      ]
+    },
+    {
+      id: 2,
+      title: "Hafta 2: Veri Yapıları",
+      days: [
+        {
+          id: 6,
+          dayNumber: 6,
+          title: "Diziler (Arrays)",
+          goal: "Sabit boyutlu dizileri öğrenmek",
+          activities: ["Array tanımlama ve erişim"],
+          codeSnippet: `var numbers [5]int\nnumbers[0] = 10\nnumbers[1] = 20\n\ntemperatures := [7]float64{22.5, 23.1, 21.8, 24.0, 23.5, 22.0, 21.5}`,
+          resources: [{ title: "Go by Example: Arrays", url: "https://gobyexample.com/arrays" }],
+          practice: "Bir haftalık sıcaklık değerlerinin ortalamasını hesaplayın."
+        },
+        {
+          id: 7,
+          dayNumber: 7,
+          title: "Slice'lar",
+          goal: "Dinamik dizileri anlamak",
+          activities: ["Slice oluşturma (make, literal)", "append, len, cap", "Slice'ları kesme (slicing)"],
+          codeSnippet: `numbers := []int{1, 2, 3}\nnumbers = append(numbers, 4, 5)\n\nsubset := numbers[1:4] // [2, 3, 4]`,
+          resources: [
+            { title: "Go by Example: Slices", url: "https://gobyexample.com/slices" },
+            { title: "Go Slices: usage and internals", url: "https://go.dev/blog/slices-intro" }
+          ],
+          practice: "Bir to-do listesi oluşturun (ekleme, silme)."
+        },
+        {
+          id: 8,
+          dayNumber: 8,
+          title: "Map'ler",
+          goal: "Anahtar-değer çiftlerini kullanmak",
+          activities: ["Map oluşturma ve kontrol"],
+          codeSnippet: `ages := make(map[string]int)\nages["Ali"] = 25\nages["Ayşe"] = 30\n\n// Literal\nscores := map[string]int{\n    "Matematik": 85,\n    "Fizik": 90,\n}\n\n// Kontrol\nif score, exists := scores["Kimya"]; exists {\n    fmt.Println(score)\n}`,
+          resources: [{ title: "Go by Example: Maps", url: "https://gobyexample.com/maps" }],
+          practice: "Kelime sayacı yapın (bir metindeki kelimelerin frekansı)."
+        },
+        {
+          id: 9,
+          dayNumber: 9,
+          title: "Struct'lar",
+          goal: "Kendi veri tiplerini oluşturmak",
+          activities: ["Struct tanımlama ve Method ekleme"],
+          codeSnippet: `type Person struct {\n    Name string\n    Age  int\n    City string\n}\n\nperson := Person{\n    Name: "Ali",\n    Age:  25,\n    City: "İstanbul",\n}\n\n// Method\nfunc (p Person) Greet() string {\n    return "Merhaba, ben " + p.Name\n}`,
+          resources: [
+            { title: "Go by Example: Structs", url: "https://gobyexample.com/structs" },
+            { title: "Go by Example: Methods", url: "https://gobyexample.com/methods" }
+          ],
+          practice: "Öğrenci bilgi sistemi (struct + method)."
+        },
+        {
+          id: 10,
+          dayNumber: 10,
+          title: "Pointer'lar",
+          goal: "Bellek referanslarını anlamak",
+          activities: ["Adres ve defer operatörleri"],
+          codeSnippet: `x := 10\np := &x  // x'in adresi\n*p = 20  // x'in değerini değiştir\n\nfunc increment(n *int) {\n    *n++\n}`,
+          resources: [
+            { title: "Go by Example: Pointers", url: "https://gobyexample.com/pointers" },
+            { title: "Go Tour: Pointers", url: "https://go.dev/tour/moretypes/1" }
+          ],
+          practice: "Struct'ları pointer ile değiştiren fonksiyonlar yazın."
+        }
+      ]
+    },
+    {
+      id: 3,
+      title: "Hafta 3: Hata Yönetimi ve Dosya İşlemleri",
+      days: [
+        {
+          id: 11,
+          dayNumber: 11,
+          title: "Error Handling",
+          goal: "Go'nun hata yönetim paradigması",
+          activities: ["Error interface", "Hata kontrolü"],
+          codeSnippet: `func divide(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, errors.New("division by zero")\n    }\n    return a / b, nil\n}\n\nresult, err := divide(10, 0)\nif err != nil {\n    log.Fatal(err)\n}`,
+          resources: [
+            { title: "Go by Example: Errors", url: "https://gobyexample.com/errors" },
+            { title: "Error handling in Go", url: "https://go.dev/blog/error-handling-and-go" }
+          ],
+          practice: "Güvenli dosya okuma fonksiyonu yazın."
+        },
+        {
+          id: 12,
+          dayNumber: 12,
+          title: "Dosya Okuma",
+          goal: "Dosya sistemini kullanmak",
+          activities: ["os.ReadFile", "bufio.Scanner"],
+          codeSnippet: `// Tümünü okuma\ndata, err := os.ReadFile("dosya.txt")\nif err != nil {\n    log.Fatal(err)\n}\n\n// Satır satır okuma\nfile, _ := os.Open("dosya.txt")\nscanner := bufio.NewScanner(file)\nfor scanner.Scan() {\n    fmt.Println(scanner.Text())\n}`,
+          resources: [{ title: "Go by Example: Reading Files", url: "https://gobyexample.com/reading-files" }],
+          practice: "Log dosyası analiz eden program yazın."
+        },
+        {
+          id: 13,
+          dayNumber: 13,
+          title: "Dosya Yazma",
+          goal: "Dosyaya veri yazmak",
+          activities: ["os.WriteFile", "os.OpenFile"],
+          codeSnippet: `// Basit yazma\nerr := os.WriteFile("output.txt", []byte("içerik"), 0644)\n\n// Append\nfile, _ := os.OpenFile("log.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)\nfile.WriteString("yeni satır\\n")\nfile.Close()`,
+          resources: [{ title: "Go by Example: Writing Files", url: "https://gobyexample.com/writing-files" }],
+          practice: "Basit bir günlük (journal) uygulaması yapın."
+        },
+        {
+          id: 14,
+          dayNumber: 14,
+          title: "JSON İşlemleri",
+          goal: "JSON encode/decode",
+          activities: ["Struct tagleri", "Marshal/Unmarshal"],
+          codeSnippet: `type User struct {\n    Name  string \`json:"name"\`\n    Email string \`json:"email"\`\n    Age   int    \`json:"age"\`\n}\n\n// Marshal\nuser := User{Name: "Ali", Email: "ali@example.com", Age: 25}\njsonData, _ := json.Marshal(user)\n\n// Unmarshal\nvar newUser User\njson.Unmarshal(jsonData, &newUser)`,
+          resources: [
+            { title: "Go by Example: JSON", url: "https://gobyexample.com/json" },
+            { title: "JSON and Go", url: "https://go.dev/blog/json" }
+          ],
+          practice: "Config dosyası okuyup yazan sistem yapın."
+        },
+        {
+          id: 15,
+          dayNumber: 15,
+          title: "String İşlemleri",
+          goal: "strings ve strconv paketleri",
+          activities: ["Contains, Split, ToUpper", "Atoi, Itoa"],
+          codeSnippet: `import "strings"\n\ns := "Merhaba Dünya"\nstrings.Contains(s, "Dünya")      // true\nstrings.Split(s, " ")             // ["Merhaba", "Dünya"]\nstrings.ToUpper(s)                // "MERHABA DÜNYA"\nstrings.ReplaceAll(s, "a", "e")   // "Merhebe Dünye"\n\n// Strconv\nnum, _ := strconv.Atoi("42")\nstr := strconv.Itoa(42)`,
+          resources: [
+            { title: "Go by Example: String Functions", url: "https://gobyexample.com/string-functions" },
+            { title: "strings package", url: "https://pkg.go.dev/strings" }
+          ],
+          practice: "Metin temizleme aracı (trim, lowercase, vb.)."
+        }
+      ]
+    },
+    {
+      id: 4,
+      title: "Hafta 4: Interface'ler ve Gelişmiş Kavramlar",
+      days: [
+        {
+          id: 16,
+          dayNumber: 16,
+          title: "Interface Temelleri",
+          goal: "Interface kavramını anlamak",
+          activities: ["Interface tanımlama", "Implementasyon"],
+          codeSnippet: `type Shape interface {\n    Area() float64\n    Perimeter() float64\n}\n\ntype Rectangle struct {\n    Width, Height float64\n}\n\nfunc (r Rectangle) Area() float64 {\n    return r.Width * r.Height\n}`,
+          resources: [
+            { title: "Go by Example: Interfaces", url: "https://gobyexample.com/interfaces" }
+          ],
+          practice: "Farklı şekiller için ortak interface yapın."
+        },
+        {
+          id: 17,
+          dayNumber: 17,
+          title: "Interface Kullanım Senaryoları",
+          goal: "Pratik interface kullanımı",
+          activities: ["Reader/Writer interface'leri", "Type assertion", "Empty interface (any)"],
+          codeSnippet: `func PrintAnything(v any) {\n    switch v.(type) {\n    case string:\n        fmt.Println("String:", v)\n    case int:\n        fmt.Println("Integer:", v)\n    default:\n        fmt.Println("Unknown type")\n    }\n}`,
+          resources: [{ title: "Go Tour: Type assertions", url: "https://go.dev/tour/methods/15" }],
+          practice: "Farklı veri tiplerini işleyen generic fonksiyon."
+        },
+        {
+          id: 18,
+          dayNumber: 18,
+          title: "Defer, Panic, Recover",
+          goal: "Program akış kontrolü",
+          activities: ["Defer kullanımı", "Panic/Recover mekanizması"],
+          codeSnippet: `// Defer\nfunc example() {\n    defer fmt.Println("Son işlem")\n    fmt.Println("İlk işlem")\n}\n\n// Panic ve Recover\nfunc safeDivide(a, b int) (result int) {\n    defer func() {\n        if r := recover(); r != nil {\n            fmt.Println("Recovered:", r)\n            result = 0\n        }\n    }()\n    return a / b\n}`,
+          resources: [{ title: "Go by Example: Defer", url: "https://gobyexample.com/defer" }],
+          practice: "Güvenli dosya işlemleri yapan fonksiyonlar."
+        },
+        {
+          id: 19,
+          dayNumber: 19,
+          title: "Goroutine'ler",
+          goal: "Eşzamanlı programlamaya giriş",
+          activities: ["Go keyword'ü", "Eşzamanlılık vs Paralellik"],
+          codeSnippet: `func say(s string) {\n    for i := 0; i < 3; i++ {\n        fmt.Println(s)\n        time.Sleep(100 * time.Millisecond)\n    }\n}\n\nfunc main() {\n    go say("Merhaba")  // Eşzamanlı\n    say("Dünya")       // Senkron\n}`,
+          resources: [{ title: "Go by Example: Goroutines", url: "https://gobyexample.com/goroutines" }],
+          practice: "Birden fazla görevi eşzamanlı çalıştırın."
+        },
+        {
+          id: 20,
+          dayNumber: 20,
+          title: "Channel'lar",
+          goal: "Goroutine'ler arası iletişim",
+          activities: ["Channel oluşturma", "Veri gönderme/alma"],
+          codeSnippet: `func worker(jobs <-chan int, results chan<- int) {\n    for job := range jobs {\n        results <- job * 2\n    }\n}\n\nfunc main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n    go worker(jobs, results)\n    // ...\n}`,
+          resources: [{ title: "Go by Example: Channels", url: "https://gobyexample.com/channels" }],
+          practice: "Producer-Consumer pattern implementasyonu."
+        }
+      ]
+    },
+    {
+      id: 5,
+      title: "Hafta 5: Paket Yönetimi ve Testing",
+      days: [
+        {
+          id: 21,
+          dayNumber: 21,
+          title: "Go Modülleri",
+          goal: "Proje yapısı ve bağımlılık yönetimi",
+          activities: ["go mod init", "go get", "go mod tidy"],
+          codeSnippet: `go mod init github.com/kullanici/proje\ngo get github.com/gorilla/mux\ngo mod tidy`,
+          resources: [{ title: "Using Go Modules", url: "https://go.dev/blog/using-go-modules" }],
+          practice: "Kendi modülünüzü oluşturun ve 3rd party paket ekleyin."
+        },
+        {
+          id: 22,
+          dayNumber: 22,
+          title: "Paket Organizasyonu",
+          goal: "İyi proje yapısı oluşturmak",
+          activities: ["cmd/, internal/, pkg/ yapısı"],
+          codeSnippet: `myapp/\n├── cmd/\n│   └── main.go\n├── internal/\n│   ├── models/\n│   └── handlers/\n├── pkg/\n│   └── utils/\n├── go.mod\n└── go.sum`,
+          resources: [{ title: "Go Project Layout", url: "https://github.com/golang-standards/project-layout" }],
+          practice: "Mevcut projenizi yeniden organize edin."
+        },
+        {
+          id: 23,
+          dayNumber: 23,
+          title: "Unit Testing",
+          goal: "Test yazmaya başlamak",
+          activities: ["testing paketi", "Test fonksiyonları"],
+          codeSnippet: `func TestAdd(t *testing.T) {\n    result := Add(2, 3)\n    expected := 5\n    if result != expected {\n        t.Errorf("Add(2,3) = %d; want %d", result, expected)\n    }\n}`,
+          resources: [{ title: "Go by Example: Testing", url: "https://gobyexample.com/testing" }],
+          practice: "Önceki fonksiyonlarınız için testler yazın."
+        },
+        {
+          id: 24,
+          dayNumber: 24,
+          title: "Table-Driven Tests",
+          goal: "Etkili test stratejileri",
+          activities: ["Struct slice ile test caseleri", "t.Run"],
+          codeSnippet: `func TestAddTableDriven(t *testing.T) {\n    tests := []struct {\n        name     string\n        a, b     int\n        expected int\n    }{\n        {"positive", 2, 3, 5},\n        {"negative", -2, -3, -5},\n    }\n    // loop over tests...\n}`,
+          resources: [{ title: "Table Driven Tests", url: "https://go.dev/wiki/TableDrivenTests" }],
+          practice: "String işlemleri için table-driven test yazın."
+        },
+        {
+          id: 25,
+          dayNumber: 25,
+          title: "Benchmarking",
+          goal: "Performans ölçümü",
+          activities: ["testing.B", "go test -bench"],
+          codeSnippet: `func BenchmarkAdd(b *testing.B) {\n    for i := 0; i < b.N; i++ {\n        Add(2, 3)\n    }\n}`,
+          resources: [{ title: "Go by Example: Benchmarking", url: "https://gobyexample.com/testing-and-benchmarking" }],
+          practice: "İki farklı string birleştirme yöntemini karşılaştırın."
+        }
+      ]
+    },
+    {
+      id: 6,
+      title: "Hafta 6: Web Geliştirme Temelleri",
+      days: [
+        {
+          id: 26,
+          dayNumber: 26,
+          title: "HTTP Server Temelleri",
+          goal: "Basit web sunucusu oluşturmak",
+          activities: ["http.HandleFunc", "http.ListenAndServe"],
+          codeSnippet: `func handler(w http.ResponseWriter, r *http.Request) {\n    fmt.Fprintf(w, "Merhaba, %s!", r.URL.Path[1:])\n}\n\nfunc main() {\n    http.HandleFunc("/", handler)\n    http.ListenAndServe(":8080", nil)\n}`,
+          resources: [{ title: "Go by Example: HTTP Servers", url: "https://gobyexample.com/http-servers" }],
+          practice: "Farklı route'ları olan basit server."
+        },
+        {
+          id: 27,
+          dayNumber: 27,
+          title: "HTTP Handlers ve Mux",
+          goal: "Route yönetimi",
+          activities: ["http.NewServeMux"],
+          codeSnippet: `mux := http.NewServeMux()\nmux.HandleFunc("/", homeHandler)\nmux.HandleFunc("/about", aboutHandler)\nhttp.ListenAndServe(":8080", mux)`,
+          resources: [{ title: "net/http package", url: "https://pkg.go.dev/net/http" }],
+          practice: "RESTful endpoint'ler oluşturun."
+        },
+        {
+          id: 28,
+          dayNumber: 28,
+          title: "JSON API",
+          goal: "JSON response döndürmek",
+          activities: ["Content-Type header", "json.NewEncoder"],
+          codeSnippet: `func usersHandler(w http.ResponseWriter, r *http.Request) {\n    users := []User{{ID: 1, Name: "Ali"}}\n    w.Header().Set("Content-Type", "application/json")\n    json.NewEncoder(w).Encode(users)\n}`,
+          resources: [{ title: "Building a RESTful API", url: "https://tutorialedge.net/golang/creating-restful-api-with-golang/" }],
+          practice: "CRUD API endpoint'leri yapın."
+        },
+        {
+          id: 29,
+          dayNumber: 29,
+          title: "Middleware",
+          goal: "Request/response işleme",
+          activities: ["Wrapping handlers", "Logging middleware"],
+          codeSnippet: `func loggingMiddleware(next http.Handler) http.Handler {\n    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n        log.Printf("%s %s", r.Method, r.URL.Path)\n        next.ServeHTTP(w, r)\n    })\n}`,
+          resources: [{ title: "Making and Using Middleware", url: "https://www.alexedwards.net/blog/making-and-using-middleware" }],
+          practice: "Authentication middleware yazın."
+        },
+        {
+          id: 30,
+          dayNumber: 30,
+          title: "Gorilla Mux",
+          goal: "Gelişmiş routing",
+          activities: ["URL parametreleri", "Method sınırlama"],
+          codeSnippet: `r := mux.NewRouter()\nr.HandleFunc("/users/{id}", getUserHandler).Methods("GET")\n\nvars := mux.Vars(r)\nid := vars["id"]`,
+          resources: [{ title: "Gorilla Mux Docs", url: "https://github.com/gorilla/mux" }],
+          practice: "Parametreli route'lar ile API geliştirin."
+        }
+      ]
+    },
+    {
+      id: 7,
+      title: "Hafta 7: Database İşlemleri",
+      days: [
+        {
+          id: 31,
+          dayNumber: 31,
+          title: "database/sql Paketi",
+          goal: "SQL database'e bağlanmak",
+          activities: ["sql.Open", "Driver kullanımı (sqlite3)"],
+          codeSnippet: `import (\n    "database/sql"\n    _ "github.com/mattn/go-sqlite3"\n)\n\ndb, err := sql.Open("sqlite3", "test.db")\nerr = db.Ping()`,
+          resources: [{ title: "Go database/sql tutorial", url: "http://go-database-sql.org/" }],
+          practice: "SQLite veritabanı oluşturun ve bağlanın."
+        },
+        {
+          id: 32,
+          dayNumber: 32,
+          title: "CRUD - Create & Read",
+          goal: "Veri ekleme ve okuma",
+          activities: ["Exec", "Query", "Scan"],
+          codeSnippet: `// Insert\nstmt, _ := db.Prepare("INSERT INTO users(name) VALUES(?)")\nstmt.Exec("Ali")\n\n// Read\nrows, _ := db.Query("SELECT name FROM users")\nfor rows.Next() {\n    rows.Scan(&name)\n}`,
+          resources: [{ title: "Go by Example: SQL", url: "https://gobyexample.com/sql" }],
+          practice: "Kullanıcı tablosu oluşturup veri ekleyin."
+        },
+        {
+          id: 33,
+          dayNumber: 33,
+          title: "CRUD - Update & Delete",
+          goal: "Veri güncelleme ve silme",
+          activities: ["Update query", "Delete query"],
+          codeSnippet: `// Update\nstmt, _ := db.Prepare("UPDATE users SET email = ? WHERE id = ?")\nstmt.Exec("new@example.com", 1)\n\n// Delete\nstmt, _ = db.Prepare("DELETE FROM users WHERE id = ?")\nstmt.Exec(1)`,
+          resources: [],
+          practice: "Tam CRUD fonksiyonları yazın."
+        },
+        {
+          id: 34,
+          dayNumber: 34,
+          title: "Transactions",
+          goal: "Güvenli ve atomik işlemler",
+          activities: ["db.Begin", "Commit", "Rollback"],
+          codeSnippet: `tx, _ := db.Begin()\nstmt, _ := tx.Prepare("INSERT INTO users(name) VALUES(?)")\n_, err := stmt.Exec("Ali")\nif err != nil {\n    tx.Rollback()\n    return\n}\ntx.Commit()`,
+          resources: [{ title: "SQL Injection Prevention", url: "https://go.dev/doc/database/sql-injection" }],
+          practice: "Transaction ile güvenli transfer işlemi."
+        },
+        {
+          id: 35,
+          dayNumber: 35,
+          title: "ORM - GORM Temelleri",
+          goal: "GORM ile database işlemleri",
+          activities: ["AutoMigrate", "GORM metodları"],
+          codeSnippet: `db.AutoMigrate(&User{})\n\n// Create\ndb.Create(&User{Name: "Ali"})\n\n// Find\ndb.First(&user, 1)`,
+          resources: [{ title: "GORM Docs", url: "https://gorm.io/docs/" }],
+          practice: "GORM ile basit blog modeli oluşturun."
+        }
+      ]
+    },
+    {
+      id: 8,
+      title: "Hafta 8: Gerçek Dünya Uygulamaları",
+      days: [
+        {
+          id: 36,
+          dayNumber: 36,
+          title: "Environment Variables",
+          goal: "Konfigürasyon yönetimi",
+          activities: ["os.Getenv", "godotenv"],
+          codeSnippet: `port := os.Getenv("PORT")\nif port == "" {\n    port = "8080"\n}\n\n// .env load\ngodotenv.Load()`,
+          resources: [{ title: "Managing env vars", url: "https://dev.to/craicoverflow/a-no-nonsense-guide-to-environment-variables-in-go-a2f" }],
+          practice: "Config struct oluşturup env'den yükleyin."
+        },
+        {
+          id: 37,
+          dayNumber: 37,
+          title: "Logging",
+          goal: "Etkili log yönetimi",
+          activities: ["log paketi", "Structured logging (zerolog)"],
+          codeSnippet: `log.Printf("User %s logged in", user)\n\n// Zerolog\nlog.Info().Str("user", "ali").Msg("Login")`,
+          resources: [{ title: "zerolog", url: "https://github.com/rs/zerolog" }],
+          practice: "Farklı log seviyelerini destekleyen sistem yapın."
+        },
+        {
+          id: 38,
+          dayNumber: 38,
+          title: "HTTP Client",
+          goal: "API çağrıları yapmak",
+          activities: ["http.Get", "http.Post", "Custom Client"],
+          codeSnippet: `resp, err := http.Get("https://api.example.com/users")\n\n// Post\nhttp.Post(url, "application/json", body)`,
+          resources: [{ title: "Go by Example: HTTP Clients", url: "https://gobyexample.com/http-clients" }],
+          practice: "Hava durumu API'sinden veri çeken program."
+        },
+        {
+          id: 39,
+          dayNumber: 39,
+          title: "Working with Time",
+          goal: "Tarih ve saat işlemleri",
+          activities: ["time.Now", "Formatting", "Duration", "Tickers"],
+          codeSnippet: `now := time.Now()\nfmt.Println(now.Format("2006-01-02"))\n\ntimer := time.NewTimer(2 * time.Second)\n<-timer.C`,
+          resources: [{ title: "Go by Example: Time", url: "https://gobyexample.com/time" }],
+          practice: "Geri sayım zamanlayıcısı veya pomodoro timer yapın."
+        },
+        {
+          id: 40,
+          dayNumber: 40,
+          title: "Regular Expressions",
+          goal: "Metin pattern matching",
+          activities: ["regexp.MustCompile", "MatchString", "ReplaceAllString"],
+          codeSnippet: `emailRegex := regexp.MustCompile(\`^[a-z0-9._%+\\-]+@[a-z0-9.\\-]+\\.[a-z]{2,}$\`)\nisValid := emailRegex.MatchString("test@example.com")`,
+          resources: [{ title: "Go by Example: Regex", url: "https://gobyexample.com/regular-expressions" }],
+          practice: "Email, telefon, URL validator yapın."
+        },
+        {
+          id: 41,
+          dayNumber: 41,
+          title: "Context Package",
+          goal: "İptal ve timeout yönetimi",
+          activities: ["WithTimeout", "ctx.Done()"],
+          codeSnippet: `ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)\ndefer cancel()\n\nselect {\ncase <-ctx.Done():\n    fmt.Println("Timeout")\n}`,
+          resources: [{ title: "Go Context", url: "https://go.dev/blog/context" }],
+          practice: "Timeout'lu database sorguları yapın."
+        }
+      ]
+    },
+    {
+      id: 9,
+      title: "Hafta 9: İleri Seviye Concurrency",
+      days: [
+        {
+          id: 42,
+          dayNumber: 42,
+          title: "Worker Pools",
+          goal: "Etkili iş dağıtımı",
+          activities: ["Worker pattern implementasyonu"],
+          codeSnippet: `func worker(id int, jobs <-chan int, results chan<- int) {\n    for j := range jobs {\n        results <- j * 2\n    }\n}`,
+          resources: [{ title: "Go by Example: Worker Pools", url: "https://gobyexample.com/worker-pools" }],
+          practice: "Paralel image processing worker pool."
+        },
+        {
+          id: 43,
+          dayNumber: 43,
+          title: "Rate Limiting",
+          goal: "İstek hızını kontrol etmek",
+          activities: ["time.Tick", "Bursty limiter"],
+          codeSnippet: `limiter := time.Tick(200 * time.Millisecond)\nfor req := range requests {\n    <-limiter\n    go handle(req)\n}`,
+          resources: [{ title: "Go by Example: Rate Limiting", url: "https://gobyexample.com/rate-limiting" }],
+          practice: "API rate limiter middleware yapın."
+        },
+        {
+          id: 44,
+          dayNumber: 44,
+          title: "Select Statement",
+          goal: "Çoklu channel operasyonları",
+          activities: ["Select-case yapısı", "Timeout handling"],
+          codeSnippet: `select {\ncase msg1 := <-c1:\n    fmt.Println(msg1)\ncase <-time.After(1 * time.Second):\n    fmt.Println("Timeout")\n}`,
+          resources: [{ title: "Go by Example: Select", url: "https://gobyexample.com/select" }],
+          practice: "Birden fazla kaynaktan veri toplayan sistem."
+        },
+        {
+          id: 45,
+          dayNumber: 45,
+          title: "Mutex ve Sync",
+          goal: "Thread-safe kod yazmak",
+          activities: ["sync.Mutex", "sync.WaitGroup"],
+          codeSnippet: `c.mu.Lock()\nc.value++\nc.mu.Unlock()\n\nvar wg sync.WaitGroup\nwg.Add(1)\nwg.Done()\nwg.Wait()`,
+          resources: [{ title: "Go by Example: Mutexes", url: "https://gobyexample.com/mutexes" }],
+          practice: "Thread-safe cache implementasyonu."
+        },
+        {
+          id: 46,
+          dayNumber: 46,
+          title: "Atomic Operations",
+          goal: "Lock-free programlama",
+          activities: ["sync/atomic", "AddInt64", "Load/Store"],
+          codeSnippet: `atomic.AddInt64(&counter, 1)\nval := atomic.LoadInt64(&counter)`,
+          resources: [{ title: "Go by Example: Atomic Counters", url: "https://gobyexample.com/atomic-counters" }],
+          practice: "Performans sayacı sistemi yapın."
+        }
+      ]
+    },
+    {
+      id: 10,
+      title: "Hafta 10: Web Frameworks",
+      days: [
+        {
+          id: 47,
+          dayNumber: 47,
+          title: "Gin Framework",
+          goal: "Popüler web framework'ü öğrenmek",
+          activities: ["Gin setup", "Basic routing"],
+          codeSnippet: `r := gin.Default()\nr.GET("/ping", func(c *gin.Context) {\n    c.JSON(200, gin.H{"message": "pong"})\n})\nr.Run()`,
+          resources: [{ title: "Gin Documentation", url: "https://gin-gonic.com/docs/" }],
+          practice: "Gin ile RESTful API oluşturun."
+        },
+        {
+          id: 48,
+          dayNumber: 48,
+          title: "Middleware in Gin",
+          goal: "Gin middleware'leri",
+          activities: ["Custom middleware", "Group routing"],
+          codeSnippet: `func AuthMiddleware() gin.HandlerFunc { ... }\n\napi := r.Group("/api")\napi.Use(AuthMiddleware())`,
+          resources: [{ title: "Gin Middleware", url: "https://gin-gonic.com/docs/examples/using-middleware/" }],
+          practice: "Auth, logging, CORS middleware'leri ekleyin."
+        },
+        {
+          id: 49,
+          dayNumber: 49,
+          title: "Validation",
+          goal: "Input validasyonu",
+          activities: ["validator package", "Binding tags"],
+          codeSnippet: `type User struct {\n    Email string \`binding:"required,email"\`\n}\n\nif err := c.ShouldBindJSON(&user); err != nil { ... }`,
+          resources: [{ title: "validator package", url: "https://github.com/go-playground/validator" }],
+          practice: "Comprehensive validation kuralları ekleyin."
+        },
+        {
+          id: 50,
+          dayNumber: 50,
+          title: "Error Handling Patterns",
+          goal: "Profesyonel hata yönetimi",
+          activities: ["Custom errors", "errors.Is", "errors.As"],
+          codeSnippet: `if errors.Is(err, sql.ErrNoRows) {\n    // handle not found\n}`,
+          resources: [{ title: "Error handling in Go", url: "https://go.dev/blog/error-handling-and-go" }],
+          practice: "Tutarlı error handling stratejisi uygulayın."
+        },
+        {
+          id: 51,
+          dayNumber: 51,
+          title: "Code Organization",
+          goal: "Clean architecture prensipleri",
+          activities: ["Domain/Repo/Service katmanları"],
+          codeSnippet: `internal/\n  domain/\n  repository/\n  service/\n  handler/`,
+          resources: [{ title: "Clean Architecture in Go", url: "https://medium.com/@hatajoe/clean-architecture-in-go-4030f11ec1b1" }],
+          practice: "Mevcut projenizi yeniden yapılandırın."
+        }
+      ]
+    },
+    {
+      id: 11,
+      title: "Hafta 11: Deployment ve DevOps",
+      days: [
+        {
+          id: 52,
+          dayNumber: 52,
+          title: "Docker Basics",
+          goal: "Containerize applications",
+          activities: ["Dockerfile creation", "Multi-stage builds"],
+          codeSnippet: `FROM golang:1.21-alpine AS builder\n...\nFROM alpine:latest\nCOPY --from=builder /app/main .`,
+          resources: [{ title: "Dockerizing Go", url: "https://docs.docker.com/language/golang/" }],
+          practice: "Uygulamanızı Docker container'da çalıştırın."
+        },
+        {
+          id: 53,
+          dayNumber: 53,
+          title: "Docker Compose",
+          goal: "Multi-container uygulamalar",
+          activities: ["docker-compose.yml", "Service linking"],
+          codeSnippet: `services:\n  app:\n    depends_on:\n      - postgres`,
+          resources: [{ title: "Docker Compose", url: "https://docs.docker.com/compose/" }],
+          practice: "App + Database + Redis compose setup."
+        },
+        {
+          id: 54,
+          dayNumber: 54,
+          title: "Environment Config",
+          goal: "Viper ile config yönetimi",
+          activities: ["Viper setup", "Reading config"],
+          codeSnippet: `viper.SetConfigName("config")\nviper.ReadInConfig()`,
+          resources: [{ title: "Viper", url: "https://github.com/spf13/viper" }],
+          practice: "Dev, staging, production config'leri oluşturun."
+        },
+        {
+          id: 55,
+          dayNumber: 55,
+          title: "Graceful Shutdown",
+          goal: "Güvenli kapanış",
+          activities: ["Signal catching", "srv.Shutdown"],
+          codeSnippet: `quit := make(chan os.Signal, 1)\nsignal.Notify(quit, syscall.SIGINT)\n<-quit\nsrv.Shutdown(ctx)`,
+          resources: [{ title: "Graceful Shutdown", url: "https://medium.com/honestbee-tw-engineer/gracefully-shutdown-in-go-http-server-5f5e6b83da5a" }],
+          practice: "Database bağlantılarını temiz kapatan shutdown."
+        },
+        {
+          id: 56,
+          dayNumber: 56,
+          title: "Monitoring",
+          goal: "Prometheus metrikleri",
+          activities: ["Prometheus client", "Instrumentation"],
+          codeSnippet: `httpRequestsTotal.Inc()`,
+          resources: [{ title: "Prometheus Go", url: "https://github.com/prometheus/client_golang" }],
+          practice: "Prometheus metrikleri ekleyin ve visualize edin."
+        }
+      ]
+    },
+    {
+      id: 12,
+      title: "Hafta 12: İleri Seviye & Final",
+      days: [
+        {
+          id: 57,
+          dayNumber: 57,
+          title: "Performance Optimization",
+          goal: "Profiling ve optimizasyon",
+          activities: ["pprof", "sync.Pool", "strings.Builder"],
+          codeSnippet: `import _ "net/http/pprof"\n\nvar pool = sync.Pool{...}`,
+          resources: [{ title: "Profiling Go Programs", url: "https://go.dev/blog/pprof" }],
+          practice: "pprof ile uygulamanızı analiz edin."
+        },
+        {
+          id: 58,
+          dayNumber: 58,
+          title: "Security Best Practices",
+          goal: "Güvenli kod yazma",
+          activities: ["bcrypt", "JWT", "Input sanitization"],
+          codeSnippet: `bcrypt.GenerateFromPassword([]byte(pass), 14)`,
+          resources: [{ title: "Go Security Cheat Sheet", url: "https://cheatsheetseries.owasp.org/cheatsheets/Go_SPA_Cheat_Sheet.html" }],
+          practice: "JWT auth sistemi implementasyonu."
+        },
+        {
+          id: 59,
+          dayNumber: 59,
+          title: "WebSockets",
+          goal: "Real-time iletişim",
+          activities: ["Gorilla websocket", "Upgrade connection"],
+          codeSnippet: `upgrader.Upgrade(w, r, nil)\nconn.ReadMessage()`,
+          resources: [{ title: "Gorilla WebSocket", url: "https://github.com/gorilla/websocket" }],
+          practice: "Basit chat uygulaması yapın."
+        },
+        {
+          id: 60,
+          dayNumber: 60,
+          title: "CLI Applications",
+          goal: "Cobra ile CLI tools",
+          activities: ["Cobra setup", "Commands & Flags"],
+          codeSnippet: `var rootCmd = &cobra.Command{Use: "app"}\nrootCmd.Execute()`,
+          resources: [{ title: "Cobra", url: "https://github.com/spf13/cobra" }],
+          practice: "Multi-command CLI tool yapın."
+        }
+      ]
+    }
+  ]
+};
