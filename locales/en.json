@@ -151,19 +151,7 @@
             "title": "Structs",
             "goal": "Create your own data types",
             "activities": ["Struct definition and adding methods"],
-            "codeSnippet": "type Person struct {\n    Name string\n    Age  int\n    City string
-}
-
-person := Person{
-    Name: \"Alex\",
-    Age:  25,
-    City: \"Istanbul\",
-}
-
-// Method
-func (p Person) Greet() string {
-    return \"Hello, I am \" + p.Name
-}",
+            "codeSnippet": "type Person struct {\n    Name string\n    Age  int\n    City string\n}\n\nperson := Person{\n    Name: \"Alex\",\n    Age:  25,\n    City: \"Istanbul\",\n}\n\n// Method\nfunc (p Person) Greet() string {\n    return \"Hello, I am \" + p.Name\n}",
             "resources": [
               { "title": "Go by Example: Structs", "url": "https://gobyexample.com/structs" },
               { "title": "Go by Example: Methods", "url": "https://gobyexample.com/methods" }
@@ -176,8 +164,7 @@ func (p Person) Greet() string {
             "title": "Pointers",
             "goal": "Understand memory references",
             "activities": ["Address (&) and dereference (*) operators"],
-            "codeSnippet": "x := 10\np := &x  // address of x\n*p = 20  // change the value of x\n\nfunc increment(n *int) {\n    *n++
-}",
+            "codeSnippet": "x := 10\np := &x  // address of x\n*p = 20  // change the value of x\n\nfunc increment(n *int) {\n    *n++\n}",
             "resources": [
               { "title": "Go by Example: Pointers", "url": "https://gobyexample.com/pointers" },
               { "title": "Go Tour: Pointers", "url": "https://go.dev/tour/moretypes/1" }
@@ -196,11 +183,7 @@ func (p Person) Greet() string {
             "title": "Error Handling",
             "goal": "Go's error handling paradigm",
             "activities": ["The error interface", "Checking for errors"],
-            "codeSnippet": "func divide(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, errors.New(\"division by zero\")\n    }\n    return a / b, nil
-}
-
-result, err := divide(10, 0)\nif err != nil {\n    log.Fatal(err)
-}",
+            "codeSnippet": "func divide(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, errors.New(\"division by zero\")\n    }\n    return a / b, nil\n}\n\nresult, err := divide(10, 0)\nif err != nil {\n    log.Fatal(err)\n}",
             "resources": [
               { "title": "Go by Example: Errors", "url": "https://gobyexample.com/errors" },
               { "title": "Error handling in Go", "url": "https://go.dev/blog/error-handling-and-go" }
@@ -213,11 +196,7 @@ result, err := divide(10, 0)\nif err != nil {\n    log.Fatal(err)
             "title": "Reading Files",
             "goal": "Using the file system",
             "activities": ["os.ReadFile", "bufio.Scanner"],
-            "codeSnippet": "// Read all\ndata, err := os.ReadFile(\"file.txt\")\nif err != nil {\n    log.Fatal(err)
-}
-
-// Read line by line\nfile, _ := os.Open(\"file.txt\")\nscanner := bufio.NewScanner(file)\nfor scanner.Scan() {\n    fmt.Println(scanner.Text())
-}",
+            "codeSnippet": "// Read all\ndata, err := os.ReadFile(\"file.txt\")\nif err != nil {\n    log.Fatal(err)\n}\n\n// Read line by line\nfile, _ := os.Open(\"file.txt\")\nscanner := bufio.NewScanner(file)\nfor scanner.Scan() {\n    fmt.Println(scanner.Text())\n}",
             "resources": [{ "title": "Go by Example: Reading Files", "url": "https://gobyexample.com/reading-files" }],
             "practice": "Write a program to analyze a log file."
           },
@@ -227,9 +206,7 @@ result, err := divide(10, 0)\nif err != nil {\n    log.Fatal(err)
             "title": "Writing Files",
             "goal": "Write data to a file",
             "activities": ["os.WriteFile", "os.OpenFile"],
-            "codeSnippet": "// Simple write\nerr := os.WriteFile(\"output.txt\", []byte(\"content\"), 0644)
-
-// Append\nfile, _ := os.OpenFile(\"log.txt\", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)\nfile.WriteString(\"new line\\n\")\nfile.Close()",
+            "codeSnippet": "// Simple write\nerr := os.WriteFile(\"output.txt\", []byte(\"content\"), 0644)\n\n// Append\nfile, _ := os.OpenFile(\"log.txt\", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)\nfile.WriteString(\"new line\\\n\")\nfile.Close()",
             "resources": [{ "title": "Go by Example: Writing Files", "url": "https://gobyexample.com/writing-files" }],
             "practice": "Create a simple journal application."
           },
@@ -239,16 +216,7 @@ result, err := divide(10, 0)\nif err != nil {\n    log.Fatal(err)
             "title": "JSON Operations",
             "goal": "JSON encode/decode",
             "activities": ["Struct tags", "Marshal/Unmarshal"],
-            "codeSnippet": "type User struct {\n    Name  string `json:\"name\"`
-    Email string `json:\"email\"`
-    Age   int    `json:\"age\"`
-}
-
-// Marshal\nuser := User{Name: \"Alex\", Email: \"alex@example.com\", Age: 25}
-jsonData, _ := json.Marshal(user)
-
-// Unmarshal\nvar newUser User
-json.Unmarshal(jsonData, &newUser)",
+            "codeSnippet": "type User struct {\n    Name  string `json:\"name\"`\n    Email string `json:\"email\"`\n    Age   int    `json:\"age\"`\n}\n\n// Marshal\nuser := User{Name: \"Alex\", Email: \"alex@example.com\", Age: 25}\njsonData, _ := json.Marshal(user)\n\n// Unmarshal\nvar newUser User\njson.Unmarshal(jsonData, &newUser)",
             "resources": [
               { "title": "Go by Example: JSON", "url": "https://gobyexample.com/json" },
               { "title": "JSON and Go", "url": "https://go.dev/blog/json" }
@@ -280,17 +248,7 @@ json.Unmarshal(jsonData, &newUser)",
             "title": "Interface Basics",
             "goal": "Understand the interface concept",
             "activities": ["Interface definition", "Implementation"],
-            "codeSnippet": "type Shape interface {\n    Area() float64
-    Perimeter() float64
-}
-
-type Rectangle struct {
-    Width, Height float64
-}
-
-func (r Rectangle) Area() float64 {
-    return r.Width * r.Height
-}",
+            "codeSnippet": "type Shape interface {\n    Area() float64\n    Perimeter() float64\n}\n\ntype Rectangle struct {\n    Width, Height float64\n}\n\nfunc (r Rectangle) Area() float64 {\n    return r.Width * r.Height\n}",
             "resources": [
               { "title": "Go by Example: Interfaces", "url": "https://gobyexample.com/interfaces" }
             ],
@@ -302,9 +260,7 @@ func (r Rectangle) Area() float64 {
             "title": "Interface Use Cases",
             "goal": "Practical interface usage",
             "activities": ["Reader/Writer interfaces", "Type assertion", "Empty interface (any)"],
-            "codeSnippet": "func PrintAnything(v any) {\n    switch v.(type) {\n    case string:\n        fmt.Println(\"String:\", v)\n    case int:\n        fmt.Println(\"Integer:\", v)\n    default:\n        fmt.Println(\"Unknown type\")
-    }
-}",
+            "codeSnippet": "func PrintAnything(v any) {\n    switch v.(type) {\n    case string:\n        fmt.Println(\"String:\", v)\n    case int:\n        fmt.Println(\"Integer:\", v)\n    default:\n        fmt.Println(\"Unknown type\")\n    }\n}",
             "resources": [{ "title": "Go Tour: Type assertions", "url": "https://go.dev/tour/methods/15" }],
             "practice": "A generic function that handles different data types."
           },
@@ -314,19 +270,7 @@ func (r Rectangle) Area() float64 {
             "title": "Defer, Panic, Recover",
             "goal": "Program flow control",
             "activities": ["Using defer", "Panic/Recover mechanism"],
-            "codeSnippet": "// Defer\nfunc example() {\n    defer fmt.Println(\"Last operation\")
-    fmt.Println(\"First operation\")
-}
-
-// Panic and Recover\nfunc safeDivide(a, b int) (result int) {
-    defer func() {
-        if r := recover(); r != nil {
-            fmt.Println(\"Recovered:\", r)
-            result = 0
-        }
-    }()
-    return a / b
-}",
+            "codeSnippet": "// Defer\nfunc example() {\n    defer fmt.Println(\"Last operation\")\n    fmt.Println(\"First operation\")\n}\n\n// Panic and Recover\nfunc safeDivide(a, b int) (result int) {\n    defer func() {\n        if r := recover(); r != nil {\n            fmt.Println(\"Recovered:\", r)\n            result = 0\n        }\n    }()\n    return a / b\n}",
             "resources": [{ "title": "Go by Example: Defer", "url": "https://gobyexample.com/defer" }],
             "practice": "Functions that perform safe file operations."
           },
@@ -336,12 +280,7 @@ func (r Rectangle) Area() float64 {
             "title": "Goroutines",
             "goal": "Introduction to concurrent programming",
             "activities": ["The 'go' keyword", "Concurrency vs Parallelism"],
-            "codeSnippet": "func say(s string) {\n    for i := 0; i < 3; i++ {\n        fmt.Println(s)\n        time.Sleep(100 * time.Millisecond)
-    }
-}
-
-func main() {\n    go say(\"Hello\")  // Concurrent\n    say(\"World\")     // Synchronous
-}",
+            "codeSnippet": "func say(s string) {\n    for i := 0; i < 3; i++ {\n        fmt.Println(s)\n        time.Sleep(100 * time.Millisecond)\n    }\n}\n\nfunc main() {\n    go say(\"Hello\")  // Concurrent\n    say(\"World\")     // Synchronous\n}",
             "resources": [{ "title": "Go by Example: Goroutines", "url": "https://gobyexample.com/goroutines" }],
             "practice": "Run multiple tasks concurrently."
           },
@@ -351,12 +290,7 @@ func main() {\n    go say(\"Hello\")  // Concurrent\n    say(\"World\")     // S
             "title": "Channels",
             "goal": "Communication between goroutines",
             "activities": ["Channel creation", "Sending/receiving data"],
-            "codeSnippet": "func worker(jobs <-chan int, results chan<- int) {\n    for job := range jobs {\n        results <- job * 2
-    }
-}
-
-func main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n    go worker(jobs, results)\n    // ...
-}",
+            "codeSnippet": "func worker(jobs <-chan int, results chan<- int) {\n    for job := range jobs {\n        results <- job * 2\n    }\n}\n\nfunc main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n    go worker(jobs, results)\n    // ...\n}",
             "resources": [{ "title": "Go by Example: Channels", "url": "https://gobyexample.com/channels" }],
             "practice": "Implement the Producer-Consumer pattern."
           }
@@ -382,7 +316,7 @@ func main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n
             "title": "Package Organization",
             "goal": "Create a good project structure",
             "activities": ["cmd/, internal/, pkg/ structure"],
-            "codeSnippet": "myapp/\n├── cmd/\n│   └── main.go\n├── internal/\n│   ├── models/\n│   └── handlers/\n├── pkg/\n│   └── utils/\n├── go.mod\n└── go.sum",
+            "codeSnippet": "myapp/\n\u251c\u2500\u2500 cmd/\n\u2502   \u2514\u2500\u2500 main.go\n\u251c\u2500\u2500 internal/\n\u2502   \u251c\u2500\u2500 models/\n\u2502   \u2514\u2500\u2500 handlers/\n\u251c\u2500\u2500 pkg/\n\u2502   \u2514\u2500\u2500 utils/\n\u251c\u2500\u2500 go.mod\n\u2514\u2500\u2500 go.sum",
             "resources": [{ "title": "Go Project Layout", "url": "https://github.com/golang-standards/project-layout" }],
             "practice": "Reorganize your existing project."
           },
@@ -392,9 +326,7 @@ func main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n
             "title": "Unit Testing",
             "goal": "Start writing tests",
             "activities": ["'testing' package", "Test functions"],
-            "codeSnippet": "func TestAdd(t *testing.T) {\n    result := Add(2, 3)\n    expected := 5\n    if result != expected {\n        t.Errorf(\"Add(2,3) = %d; want %d\", result, expected)
-    }
-}",
+            "codeSnippet": "func TestAdd(t *testing.T) {\n    result := Add(2, 3)\n    expected := 5\n    if result != expected {\n        t.Errorf(\"Add(2,3) = %d; want %d\", result, expected)\n    }\n}",
             "resources": [{ "title": "Go by Example: Testing", "url": "https://gobyexample.com/testing" }],
             "practice": "Write tests for your previous functions."
           },
@@ -404,13 +336,7 @@ func main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n
             "title": "Table-Driven Tests",
             "goal": "Effective testing strategies",
             "activities": ["Test cases with struct slices", "t.Run"],
-            "codeSnippet": "func TestAddTableDriven(t *testing.T) {\n    tests := []struct {\n        name     string\n        a, b     int\n        expected int
-    }{
-        {\"positive\", 2, 3, 5},
-        {\"negative\", -2, -3, -5},
-    }
-    // loop over tests...
-}",
+            "codeSnippet": "func TestAddTableDriven(t *testing.T) {\n    tests := []struct {\n        name     string\n        a, b     int\n        expected int\n    }{\n        {\"positive\", 2, 3, 5},\n        {\"negative\", -2, -3, -5},\n    }\n    // loop over tests...\n}",
             "resources": [{ "title": "Table Driven Tests", "url": "https://go.dev/wiki/TableDrivenTests" }],
             "practice": "Write a table-driven test for string operations."
           },
@@ -420,9 +346,7 @@ func main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n
             "title": "Benchmarking",
             "goal": "Performance measurement",
             "activities": ["testing.B", "go test -bench"],
-            "codeSnippet": "func BenchmarkAdd(b *testing.B) {\n    for i := 0; i < b.N; i++ {\n        Add(2, 3)
-    }
-}",
+            "codeSnippet": "func BenchmarkAdd(b *testing.B) {\n    for i := 0; i < b.N; i++ {\n        Add(2, 3)\n    }\n}",
             "resources": [{ "title": "Go by Example: Testing and Benchmarking", "url": "https://gobyexample.com/testing-and-benchmarking" }],
             "practice": "Compare two different string concatenation methods."
           }
@@ -438,12 +362,7 @@ func main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n
             "title": "HTTP Server Basics",
             "goal": "Create a simple web server",
             "activities": ["http.HandleFunc", "http.ListenAndServe"],
-            "codeSnippet": "func handler(w http.ResponseWriter, r *http.Request) {\n    fmt.Fprintf(w, \"Hello, %s!\", r.URL.Path[1:])
-}
-
-func main() {\n    http.HandleFunc(\"/%", handler)
-    http.ListenAndServe(\":8080\", nil)
-}",
+            "codeSnippet": "func handler(w http.ResponseWriter, r *http.Request) {\n    fmt.Fprintf(w, \"Hello, %s!\", r.URL.Path[1:])\n}\n\nfunc main() {\n    http.HandleFunc(\"/%\", handler)\n    http.ListenAndServe(\":8080\", nil)\n}",
             "resources": [{ "title": "Go by Example: HTTP Servers", "url": "https://gobyexample.com/http-servers" }],
             "practice": "A simple server with different routes."
           },
@@ -453,7 +372,7 @@ func main() {\n    http.HandleFunc(\"/%", handler)
             "title": "HTTP Handlers and Mux",
             "goal": "Route management",
             "activities": ["http.NewServeMux"],
-            "codeSnippet": "mux := http.NewServeMux()\nmux.HandleFunc(\"/%", homeHandler)\nmux.HandleFunc(\"/about\", aboutHandler)\nhttp.ListenAndServe(\":8080\", mux)",
+            "codeSnippet": "mux := http.NewServeMux()\nmux.HandleFunc(\"/%\", homeHandler)\nmux.HandleFunc(\"/about\", aboutHandler)\nhttp.ListenAndServe(\":8080\", mux)",
             "resources": [{ "title": "net/http package", "url": "https://pkg.go.dev/net/http" }],
             "practice": "Create RESTful endpoints."
           },
@@ -463,10 +382,7 @@ func main() {\n    http.HandleFunc(\"/%", handler)
             "title": "JSON API",
             "goal": "Return a JSON response",
             "activities": ["Content-Type header", "json.NewEncoder"],
-            "codeSnippet": "func usersHandler(w http.ResponseWriter, r *http.Request) {\n    users := []User{{ID: 1, Name: \"Alex\"}}
-    w.Header().Set(\"Content-Type\", \"application/json\")
-    json.NewEncoder(w).Encode(users)
-}",
+            "codeSnippet": "func usersHandler(w http.ResponseWriter, r *http.Request) {\n    users := []User{{ID: 1, Name: \"Alex\"}}\n    w.Header().Set(\"Content-Type\", \"application/json\")\n    json.NewEncoder(w).Encode(users)\n}",
             "resources": [{ "title": "Building a RESTful API", "url": "https://tutorialedge.net/golang/creating-restful-api-with-golang/" }],
             "practice": "Create CRUD API endpoints."
           },
@@ -476,10 +392,7 @@ func main() {\n    http.HandleFunc(\"/%", handler)
             "title": "Middleware",
             "goal": "Request/response processing",
             "activities": ["Wrapping handlers", "Logging middleware"],
-            "codeSnippet": "func loggingMiddleware(next http.Handler) http.Handler {\n    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n        log.Printf(\"%s %s\", r.Method, r.URL.Path)
-        next.ServeHTTP(w, r)
-    })
-}",
+            "codeSnippet": "func loggingMiddleware(next http.Handler) http.Handler {\n    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n        log.Printf(\"%s %s\", r.Method, r.URL.Path)\n        next.ServeHTTP(w, r)\n    })\n}",
             "resources": [{ "title": "Making and Using Middleware", "url": "https://www.alexedwards.net/blog/making-and-using-middleware" }],
             "practice": "Write an authentication middleware."
           },
@@ -505,9 +418,7 @@ func main() {\n    http.HandleFunc(\"/%", handler)
             "title": "database/sql Package",
             "goal": "Connect to a SQL database",
             "activities": ["sql.Open", "Driver usage (sqlite3)"],
-            "codeSnippet": "import (\n    \"database/sql\"\n    _ \"github.com/mattn/go-sqlite3\"\n)
-
-db, err := sql.Open(\"sqlite3\", \"test.db\")\nerr = db.Ping()",
+            "codeSnippet": "import (\n    \"database/sql\"\n    _ \"github.com/mattn/go-sqlite3\"\n)\n\ndb, err := sql.Open(\"sqlite3\", \"test.db\")\nerr = db.Ping()",
             "resources": [{ "title": "Go database/sql tutorial", "url": "http://go-database-sql.org/" }],
             "practice": "Create and connect to a SQLite database."
           },
@@ -517,10 +428,7 @@ db, err := sql.Open(\"sqlite3\", \"test.db\")\nerr = db.Ping()",
             "title": "CRUD - Create & Read",
             "goal": "Adding and reading data",
             "activities": ["Exec", "Query", "Scan"],
-            "codeSnippet": "// Insert\nstmt, _ := db.Prepare(\"INSERT INTO users(name) VALUES(?)\")\nstmt.Exec(\"Alex\")
-
-// Read\nrows, _ := db.Query(\"SELECT name FROM users\")\nfor rows.Next() {\n    rows.Scan(&name)
-}",
+            "codeSnippet": "// Insert\nstmt, _ := db.Prepare(\"INSERT INTO users(name) VALUES(?)\")\nstmt.Exec(\"Alex\")\n\n// Read\nrows, _ := db.Query(\"SELECT name FROM users\")\nfor rows.Next() {\n    rows.Scan(&name)\n}",
             "resources": [{ "title": "Go by Example: SQL", "url": "https://gobyexample.com/sql" }],
             "practice": "Create a user table and add data."
           },
@@ -530,9 +438,7 @@ db, err := sql.Open(\"sqlite3\", \"test.db\")\nerr = db.Ping()",
             "title": "CRUD - Update & Delete",
             "goal": "Updating and deleting data",
             "activities": ["Update query", "Delete query"],
-            "codeSnippet": "// Update\nstmt, _ := db.Prepare(\"UPDATE users SET email = ? WHERE id = ?\")\nstmt.Exec(\"new@example.com\", 1)
-
-// Delete\nstmt, _ = db.Prepare(\"DELETE FROM users WHERE id = ?\")\nstmt.Exec(1)",
+            "codeSnippet": "// Update\nstmt, _ := db.Prepare(\"UPDATE users SET email = ? WHERE id = ?\")\nstmt.Exec(\"new@example.com\", 1)\n\n// Delete\nstmt, _ = db.Prepare(\"DELETE FROM users WHERE id = ?\")\nstmt.Exec(1)",
             "resources": [],
             "practice": "Write full CRUD functions."
           },
@@ -542,9 +448,7 @@ db, err := sql.Open(\"sqlite3\", \"test.db\")\nerr = db.Ping()",
             "title": "Transactions",
             "goal": "Safe and atomic operations",
             "activities": ["db.Begin", "Commit", "Rollback"],
-            "codeSnippet": "tx, _ := db.Begin()\nstmt, _ := tx.Prepare(\"INSERT INTO users(name) VALUES(?)\")\n_, err := stmt.Exec(\"Alex\")\nif err != nil {\n    tx.Rollback()\n    return
-}
-tx.Commit()",
+            "codeSnippet": "tx, _ := db.Begin()\nstmt, _ := tx.Prepare(\"INSERT INTO users(name) VALUES(?)\")\n_, err := stmt.Exec(\"Alex\")\nif err != nil {\n    tx.Rollback()\n    return\n}\ntx.Commit()",
             "resources": [{ "title": "SQL Injection Prevention", "url": "https://go.dev/doc/database/sql-injection" }],
             "practice": "A safe transfer operation with a transaction."
           },
@@ -554,11 +458,7 @@ tx.Commit()",
             "title": "ORM - GORM Basics",
             "goal": "Database operations with GORM",
             "activities": ["AutoMigrate", "GORM methods"],
-            "codeSnippet": "db.AutoMigrate(&User{})
-
-// Create\ndb.Create(&User{Name: \"Alex\"})
-
-// Find\ndb.First(&user, 1)",
+            "codeSnippet": "db.AutoMigrate(&User{})\n\n// Create\ndb.Create(&User{Name: \"Alex\"})\n\n// Find\ndb.First(&user, 1)",
             "resources": [{ "title": "GORM Docs", "url": "https://gorm.io/docs/" }],
             "practice": "Create a simple blog model with GORM."
           }
@@ -574,10 +474,7 @@ tx.Commit()",
             "title": "Environment Variables",
             "goal": "Configuration management",
             "activities": ["os.Getenv", "godotenv"],
-            "codeSnippet": "port := os.Getenv(\"PORT\")\nif port == \"\" {\n    port = \"8080\"
-}
-
-// .env load\ngodotenv.Load()",
+            "codeSnippet": "port := os.Getenv(\"PORT\")\nif port == \"\" {\n    port = \"8080\"\n}\n\n// .env load\ngodotenv.Load()",
             "resources": [{ "title": "Managing env vars", "url": "https://dev.to/craicoverflow/a-no-nonsense-guide-to-environment-variables-in-go-a2f" }],
             "practice": "Create a config struct and load it from env."
           },
@@ -587,8 +484,7 @@ tx.Commit()",
             "title": "Logging",
             "goal": "Effective log management",
             "activities": ["'log' package", "Structured logging (zerolog)"],
-            "codeSnippet": "log.Printf(\"User %s logged in\", user)\n
-// Zerolog\nlog.Info().Str(\"user\", \"alex\").Msg(\"Login\")",
+            "codeSnippet": "log.Printf(\"User %s logged in\", user)\n\n// Zerolog\nlog.Info().Str(\"user\", \"alex\").Msg(\"Login\")",
             "resources": [{ "title": "zerolog", "url": "https://github.com/rs/zerolog" }],
             "practice": "Build a system that supports different log levels."
           },
@@ -598,9 +494,7 @@ tx.Commit()",
             "title": "HTTP Client",
             "goal": "Making API calls",
             "activities": ["http.Get", "http.Post", "Custom Client"],
-            "codeSnippet": "resp, err := http.Get(\"https://api.example.com/users\")
-
-// Post\nhttp.Post(url, \"application/json\", body)",
+            "codeSnippet": "resp, err := http.Get(\"https://api.example.com/users\")\n\n// Post\nhttp.Post(url, \"application/json\", body)",
             "resources": [{ "title": "Go by Example: HTTP Clients", "url": "https://gobyexample.com/http-clients" }],
             "practice": "A program that fetches data from a weather API."
           },
@@ -610,10 +504,7 @@ tx.Commit()",
             "title": "Working with Time",
             "goal": "Date and time operations",
             "activities": ["time.Now", "Formatting", "Duration", "Tickers"],
-            "codeSnippet": "now := time.Now()\nfmt.Println(now.Format(\"2006-01-02\"))
-
-timer := time.NewTimer(2 * time.Second)
-<-timer.C",
+            "codeSnippet": "now := time.Now()\nfmt.Println(now.Format(\"2006-01-02\"))\n\ntimer := time.NewTimer(2 * time.Second)\n<-timer.C",
             "resources": [{ "title": "Go by Example: Time", "url": "https://gobyexample.com/time" }],
             "practice": "Create a countdown timer or a pomodoro timer."
           },
@@ -623,7 +514,7 @@ timer := time.NewTimer(2 * time.Second)
             "title": "Regular Expressions",
             "goal": "Text pattern matching",
             "activities": ["regexp.MustCompile", "MatchString", "ReplaceAllString"],
-            "codeSnippet": "emailRegex := regexp.MustCompile(`^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$`)\nisValid := emailRegex.MatchString(\"test@example.com\")",
+            "codeSnippet": "emailRegex := regexp.MustCompile(`^[a-z0-9._%+\\-]+@[a-z0-9.\\-]+\\.[a-z]{2,}$`)\nisValid := emailRegex.MatchString(\"test@example.com\")",
             "resources": [{ "title": "Go by Example: Regex", "url": "https://gobyexample.com/regular-expressions" }],
             "practice": "Create an email, phone, and URL validator."
           },
@@ -633,13 +524,7 @@ timer := time.NewTimer(2 * time.Second)
             "title": "Context Package",
             "goal": "Cancellation and timeout management",
             "activities": ["WithTimeout", "ctx.Done()"],
-            "codeSnippet": "ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
-defer cancel()
-
-select {
-case <-ctx.Done():
-    fmt.Println(\"Timeout\")
-}",
+            "codeSnippet": "ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)\ndefer cancel()\n\nselect {\ncase <-ctx.Done():\n    fmt.Println(\"Timeout\")\n}",
             "resources": [{ "title": "Go Context", "url": "https://go.dev/blog/context" }],
             "practice": "Make database queries with timeouts."
           }
@@ -655,9 +540,7 @@ case <-ctx.Done():
             "title": "Worker Pools",
             "goal": "Effective job distribution",
             "activities": ["Worker pattern implementation"],
-            "codeSnippet": "func worker(id int, jobs <-chan int, results chan<- int) {\n    for j := range jobs {\n        results <- j * 2
-    }
-}",
+            "codeSnippet": "func worker(id int, jobs <-chan int, results chan<- int) {\n    for j := range jobs {\n        results <- j * 2\n    }\n}",
             "resources": [{ "title": "Go by Example: Worker Pools", "url": "https://gobyexample.com/worker-pools" }],
             "practice": "Parallel image processing worker pool."
           },
@@ -667,11 +550,7 @@ case <-ctx.Done():
             "title": "Rate Limiting",
             "goal": "Control request speed",
             "activities": ["time.Tick", "Bursty limiter"],
-            "codeSnippet": "limiter := time.Tick(200 * time.Millisecond)
-for req := range requests {
-    <-limiter
-    go handle(req)
-}",
+            "codeSnippet": "limiter := time.Tick(200 * time.Millisecond)\nfor req := range requests {\n    <-limiter\n    go handle(req)\n}",
             "resources": [{ "title": "Go by Example: Rate Limiting", "url": "https://gobyexample.com/rate-limiting" }],
             "practice": "Create an API rate limiter middleware."
           },
@@ -681,12 +560,7 @@ for req := range requests {
             "title": "Select Statement",
             "goal": "Multiple channel operations",
             "activities": ["Select-case structure", "Timeout handling"],
-            "codeSnippet": "select {
-case msg1 := <-c1:
-    fmt.Println(msg1)
-case <-time.After(1 * time.Second):
-    fmt.Println(\"Timeout\")
-}",
+            "codeSnippet": "select {\ncase msg1 := <-c1:\n    fmt.Println(msg1)\ncase <-time.After(1 * time.Second):\n    fmt.Println(\"Timeout\")\n}",
             "resources": [{ "title": "Go by Example: Select", "url": "https://gobyexample.com/select" }],
             "practice": "A system that collects data from multiple sources."
           },
@@ -696,11 +570,7 @@ case <-time.After(1 * time.Second):
             "title": "Mutex and Sync",
             "goal": "Writing thread-safe code",
             "activities": ["sync.Mutex", "sync.WaitGroup"],
-            "codeSnippet": "c.mu.Lock()\nc.value++\nc.mu.Unlock()\n
-var wg sync.WaitGroup
-wg.Add(1)
-wg.Done()
-wg.Wait()",
+            "codeSnippet": "c.mu.Lock()\nc.value++\nc.mu.Unlock()\n\nvar wg sync.WaitGroup\nwg.Add(1)\nwg.Done()\nwg.Wait()",
             "resources": [{ "title": "Go by Example: Mutexes", "url": "https://gobyexample.com/mutexes" }],
             "practice": "Thread-safe cache implementation."
           },
@@ -726,8 +596,7 @@ wg.Wait()",
             "title": "Gin Framework",
             "goal": "Learn a popular web framework",
             "activities": ["Gin setup", "Basic routing"],
-            "codeSnippet": "r := gin.Default()\nr.GET(\"/ping\", func(c *gin.Context) {\n    c.JSON(200, gin.H{\"message\": \"pong\"})
-})\nr.Run()",
+            "codeSnippet": "r := gin.Default()\nr.GET(\"/ping\", func(c *gin.Context) {\n    c.JSON(200, gin.H{\"message\": \"pong\"})\n})\nr.Run()",
             "resources": [{ "title": "Gin Documentation", "url": "https://gin-gonic.com/docs/" }],
             "practice": "Create a RESTful API with Gin."
           },
@@ -737,8 +606,7 @@ wg.Wait()",
             "title": "Middleware in Gin",
             "goal": "Gin middlewares",
             "activities": ["Custom middleware", "Group routing"],
-            "codeSnippet": "func AuthMiddleware() gin.HandlerFunc { ... }\n
-api := r.Group(\"/api\")\napi.Use(AuthMiddleware())",
+            "codeSnippet": "func AuthMiddleware() gin.HandlerFunc { ... }\n\napi := r.Group(\"/api\")\napi.Use(AuthMiddleware())",
             "resources": [{ "title": "Gin Middleware", "url": "https://gin-gonic.com/docs/examples/using-middleware/" }],
             "practice": "Add Auth, logging, CORS middlewares."
           },
@@ -748,10 +616,7 @@ api := r.Group(\"/api\")\napi.Use(AuthMiddleware())",
             "title": "Validation",
             "goal": "Input validation",
             "activities": ["'validator' package", "Binding tags"],
-            "codeSnippet": "type User struct {\n    Email string `binding:\"required,email\"`
-}
-
-if err := c.ShouldBindJSON(&user); err != nil { ... }",
+            "codeSnippet": "type User struct {\n    Email string `binding:\"required,email\"`\n}\n\nif err := c.ShouldBindJSON(&user); err != nil { ... }",
             "resources": [{ "title": "validator package", "url": "https://github.com/go-playground/validator" }],
             "practice": "Add comprehensive validation rules."
           },
@@ -761,8 +626,7 @@ if err := c.ShouldBindJSON(&user); err != nil { ... }",
             "title": "Error Handling Patterns",
             "goal": "Professional error handling",
             "activities": ["Custom errors", "errors.Is", "errors.As"],
-            "codeSnippet": "if errors.Is(err, sql.ErrNoRows) {\n    // handle not found
-}",
+            "codeSnippet": "if errors.Is(err, sql.ErrNoRows) {\n    // handle not found\n}",
             "resources": [{ "title": "Error handling in Go", "url": "https://go.dev/blog/error-handling-and-go" }],
             "practice": "Implement a consistent error handling strategy."
           },
@@ -818,8 +682,7 @@ if err := c.ShouldBindJSON(&user); err != nil { ... }",
             "title": "Graceful Shutdown",
             "goal": "Safe shutdown",
             "activities": ["Signal catching", "srv.Shutdown"],
-            "codeSnippet": "quit := make(chan os.Signal, 1)\nsignal.Notify(quit, syscall.SIGINT)\n<-quit
-srv.Shutdown(ctx)",
+            "codeSnippet": "quit := make(chan os.Signal, 1)\nsignal.Notify(quit, syscall.SIGINT)\n<-quit\nsrv.Shutdown(ctx)",
             "resources": [{ "title": "Graceful Shutdown", "url": "https://medium.com/honestbee-tw-engineer/gracefully-shutdown-in-go-http-server-5f5e6b83da5a" }],
             "practice": "Shutdown that cleanly closes database connections."
           },
@@ -845,9 +708,7 @@ srv.Shutdown(ctx)",
             "title": "Performance Optimization",
             "goal": "Profiling and optimization",
             "activities": ["pprof", "sync.Pool", "strings.Builder"],
-            "codeSnippet": "import _ \"net/http/pprof\"
-
-var pool = sync.Pool{...}",
+            "codeSnippet": "import _ \"net/http/pprof\"\n\nvar pool = sync.Pool{...}",
             "resources": [{ "title": "Profiling Go Programs", "url": "https://go.dev/blog/pprof" }],
             "practice": "Analyze your application with pprof."
           },

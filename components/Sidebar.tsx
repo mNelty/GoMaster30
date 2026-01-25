@@ -4,6 +4,14 @@ import { ThemeSwitcher } from './ThemeSwitcher';
 import { useLanguage } from '../contexts/LanguageContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
+interface SidebarProps {
+  completedDays: Set<number>;
+  currentDayId: number;
+  onDaySelect: (dayId: number) => void;
+  expandedWeeks: Set<number>;
+  toggleWeek: (weekId: number) => void;
+}
+
 export const Sidebar: React.FC<SidebarProps> = ({
   completedDays,
   currentDayId,
