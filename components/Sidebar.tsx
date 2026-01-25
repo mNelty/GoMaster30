@@ -1,27 +1,20 @@
 import React from 'react';
-import { CourseData } from '../types';
 import { CheckCircle2, Circle, ChevronDown, ChevronRight, BookOpen } from 'lucide-react';
 import { ThemeSwitcher } from './ThemeSwitcher';
-
-interface SidebarProps {
-  courseData: CourseData;
-  completedDays: Set<number>;
-  currentDayId: number;
-  onDaySelect: (dayId: number) => void;
-  expandedWeeks: Set<number>;
-  toggleWeek: (weekId: number) => void;
-}
+import { useLanguage } from '../contexts/LanguageContext';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export const Sidebar: React.FC<SidebarProps> = ({
-  courseData,
   completedDays,
   currentDayId,
   onDaySelect,
   expandedWeeks,
   toggleWeek,
 }) => {
+  const { t, courseContent } = useLanguage();
+
   // Calculate total progress
-  const totalDays = courseData.weeks.reduce((acc, week) => acc + week.days.length, 0);
+  const totalDays = courseContent.weeks.reduce((acc, week) => acc + week.days.length, 0);
   const progress = totalDays > 0 ? Math.round((completedDays.size / totalDays) * 100) : 0;
 
   return (
@@ -31,28 +24,28 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <div className="bg-accent-subtle-bg p-2 rounded-lg">
             <BookOpen className="w-6 h-6 text-accent-subtle-text" />
           </div>
-          <h1 className="font-bold text-xl text-text-primary tracking-tight">GoMaster 30</h1>
+          <h1 className="font-bold text-xl text-text-primary tracking-tight">{t('goMaster30')}</h1>
         </div>
         
         <div className="space-y-2">
           <div className="flex justify-between text-xs font-mono text-text-secondary">
-            <span>İLERLEME</span>
+            <span>{t('progress')}</span>
             <span>{progress}%</span>
           </div>
           <div className="h-2 bg-bg-tertiary rounded-full overflow-hidden">
             <div 
-              className="h-full bg-accent transition-all duration-500 ease-out shadow-[0_0_10px_var(--color-accent)]"
-              style={{ width: `${progress}%` }}
+              className="h-full bg-accent transition-all duration-500 ease-out"
+              style={{ width: `${progress}%`, boxShadow: '0 0 10px var(--color-accent)' }}
             />
           </div>
           <p className="text-xs text-text-muted mt-2 text-center">
-            {completedDays.size} / {totalDays} gün tamamlandı
+            {t('completedDays', completedDays.size, totalDays)}
           </p>
         </div>
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 space-y-2">
-        {courseData.weeks.map((week) => {
+        {courseContent.weeks.map((week) => {
           const isExpanded = expandedWeeks.has(week.id);
           const weekCompletedCount = week.days.filter(d => completedDays.has(d.id)).length;
           const isWeekComplete = weekCompletedCount === week.days.length;
@@ -94,7 +87,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           <Circle className="w-4 h-4 text-text-faint shrink-0" />
                         )}
                         <span className="truncate text-left">
-                          <span className="font-mono text-xs opacity-50 mr-2">Gün {day.dayNumber}:</span>
+                          <span className="font-mono text-xs opacity-50 mr-2">{t('dayLabel', day.dayNumber)}</span>
                           {day.title}
                         </span>
                       </button>
@@ -107,10 +100,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
         })}
       </div>
       
+      <LanguageSwitcher />
       <ThemeSwitcher />
       
       <div className="p-4 border-t border-border text-center text-xs text-text-muted">
-        <a href="https://go.dev" target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">Go Programming Language</a>
+        <a href="https://go.dev" target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">{t('goProgrammingLanguage')}</a>
       </div>
     </div>
   );

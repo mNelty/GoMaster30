@@ -1,0 +1,888 @@
+{
+  "ui": {
+    "goMaster30": "GoMaster 30",
+    "progress": "PROGRESS",
+    "completedDays": "{0} / {1} days completed",
+    "goProgrammingLanguage": "Go Programming Language",
+    "pleaseSelectADay": "Please select a day.",
+    "day": "Day {0}",
+    "minutes": "30 Minutes",
+    "goal": "GOAL",
+    "activities": "Activities",
+    "sampleCode": "Sample Code",
+    "resources": "Resources",
+    "practiceAndHomework": "Practice & Homework",
+    "markAsCompleted": "Complete",
+    "completed": "Completed",
+    "dayLabel": "Day {0}:"
+  },
+  "COURSE_CONTENT": {
+    "title": "Go Learning Guide - 30 Minutes/Day",
+    "weeks": [
+      {
+        "id": 1,
+        "title": "Week 1: Hello, Go & Basic Concepts",
+        "days": [
+          {
+            "id": 1,
+            "dayNumber": 1,
+            "title": "Setup and First Program",
+            "goal": "Install Go and write 'Hello, World!'",
+            "activities": [
+              "Download and install Go (golang.org/dl)",
+              "Install VS Code + Go extension",
+              "Write and run your first program"
+            ],
+            "codeSnippet": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    fmt.Println(\"Hello, World!\")\n}",
+            "resources": [
+              { "title": "Go Official Installation Guide", "url": "https://go.dev/doc/install" },
+              { "title": "Go Playground", "url": "https://go.dev/play/" }
+            ],
+            "practice": "Run the \"Hello, World!\" program with 3 different messages."
+          },
+          {
+            "id": 2,
+            "dayNumber": 2,
+            "title": "Variables and Data Types",
+            "goal": "Understand basic data types",
+            "activities": [
+              "Declare variables with var and :=",
+              "Learn int, float64, string, bool types",
+              "Formatted output with fmt.Printf"
+            ],
+            "codeSnippet": "name := \"Alex\"\nage := 25\nheight := 1.75\nisStudent := true\nfmt.Printf(\"%s is %d years old, %.2f meters tall\n\", name, age, height)",
+            "resources": [
+              { "title": "Go by Example: Variables", "url": "https://gobyexample.com/variables" },
+              { "title": "Go Tour: Basic Types", "url": "https://go.dev/tour/basics/11" }
+            ],
+            "practice": "Write a program that contains your own information."
+          },
+          {
+            "id": 3,
+            "dayNumber": 3,
+            "title": "Operators and Conditionals",
+            "goal": "if/else structures and comparisons",
+            "activities": [
+              "Arithmetic operators (+, -, *, /, %)",
+              "Comparison operators (==, !=, <, >)",
+              "if, else if, else structures"
+            ],
+            "codeSnippet": "score := 85\nif score >= 90 {\n    fmt.Println(\"A\")\n} else if score >= 75 {\n    fmt.Println(\"B\")\n} else {\n    fmt.Println(\"C\")\n}",
+            "resources": [
+              { "title": "Go by Example: If/Else", "url": "https://gobyexample.com/if-else" }
+            ],
+            "practice": "Make a simple calculator (2 numbers + operator)."
+          },
+          {
+            "id": 4,
+            "dayNumber": 4,
+            "title": "Loops",
+            "goal": "Mastering the for loop",
+            "activities": [
+              "Classic for loop",
+              "While-like usage",
+              "Iteration with range"
+            ],
+            "codeSnippet": "// Classic\nfor i := 0; i < 5; i++ {\n    fmt.Println(i)\n}\n\n// While-like\nj := 0\nfor j < 5 {\n    fmt.Println(j)\n    j++\n}",
+            "resources": [
+              { "title": "Go by Example: For", "url": "https://gobyexample.com/for" }
+            ],
+            "practice": "Print odd numbers from 1-100, create a FizzBuzz game."
+          },
+          {
+            "id": 5,
+            "dayNumber": 5,
+            "title": "Functions",
+            "goal": "Define and use functions",
+            "activities": [
+              "Simple functions",
+              "Parameters and return values",
+              "Multiple return values"
+            ],
+            "codeSnippet": "func add(a, b int) int {\n    return a + b\n}\n\nfunc divide(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, fmt.Errorf(\"cannot divide by zero\")\n    }\n    return a / b, nil\n}",
+            "resources": [
+              { "title": "Go by Example: Functions", "url": "https://gobyexample.com/functions" },
+              { "title": "Effective Go: Functions", "url": "https://go.dev/doc/effective_go#functions" }
+            ],
+            "practice": "Create a function library for math operations."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Week 2: Data Structures",
+        "days": [
+          {
+            "id": 6,
+            "dayNumber": 6,
+            "title": "Arrays",
+            "goal": "Learn fixed-size arrays",
+            "activities": ["Array declaration and access"],
+            "codeSnippet": "var numbers [5]int\nnumbers[0] = 10\nnumbers[1] = 20\n\ntemperatures := [7]float64{22.5, 23.1, 21.8, 24.0, 23.5, 22.0, 21.5}",
+            "resources": [{ "title": "Go by Example: Arrays", "url": "https://gobyexample.com/arrays" }],
+            "practice": "Calculate the average of a week's temperature values."
+          },
+          {
+            "id": 7,
+            "dayNumber": 7,
+            "title": "Slices",
+            "goal": "Understand dynamic arrays",
+            "activities": ["Creating slices (make, literal)", "append, len, cap", "Slicing"],
+            "codeSnippet": "numbers := []int{1, 2, 3}\nnumbers = append(numbers, 4, 5)\n\nsubset := numbers[1:4] // [2, 3, 4]",
+            "resources": [
+              { "title": "Go by Example: Slices", "url": "https://gobyexample.com/slices" },
+              { "title": "Go Slices: usage and internals", "url": "https://go.dev/blog/slices-intro" }
+            ],
+            "practice": "Create a to-do list (add, delete)."
+          },
+          {
+            "id": 8,
+            "dayNumber": 8,
+            "title": "Maps",
+            "goal": "Using key-value pairs",
+            "activities": ["Map creation and checking existence"],
+            "codeSnippet": "ages := make(map[string]int)\nages[\"Alice\"] = 25\nages[\"Bob\"] = 30\n\n// Literal\nscores := map[string]int{\n    \"Math\": 85,\n    \"Physics\": 90,\n}\n\n// Check\nif score, exists := scores[\"Chemistry\"]; exists {\n    fmt.Println(score)\n}",
+            "resources": [{ "title": "Go by Example: Maps", "url": "https://gobyexample.com/maps" }],
+            "practice": "Make a word counter (frequency of words in a text)."
+          },
+          {
+            "id": 9,
+            "dayNumber": 9,
+            "title": "Structs",
+            "goal": "Create your own data types",
+            "activities": ["Struct definition and adding methods"],
+            "codeSnippet": "type Person struct {\n    Name string\n    Age  int\n    City string
+}
+
+person := Person{
+    Name: \"Alex\",
+    Age:  25,
+    City: \"Istanbul\",
+}
+
+// Method
+func (p Person) Greet() string {
+    return \"Hello, I am \" + p.Name
+}",
+            "resources": [
+              { "title": "Go by Example: Structs", "url": "https://gobyexample.com/structs" },
+              { "title": "Go by Example: Methods", "url": "https://gobyexample.com/methods" }
+            ],
+            "practice": "Student information system (struct + method)."
+          },
+          {
+            "id": 10,
+            "dayNumber": 10,
+            "title": "Pointers",
+            "goal": "Understand memory references",
+            "activities": ["Address (&) and dereference (*) operators"],
+            "codeSnippet": "x := 10\np := &x  // address of x\n*p = 20  // change the value of x\n\nfunc increment(n *int) {\n    *n++
+}",
+            "resources": [
+              { "title": "Go by Example: Pointers", "url": "https://gobyexample.com/pointers" },
+              { "title": "Go Tour: Pointers", "url": "https://go.dev/tour/moretypes/1" }
+            ],
+            "practice": "Write functions that modify structs using pointers."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Week 3: Error Handling and File I/O",
+        "days": [
+          {
+            "id": 11,
+            "dayNumber": 11,
+            "title": "Error Handling",
+            "goal": "Go's error handling paradigm",
+            "activities": ["The error interface", "Checking for errors"],
+            "codeSnippet": "func divide(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, errors.New(\"division by zero\")\n    }\n    return a / b, nil
+}
+
+result, err := divide(10, 0)\nif err != nil {\n    log.Fatal(err)
+}",
+            "resources": [
+              { "title": "Go by Example: Errors", "url": "https://gobyexample.com/errors" },
+              { "title": "Error handling in Go", "url": "https://go.dev/blog/error-handling-and-go" }
+            ],
+            "practice": "Write a safe file reading function."
+          },
+          {
+            "id": 12,
+            "dayNumber": 12,
+            "title": "Reading Files",
+            "goal": "Using the file system",
+            "activities": ["os.ReadFile", "bufio.Scanner"],
+            "codeSnippet": "// Read all\ndata, err := os.ReadFile(\"file.txt\")\nif err != nil {\n    log.Fatal(err)
+}
+
+// Read line by line\nfile, _ := os.Open(\"file.txt\")\nscanner := bufio.NewScanner(file)\nfor scanner.Scan() {\n    fmt.Println(scanner.Text())
+}",
+            "resources": [{ "title": "Go by Example: Reading Files", "url": "https://gobyexample.com/reading-files" }],
+            "practice": "Write a program to analyze a log file."
+          },
+          {
+            "id": 13,
+            "dayNumber": 13,
+            "title": "Writing Files",
+            "goal": "Write data to a file",
+            "activities": ["os.WriteFile", "os.OpenFile"],
+            "codeSnippet": "// Simple write\nerr := os.WriteFile(\"output.txt\", []byte(\"content\"), 0644)
+
+// Append\nfile, _ := os.OpenFile(\"log.txt\", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)\nfile.WriteString(\"new line\\n\")\nfile.Close()",
+            "resources": [{ "title": "Go by Example: Writing Files", "url": "https://gobyexample.com/writing-files" }],
+            "practice": "Create a simple journal application."
+          },
+          {
+            "id": 14,
+            "dayNumber": 14,
+            "title": "JSON Operations",
+            "goal": "JSON encode/decode",
+            "activities": ["Struct tags", "Marshal/Unmarshal"],
+            "codeSnippet": "type User struct {\n    Name  string `json:\"name\"`
+    Email string `json:\"email\"`
+    Age   int    `json:\"age\"`
+}
+
+// Marshal\nuser := User{Name: \"Alex\", Email: \"alex@example.com\", Age: 25}
+jsonData, _ := json.Marshal(user)
+
+// Unmarshal\nvar newUser User
+json.Unmarshal(jsonData, &newUser)",
+            "resources": [
+              { "title": "Go by Example: JSON", "url": "https://gobyexample.com/json" },
+              { "title": "JSON and Go", "url": "https://go.dev/blog/json" }
+            ],
+            "practice": "Build a system that reads and writes a config file."
+          },
+          {
+            "id": 15,
+            "dayNumber": 15,
+            "title": "String Manipulation",
+            "goal": "strings and strconv packages",
+            "activities": ["Contains, Split, ToUpper", "Atoi, Itoa"],
+            "codeSnippet": "import \"strings\"\n\ns := \"Hello World\"\nstrings.Contains(s, \"World\")      // true\nstrings.Split(s, \" \")             // [\"Hello\", \"World\"]\nstrings.ToUpper(s)                // \"HELLO WORLD\"\nstrings.ReplaceAll(s, \"l\", \"x\")   // \"Hexxo Worxd\"\n\n// Strconv\nnum, _ := strconv.Atoi(\"42\")\nstr := strconv.Itoa(42)",
+            "resources": [
+              { "title": "Go by Example: String Functions", "url": "https://gobyexample.com/string-functions" },
+              { "title": "strings package", "url": "https://pkg.go.dev/strings" }
+            ],
+            "practice": "Text cleaning tool (trim, lowercase, etc.)."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Week 4: Interfaces & Advanced Concepts",
+        "days": [
+          {
+            "id": 16,
+            "dayNumber": 16,
+            "title": "Interface Basics",
+            "goal": "Understand the interface concept",
+            "activities": ["Interface definition", "Implementation"],
+            "codeSnippet": "type Shape interface {\n    Area() float64
+    Perimeter() float64
+}
+
+type Rectangle struct {
+    Width, Height float64
+}
+
+func (r Rectangle) Area() float64 {
+    return r.Width * r.Height
+}",
+            "resources": [
+              { "title": "Go by Example: Interfaces", "url": "https://gobyexample.com/interfaces" }
+            ],
+            "practice": "Create a common interface for different shapes."
+          },
+          {
+            "id": 17,
+            "dayNumber": 17,
+            "title": "Interface Use Cases",
+            "goal": "Practical interface usage",
+            "activities": ["Reader/Writer interfaces", "Type assertion", "Empty interface (any)"],
+            "codeSnippet": "func PrintAnything(v any) {\n    switch v.(type) {\n    case string:\n        fmt.Println(\"String:\", v)\n    case int:\n        fmt.Println(\"Integer:\", v)\n    default:\n        fmt.Println(\"Unknown type\")
+    }
+}",
+            "resources": [{ "title": "Go Tour: Type assertions", "url": "https://go.dev/tour/methods/15" }],
+            "practice": "A generic function that handles different data types."
+          },
+          {
+            "id": 18,
+            "dayNumber": 18,
+            "title": "Defer, Panic, Recover",
+            "goal": "Program flow control",
+            "activities": ["Using defer", "Panic/Recover mechanism"],
+            "codeSnippet": "// Defer\nfunc example() {\n    defer fmt.Println(\"Last operation\")
+    fmt.Println(\"First operation\")
+}
+
+// Panic and Recover\nfunc safeDivide(a, b int) (result int) {
+    defer func() {
+        if r := recover(); r != nil {
+            fmt.Println(\"Recovered:\", r)
+            result = 0
+        }
+    }()
+    return a / b
+}",
+            "resources": [{ "title": "Go by Example: Defer", "url": "https://gobyexample.com/defer" }],
+            "practice": "Functions that perform safe file operations."
+          },
+          {
+            "id": 19,
+            "dayNumber": 19,
+            "title": "Goroutines",
+            "goal": "Introduction to concurrent programming",
+            "activities": ["The 'go' keyword", "Concurrency vs Parallelism"],
+            "codeSnippet": "func say(s string) {\n    for i := 0; i < 3; i++ {\n        fmt.Println(s)\n        time.Sleep(100 * time.Millisecond)
+    }
+}
+
+func main() {\n    go say(\"Hello\")  // Concurrent\n    say(\"World\")     // Synchronous
+}",
+            "resources": [{ "title": "Go by Example: Goroutines", "url": "https://gobyexample.com/goroutines" }],
+            "practice": "Run multiple tasks concurrently."
+          },
+          {
+            "id": 20,
+            "dayNumber": 20,
+            "title": "Channels",
+            "goal": "Communication between goroutines",
+            "activities": ["Channel creation", "Sending/receiving data"],
+            "codeSnippet": "func worker(jobs <-chan int, results chan<- int) {\n    for job := range jobs {\n        results <- job * 2
+    }
+}
+
+func main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n    go worker(jobs, results)\n    // ...
+}",
+            "resources": [{ "title": "Go by Example: Channels", "url": "https://gobyexample.com/channels" }],
+            "practice": "Implement the Producer-Consumer pattern."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Week 5: Package Management and Testing",
+        "days": [
+          {
+            "id": 21,
+            "dayNumber": 21,
+            "title": "Go Modules",
+            "goal": "Project structure and dependency management",
+            "activities": ["go mod init", "go get", "go mod tidy"],
+            "codeSnippet": "go mod init github.com/user/project\ngo get github.com/gorilla/mux\ngo mod tidy",
+            "resources": [{ "title": "Using Go Modules", "url": "https://go.dev/blog/using-go-modules" }],
+            "practice": "Create your own module and add a 3rd party package."
+          },
+          {
+            "id": 22,
+            "dayNumber": 22,
+            "title": "Package Organization",
+            "goal": "Create a good project structure",
+            "activities": ["cmd/, internal/, pkg/ structure"],
+            "codeSnippet": "myapp/\n├── cmd/\n│   └── main.go\n├── internal/\n│   ├── models/\n│   └── handlers/\n├── pkg/\n│   └── utils/\n├── go.mod\n└── go.sum",
+            "resources": [{ "title": "Go Project Layout", "url": "https://github.com/golang-standards/project-layout" }],
+            "practice": "Reorganize your existing project."
+          },
+          {
+            "id": 23,
+            "dayNumber": 23,
+            "title": "Unit Testing",
+            "goal": "Start writing tests",
+            "activities": ["'testing' package", "Test functions"],
+            "codeSnippet": "func TestAdd(t *testing.T) {\n    result := Add(2, 3)\n    expected := 5\n    if result != expected {\n        t.Errorf(\"Add(2,3) = %d; want %d\", result, expected)
+    }
+}",
+            "resources": [{ "title": "Go by Example: Testing", "url": "https://gobyexample.com/testing" }],
+            "practice": "Write tests for your previous functions."
+          },
+          {
+            "id": 24,
+            "dayNumber": 24,
+            "title": "Table-Driven Tests",
+            "goal": "Effective testing strategies",
+            "activities": ["Test cases with struct slices", "t.Run"],
+            "codeSnippet": "func TestAddTableDriven(t *testing.T) {\n    tests := []struct {\n        name     string\n        a, b     int\n        expected int
+    }{
+        {\"positive\", 2, 3, 5},
+        {\"negative\", -2, -3, -5},
+    }
+    // loop over tests...
+}",
+            "resources": [{ "title": "Table Driven Tests", "url": "https://go.dev/wiki/TableDrivenTests" }],
+            "practice": "Write a table-driven test for string operations."
+          },
+          {
+            "id": 25,
+            "dayNumber": 25,
+            "title": "Benchmarking",
+            "goal": "Performance measurement",
+            "activities": ["testing.B", "go test -bench"],
+            "codeSnippet": "func BenchmarkAdd(b *testing.B) {\n    for i := 0; i < b.N; i++ {\n        Add(2, 3)
+    }
+}",
+            "resources": [{ "title": "Go by Example: Testing and Benchmarking", "url": "https://gobyexample.com/testing-and-benchmarking" }],
+            "practice": "Compare two different string concatenation methods."
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Week 6: Web Development Basics",
+        "days": [
+          {
+            "id": 26,
+            "dayNumber": 26,
+            "title": "HTTP Server Basics",
+            "goal": "Create a simple web server",
+            "activities": ["http.HandleFunc", "http.ListenAndServe"],
+            "codeSnippet": "func handler(w http.ResponseWriter, r *http.Request) {\n    fmt.Fprintf(w, \"Hello, %s!\", r.URL.Path[1:])
+}
+
+func main() {\n    http.HandleFunc(\"/%", handler)
+    http.ListenAndServe(\":8080\", nil)
+}",
+            "resources": [{ "title": "Go by Example: HTTP Servers", "url": "https://gobyexample.com/http-servers" }],
+            "practice": "A simple server with different routes."
+          },
+          {
+            "id": 27,
+            "dayNumber": 27,
+            "title": "HTTP Handlers and Mux",
+            "goal": "Route management",
+            "activities": ["http.NewServeMux"],
+            "codeSnippet": "mux := http.NewServeMux()\nmux.HandleFunc(\"/%", homeHandler)\nmux.HandleFunc(\"/about\", aboutHandler)\nhttp.ListenAndServe(\":8080\", mux)",
+            "resources": [{ "title": "net/http package", "url": "https://pkg.go.dev/net/http" }],
+            "practice": "Create RESTful endpoints."
+          },
+          {
+            "id": 28,
+            "dayNumber": 28,
+            "title": "JSON API",
+            "goal": "Return a JSON response",
+            "activities": ["Content-Type header", "json.NewEncoder"],
+            "codeSnippet": "func usersHandler(w http.ResponseWriter, r *http.Request) {\n    users := []User{{ID: 1, Name: \"Alex\"}}
+    w.Header().Set(\"Content-Type\", \"application/json\")
+    json.NewEncoder(w).Encode(users)
+}",
+            "resources": [{ "title": "Building a RESTful API", "url": "https://tutorialedge.net/golang/creating-restful-api-with-golang/" }],
+            "practice": "Create CRUD API endpoints."
+          },
+          {
+            "id": 29,
+            "dayNumber": 29,
+            "title": "Middleware",
+            "goal": "Request/response processing",
+            "activities": ["Wrapping handlers", "Logging middleware"],
+            "codeSnippet": "func loggingMiddleware(next http.Handler) http.Handler {\n    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n        log.Printf(\"%s %s\", r.Method, r.URL.Path)
+        next.ServeHTTP(w, r)
+    })
+}",
+            "resources": [{ "title": "Making and Using Middleware", "url": "https://www.alexedwards.net/blog/making-and-using-middleware" }],
+            "practice": "Write an authentication middleware."
+          },
+          {
+            "id": 30,
+            "dayNumber": 30,
+            "title": "Gorilla Mux",
+            "goal": "Advanced routing",
+            "activities": ["URL parameters", "Method restriction"],
+            "codeSnippet": "r := mux.NewRouter()\nr.HandleFunc(\"/users/{id}\", getUserHandler).Methods(\"GET\")\n\nvars := mux.Vars(r)\nid := vars[\"id\"]",
+            "resources": [{ "title": "Gorilla Mux Docs", "url": "https://github.com/gorilla/mux" }],
+            "practice": "Develop an API with parameterized routes."
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Week 7: Database Operations",
+        "days": [
+          {
+            "id": 31,
+            "dayNumber": 31,
+            "title": "database/sql Package",
+            "goal": "Connect to a SQL database",
+            "activities": ["sql.Open", "Driver usage (sqlite3)"],
+            "codeSnippet": "import (\n    \"database/sql\"\n    _ \"github.com/mattn/go-sqlite3\"\n)
+
+db, err := sql.Open(\"sqlite3\", \"test.db\")\nerr = db.Ping()",
+            "resources": [{ "title": "Go database/sql tutorial", "url": "http://go-database-sql.org/" }],
+            "practice": "Create and connect to a SQLite database."
+          },
+          {
+            "id": 32,
+            "dayNumber": 32,
+            "title": "CRUD - Create & Read",
+            "goal": "Adding and reading data",
+            "activities": ["Exec", "Query", "Scan"],
+            "codeSnippet": "// Insert\nstmt, _ := db.Prepare(\"INSERT INTO users(name) VALUES(?)\")\nstmt.Exec(\"Alex\")
+
+// Read\nrows, _ := db.Query(\"SELECT name FROM users\")\nfor rows.Next() {\n    rows.Scan(&name)
+}",
+            "resources": [{ "title": "Go by Example: SQL", "url": "https://gobyexample.com/sql" }],
+            "practice": "Create a user table and add data."
+          },
+          {
+            "id": 33,
+            "dayNumber": 33,
+            "title": "CRUD - Update & Delete",
+            "goal": "Updating and deleting data",
+            "activities": ["Update query", "Delete query"],
+            "codeSnippet": "// Update\nstmt, _ := db.Prepare(\"UPDATE users SET email = ? WHERE id = ?\")\nstmt.Exec(\"new@example.com\", 1)
+
+// Delete\nstmt, _ = db.Prepare(\"DELETE FROM users WHERE id = ?\")\nstmt.Exec(1)",
+            "resources": [],
+            "practice": "Write full CRUD functions."
+          },
+          {
+            "id": 34,
+            "dayNumber": 34,
+            "title": "Transactions",
+            "goal": "Safe and atomic operations",
+            "activities": ["db.Begin", "Commit", "Rollback"],
+            "codeSnippet": "tx, _ := db.Begin()\nstmt, _ := tx.Prepare(\"INSERT INTO users(name) VALUES(?)\")\n_, err := stmt.Exec(\"Alex\")\nif err != nil {\n    tx.Rollback()\n    return
+}
+tx.Commit()",
+            "resources": [{ "title": "SQL Injection Prevention", "url": "https://go.dev/doc/database/sql-injection" }],
+            "practice": "A safe transfer operation with a transaction."
+          },
+          {
+            "id": 35,
+            "dayNumber": 35,
+            "title": "ORM - GORM Basics",
+            "goal": "Database operations with GORM",
+            "activities": ["AutoMigrate", "GORM methods"],
+            "codeSnippet": "db.AutoMigrate(&User{})
+
+// Create\ndb.Create(&User{Name: \"Alex\"})
+
+// Find\ndb.First(&user, 1)",
+            "resources": [{ "title": "GORM Docs", "url": "https://gorm.io/docs/" }],
+            "practice": "Create a simple blog model with GORM."
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Week 8: Real World Applications",
+        "days": [
+          {
+            "id": 36,
+            "dayNumber": 36,
+            "title": "Environment Variables",
+            "goal": "Configuration management",
+            "activities": ["os.Getenv", "godotenv"],
+            "codeSnippet": "port := os.Getenv(\"PORT\")\nif port == \"\" {\n    port = \"8080\"
+}
+
+// .env load\ngodotenv.Load()",
+            "resources": [{ "title": "Managing env vars", "url": "https://dev.to/craicoverflow/a-no-nonsense-guide-to-environment-variables-in-go-a2f" }],
+            "practice": "Create a config struct and load it from env."
+          },
+          {
+            "id": 37,
+            "dayNumber": 37,
+            "title": "Logging",
+            "goal": "Effective log management",
+            "activities": ["'log' package", "Structured logging (zerolog)"],
+            "codeSnippet": "log.Printf(\"User %s logged in\", user)\n
+// Zerolog\nlog.Info().Str(\"user\", \"alex\").Msg(\"Login\")",
+            "resources": [{ "title": "zerolog", "url": "https://github.com/rs/zerolog" }],
+            "practice": "Build a system that supports different log levels."
+          },
+          {
+            "id": 38,
+            "dayNumber": 38,
+            "title": "HTTP Client",
+            "goal": "Making API calls",
+            "activities": ["http.Get", "http.Post", "Custom Client"],
+            "codeSnippet": "resp, err := http.Get(\"https://api.example.com/users\")
+
+// Post\nhttp.Post(url, \"application/json\", body)",
+            "resources": [{ "title": "Go by Example: HTTP Clients", "url": "https://gobyexample.com/http-clients" }],
+            "practice": "A program that fetches data from a weather API."
+          },
+          {
+            "id": 39,
+            "dayNumber": 39,
+            "title": "Working with Time",
+            "goal": "Date and time operations",
+            "activities": ["time.Now", "Formatting", "Duration", "Tickers"],
+            "codeSnippet": "now := time.Now()\nfmt.Println(now.Format(\"2006-01-02\"))
+
+timer := time.NewTimer(2 * time.Second)
+<-timer.C",
+            "resources": [{ "title": "Go by Example: Time", "url": "https://gobyexample.com/time" }],
+            "practice": "Create a countdown timer or a pomodoro timer."
+          },
+          {
+            "id": 40,
+            "dayNumber": 40,
+            "title": "Regular Expressions",
+            "goal": "Text pattern matching",
+            "activities": ["regexp.MustCompile", "MatchString", "ReplaceAllString"],
+            "codeSnippet": "emailRegex := regexp.MustCompile(`^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$`)\nisValid := emailRegex.MatchString(\"test@example.com\")",
+            "resources": [{ "title": "Go by Example: Regex", "url": "https://gobyexample.com/regular-expressions" }],
+            "practice": "Create an email, phone, and URL validator."
+          },
+          {
+            "id": 41,
+            "dayNumber": 41,
+            "title": "Context Package",
+            "goal": "Cancellation and timeout management",
+            "activities": ["WithTimeout", "ctx.Done()"],
+            "codeSnippet": "ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+defer cancel()
+
+select {
+case <-ctx.Done():
+    fmt.Println(\"Timeout\")
+}",
+            "resources": [{ "title": "Go Context", "url": "https://go.dev/blog/context" }],
+            "practice": "Make database queries with timeouts."
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Week 9: Advanced Concurrency",
+        "days": [
+          {
+            "id": 42,
+            "dayNumber": 42,
+            "title": "Worker Pools",
+            "goal": "Effective job distribution",
+            "activities": ["Worker pattern implementation"],
+            "codeSnippet": "func worker(id int, jobs <-chan int, results chan<- int) {\n    for j := range jobs {\n        results <- j * 2
+    }
+}",
+            "resources": [{ "title": "Go by Example: Worker Pools", "url": "https://gobyexample.com/worker-pools" }],
+            "practice": "Parallel image processing worker pool."
+          },
+          {
+            "id": 43,
+            "dayNumber": 43,
+            "title": "Rate Limiting",
+            "goal": "Control request speed",
+            "activities": ["time.Tick", "Bursty limiter"],
+            "codeSnippet": "limiter := time.Tick(200 * time.Millisecond)
+for req := range requests {
+    <-limiter
+    go handle(req)
+}",
+            "resources": [{ "title": "Go by Example: Rate Limiting", "url": "https://gobyexample.com/rate-limiting" }],
+            "practice": "Create an API rate limiter middleware."
+          },
+          {
+            "id": 44,
+            "dayNumber": 44,
+            "title": "Select Statement",
+            "goal": "Multiple channel operations",
+            "activities": ["Select-case structure", "Timeout handling"],
+            "codeSnippet": "select {
+case msg1 := <-c1:
+    fmt.Println(msg1)
+case <-time.After(1 * time.Second):
+    fmt.Println(\"Timeout\")
+}",
+            "resources": [{ "title": "Go by Example: Select", "url": "https://gobyexample.com/select" }],
+            "practice": "A system that collects data from multiple sources."
+          },
+          {
+            "id": 45,
+            "dayNumber": 45,
+            "title": "Mutex and Sync",
+            "goal": "Writing thread-safe code",
+            "activities": ["sync.Mutex", "sync.WaitGroup"],
+            "codeSnippet": "c.mu.Lock()\nc.value++\nc.mu.Unlock()\n
+var wg sync.WaitGroup
+wg.Add(1)
+wg.Done()
+wg.Wait()",
+            "resources": [{ "title": "Go by Example: Mutexes", "url": "https://gobyexample.com/mutexes" }],
+            "practice": "Thread-safe cache implementation."
+          },
+          {
+            "id": 46,
+            "dayNumber": 46,
+            "title": "Atomic Operations",
+            "goal": "Lock-free programming",
+            "activities": ["sync/atomic", "AddInt64", "Load/Store"],
+            "codeSnippet": "atomic.AddInt64(&counter, 1)\nval := atomic.LoadInt64(&counter)",
+            "resources": [{ "title": "Go by Example: Atomic Counters", "url": "https://gobyexample.com/atomic-counters" }],
+            "practice": "Create a performance counter system."
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Week 10: Web Frameworks",
+        "days": [
+          {
+            "id": 47,
+            "dayNumber": 47,
+            "title": "Gin Framework",
+            "goal": "Learn a popular web framework",
+            "activities": ["Gin setup", "Basic routing"],
+            "codeSnippet": "r := gin.Default()\nr.GET(\"/ping\", func(c *gin.Context) {\n    c.JSON(200, gin.H{\"message\": \"pong\"})
+})\nr.Run()",
+            "resources": [{ "title": "Gin Documentation", "url": "https://gin-gonic.com/docs/" }],
+            "practice": "Create a RESTful API with Gin."
+          },
+          {
+            "id": 48,
+            "dayNumber": 48,
+            "title": "Middleware in Gin",
+            "goal": "Gin middlewares",
+            "activities": ["Custom middleware", "Group routing"],
+            "codeSnippet": "func AuthMiddleware() gin.HandlerFunc { ... }\n
+api := r.Group(\"/api\")\napi.Use(AuthMiddleware())",
+            "resources": [{ "title": "Gin Middleware", "url": "https://gin-gonic.com/docs/examples/using-middleware/" }],
+            "practice": "Add Auth, logging, CORS middlewares."
+          },
+          {
+            "id": 49,
+            "dayNumber": 49,
+            "title": "Validation",
+            "goal": "Input validation",
+            "activities": ["'validator' package", "Binding tags"],
+            "codeSnippet": "type User struct {\n    Email string `binding:\"required,email\"`
+}
+
+if err := c.ShouldBindJSON(&user); err != nil { ... }",
+            "resources": [{ "title": "validator package", "url": "https://github.com/go-playground/validator" }],
+            "practice": "Add comprehensive validation rules."
+          },
+          {
+            "id": 50,
+            "dayNumber": 50,
+            "title": "Error Handling Patterns",
+            "goal": "Professional error handling",
+            "activities": ["Custom errors", "errors.Is", "errors.As"],
+            "codeSnippet": "if errors.Is(err, sql.ErrNoRows) {\n    // handle not found
+}",
+            "resources": [{ "title": "Error handling in Go", "url": "https://go.dev/blog/error-handling-and-go" }],
+            "practice": "Implement a consistent error handling strategy."
+          },
+          {
+            "id": 51,
+            "dayNumber": 51,
+            "title": "Code Organization",
+            "goal": "Clean architecture principles",
+            "activities": ["Domain/Repo/Service layers"],
+            "codeSnippet": "internal/\n  domain/\n  repository/\n  service/\n  handler/",
+            "resources": [{ "title": "Clean Architecture in Go", "url": "https://medium.com/@hatajoe/clean-architecture-in-go-4030f11ec1b1" }],
+            "practice": "Refactor your existing project."
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Week 11: Deployment and DevOps",
+        "days": [
+          {
+            "id": 52,
+            "dayNumber": 52,
+            "title": "Docker Basics",
+            "goal": "Containerize applications",
+            "activities": ["Dockerfile creation", "Multi-stage builds"],
+            "codeSnippet": "FROM golang:1.21-alpine AS builder\n...\nFROM alpine:latest\nCOPY --from=builder /app/main .",
+            "resources": [{ "title": "Dockerizing Go", "url": "https://docs.docker.com/language/golang/" }],
+            "practice": "Run your application in a Docker container."
+          },
+          {
+            "id": 53,
+            "dayNumber": 53,
+            "title": "Docker Compose",
+            "goal": "Multi-container applications",
+            "activities": ["docker-compose.yml", "Service linking"],
+            "codeSnippet": "services:\n  app:\n    depends_on:\n      - postgres",
+            "resources": [{ "title": "Docker Compose", "url": "https://docs.docker.com/compose/" }],
+            "practice": "App + Database + Redis compose setup."
+          },
+          {
+            "id": 54,
+            "dayNumber": 54,
+            "title": "Environment Config",
+            "goal": "Config management with Viper",
+            "activities": ["Viper setup", "Reading config"],
+            "codeSnippet": "viper.SetConfigName(\"config\")\nviper.ReadInConfig()",
+            "resources": [{ "title": "Viper", "url": "https://github.com/spf13/viper" }],
+            "practice": "Create dev, staging, production configs."
+          },
+          {
+            "id": 55,
+            "dayNumber": 55,
+            "title": "Graceful Shutdown",
+            "goal": "Safe shutdown",
+            "activities": ["Signal catching", "srv.Shutdown"],
+            "codeSnippet": "quit := make(chan os.Signal, 1)\nsignal.Notify(quit, syscall.SIGINT)\n<-quit
+srv.Shutdown(ctx)",
+            "resources": [{ "title": "Graceful Shutdown", "url": "https://medium.com/honestbee-tw-engineer/gracefully-shutdown-in-go-http-server-5f5e6b83da5a" }],
+            "practice": "Shutdown that cleanly closes database connections."
+          },
+          {
+            "id": 56,
+            "dayNumber": 56,
+            "title": "Monitoring",
+            "goal": "Prometheus metrics",
+            "activities": ["Prometheus client", "Instrumentation"],
+            "codeSnippet": "httpRequestsTotal.Inc()",
+            "resources": [{ "title": "Prometheus Go", "url": "https://github.com/prometheus/client_golang" }],
+            "practice": "Add and visualize Prometheus metrics."
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "Week 12: Advanced & Final",
+        "days": [
+          {
+            "id": 57,
+            "dayNumber": 57,
+            "title": "Performance Optimization",
+            "goal": "Profiling and optimization",
+            "activities": ["pprof", "sync.Pool", "strings.Builder"],
+            "codeSnippet": "import _ \"net/http/pprof\"
+
+var pool = sync.Pool{...}",
+            "resources": [{ "title": "Profiling Go Programs", "url": "https://go.dev/blog/pprof" }],
+            "practice": "Analyze your application with pprof."
+          },
+          {
+            "id": 58,
+            "dayNumber": 58,
+            "title": "Security Best Practices",
+            "goal": "Writing secure code",
+            "activities": ["bcrypt", "JWT", "Input sanitization"],
+            "codeSnippet": "bcrypt.GenerateFromPassword([]byte(pass), 14)",
+            "resources": [{ "title": "Go Security Cheat Sheet", "url": "https://cheatsheetseries.owasp.org/cheatsheets/Go_SPA_Cheat_Sheet.html" }],
+            "practice": "Implement a JWT auth system."
+          },
+          {
+            "id": 59,
+            "dayNumber": 59,
+            "title": "WebSockets",
+            "goal": "Real-time communication",
+            "activities": ["Gorilla websocket", "Upgrade connection"],
+            "codeSnippet": "upgrader.Upgrade(w, r, nil)\nconn.ReadMessage()",
+            "resources": [{ "title": "Gorilla WebSocket", "url": "https://github.com/gorilla/websocket" }],
+            "practice": "Create a simple chat application."
+          },
+          {
+            "id": 60,
+            "dayNumber": 60,
+            "title": "CLI Applications",
+            "goal": "CLI tools with Cobra",
+            "activities": ["Cobra setup", "Commands & Flags"],
+            "codeSnippet": "var rootCmd = &cobra.Command{Use: \"app\"}\nrootCmd.Execute()",
+            "resources": [{ "title": "Cobra", "url": "https://github.com/spf13/cobra" }],
+            "practice": "Create a multi-command CLI tool."
+          }
+        ]
+      }
+    ]
+  }
+}
