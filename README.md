@@ -1,20 +1,56 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# GoMaster 30
 
-# Run and deploy your AI Studio app
+GoMaster 30 is a simple learning website designed to help you practice and improve your Go (Golang) skills with 30 minutes/day.
 
-This contains everything you need to run your app locally.
+## What GoMaster 30 Is
 
-View your app in AI Studio: https://ai.studio/apps/drive/14XQaJ75k_YmgR5ZXODBA7UH_6H8dMd0t
+GoMaster 30 is **not** a course and does **not** provide step-by-step lessons or long explanations.
 
-## Run Locally
+Instead, each day it gives you:
+- **What you will do today** – a clear daily goal
+- **Helpful sources** – links to documentation, articles, or references
+- **An example** – a small, practical example to guide you
 
-**Prerequisites:**  Node.js
+The learning happens by **reading, exploring, and coding on your own**.
 
+## What GoMaster 30 Is Not
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- ❌ No video lessons  
+- ❌ No detailed tutorials  
+- ❌ No hand-holding  
+
+You are expected to be proactive and curious.
+
+## Who It’s For
+
+GoMaster 30 is for developers who:
+- Want to learn Go by doing
+- Prefer self-directed learning
+- Are comfortable reading documentation and experimenting
+
+## How It Works
+
+1. Visit the website
+2. Open today’s task
+3. Read the goal
+4. Check the provided sourceswd
+5. Study the example
+6. Write your own code
+
+Repeat every day for 30 days.
+
+## Goal
+
+By the end of GoMaster 30, you should be more confident reading Go code, writing your own programs, and learning independently.
+
+---
+
+Happy coding 🚀
+
+## License
+
+This project is licenced under MIT licensed.
+
+### Important Note
+
+GoMaster 30 will not miraculously teach you Go. It is **not a professional** application. It is simple a guide for basic beginners.
