@@ -1,0 +1,116 @@
+/* themes.css */
+
+/* We'll use CSS variables to define our color palettes.
+   The class applied to the <html> element will determine which theme is active. */
+
+:root, .dark-blue {
+  --color-bg-primary: #020617; /* slate-950 */
+  --color-bg-secondary: #0f172a; /* slate-900 */
+  --color-bg-tertiary: #1e293b; /* slate-800 */
+  --color-bg-inset: #020617; /* slate-950 */
+  --color-bg-hover: #1e293b;
+
+  --color-border: #334155; /* slate-700/50 */
+  --color-border-hover: #475569; /* slate-700 */
+
+  --color-text-primary: #e2e8f0; /* slate-200 */
+  --color-text-secondary: #94a3b8; /* slate-400 */
+  --color-text-muted: #64748b; /* slate-500 */
+  --color-text-faint: #475569; /* slate-600 */
+
+  --color-accent: #06b6d4; /* cyan-500 */
+  --color-accent-hover: #0891b2; /* cyan-600 */
+  --color-accent-text: #ffffff;
+  --color-accent-subtle-bg: rgba(6, 182, 212, 0.1);
+  --color-accent-subtle-text: #22d3ee; /* cyan-400 */
+  --color-accent-border: rgba(6, 182, 212, 0.2);
+
+  --color-success-bg: rgba(16, 185, 129, 0.1);
+  --color-success-text: #34d399; /* emerald-400 */
+  --color-success-border: #10b981; /* emerald-500 */
+
+  --selection-bg: rgba(6, 182, 212, 0.3);
+  --selection-text: #a5f3fc; /* cyan-100 */
+
+  --brand-go-blue: #00ADD8;
+}
+
+.light {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f1f5f9; /* slate-100 */
+  --color-bg-tertiary: #e2e8f0; /* slate-200 */
+  --color-bg-inset: #f8fafc; /* slate-50 */
+  --color-bg-hover: #e2e8f0;
+
+  --color-border: #e2e8f0;
+  --color-border-hover: #cbd5e1; /* slate-300 */
+  
+  --color-text-primary: #0f172a; /* slate-900 */
+  --color-text-secondary: #475569; /* slate-600 */
+  --color-text-muted: #94a3b8; /* slate-400 */
+  --color-text-faint: #cbd5e1; /* slate-300 */
+
+  --color-accent: #0891b2; /* cyan-600 */
+  --color-accent-hover: #0e7490; /* cyan-700 */
+  --color-accent-text: #ffffff;
+  --color-accent-subtle-bg: #cffafe; /* cyan-100 */
+  --color-accent-subtle-text: #0e7490;
+  --color-accent-border: #67e8f9; /* cyan-300 */
+  
+  --color-success-bg: #d1fae5; /* emerald-100 */
+  --color-success-text: #047857; /* emerald-700 */
+  --color-success-border: #34d399; /* emerald-400 */
+
+  --selection-bg: #bae6fd; /* sky-200 */
+  --selection-text: #0c4a6e; /* sky-900 */
+  
+  --brand-go-blue: #00ADD8;
+}
+
+.dark-yellow {
+  --color-bg-primary: #0c0a09; /* stone-950 */
+  --color-bg-secondary: #1c1917; /* stone-900 */
+  --color-bg-tertiary: #292524; /* stone-800 */
+  --color-bg-inset: #0c0a09;
+  --color-bg-hover: #292524;
+
+  --color-border: #44403c; /* stone-700 */
+  --color-border-hover: #57534e; /* stone-600 */
+  
+  --color-text-primary: #fde047; /* yellow-300 */
+  --color-text-secondary: #ca8a04; /* yellow-600 */
+  --color-text-muted: #854d0e; /* yellow-700 */
+  --color-text-faint: #44403c;
+  
+  --color-accent: #eab308; /* yellow-500 */
+  --color-accent-hover: #facc15; /* yellow-400 */
+  --color-accent-text: #000000;
+  --color-accent-subtle-bg: rgba(234, 179, 8, 0.1);
+  --color-accent-subtle-text: #facc15;
+  --color-accent-border: rgba(234, 179, 8, 0.2);
+
+  --color-success-bg: rgba(132, 204, 22, 0.1);
+  --color-success-text: #a3e635; /* lime-400 */
+  --color-success-border: #84cc16; /* lime-500 */
+
+  --selection-bg: rgba(234, 179, 8, 0.3);
+  --selection-text: #fef9c3; /* yellow-100 */
+  
+  --brand-go-blue: #00ADD8;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary); 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border); 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-hover); 
+}

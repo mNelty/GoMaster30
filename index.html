@@ -15,31 +15,46 @@
               mono: ['JetBrains Mono', 'monospace'],
             },
             colors: {
-              go: {
-                blue: '#00ADD8',
-                black: '#252525',
-                light: '#E0EBF5'
-              }
+              'bg-primary': 'var(--color-bg-primary)',
+              'bg-secondary': 'var(--color-bg-secondary)',
+              'bg-tertiary': 'var(--color-bg-tertiary)',
+              'bg-inset': 'var(--color-bg-inset)',
+              'bg-hover': 'var(--color-bg-hover)',
+
+              'border': 'var(--color-border)',
+              'border-hover': 'var(--color-border-hover)',
+
+              'text-primary': 'var(--color-text-primary)',
+              'text-secondary': 'var(--color-text-secondary)',
+              'text-muted': 'var(--color-text-muted)',
+              'text-faint': 'var(--color-text-faint)',
+
+              'accent': 'var(--color-accent)',
+              'accent-hover': 'var(--color-accent-hover)',
+              'accent-text': 'var(--color-accent-text)',
+              'accent-subtle-bg': 'var(--color-accent-subtle-bg)',
+              'accent-subtle-text': 'var(--color-accent-subtle-text)',
+              'accent-border': 'var(--color-accent-border)',
+
+              'success-bg': 'var(--color-success-bg)',
+              'success-text': 'var(--color-success-text)',
+              'success-border': 'var(--color-success-border)',
+              
+              'go-blue': 'var(--brand-go-blue)',
             }
           }
         }
       }
     </script>
     <style>
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
+      body {
+        background-color: var(--color-bg-primary);
+        color: var(--color-text-primary);
+        font-family: 'Inter', sans-serif;
       }
-      ::-webkit-scrollbar-track {
-        background: #1e293b; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #475569; 
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #64748b; 
+      ::selection {
+        background-color: var(--selection-bg);
+        color: var(--selection-text);
       }
     </style>
   <script type="importmap">
@@ -53,7 +68,7 @@
 }
 </script>
 </head>
-  <body class="bg-slate-900 text-slate-50">
+  <body>
     <div id="root"></div>
   </body>
 </html>

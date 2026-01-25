@@ -78,14 +78,14 @@ const App: React.FC = () => {
   }, [activeWeekId]);
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500/30 selection:text-cyan-100">
+    <div className="flex flex-col md:flex-row min-h-screen bg-bg-primary text-text-primary font-sans">
       
       {/* Mobile Header */}
-      <div className="md:hidden fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur border-b border-slate-800 p-4 flex justify-between items-center">
-        <span className="font-bold text-lg text-slate-100">GoMaster 30</span>
+      <div className="md:hidden fixed top-0 w-full z-50 bg-bg-secondary/90 backdrop-blur border-b border-border p-4 flex justify-between items-center">
+        <span className="font-bold text-lg text-text-primary">GoMaster 30</span>
         <button 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="p-2 text-slate-400 hover:text-white"
+          className="p-2 text-text-secondary hover:text-text-primary"
         >
           {isMobileMenuOpen ? <X /> : <Menu />}
         </button>
@@ -123,7 +123,7 @@ const App: React.FC = () => {
             onToggleComplete={handleToggleComplete} 
           />
         ) : (
-          <div className="flex items-center justify-center h-full text-slate-500">
+          <div className="flex items-center justify-center h-full text-text-muted">
             Lütfen bir gün seçin.
           </div>
         )}
