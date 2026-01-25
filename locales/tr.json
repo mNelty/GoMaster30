@@ -33,7 +33,7 @@
               "VS Code + Go eklentisini kurun",
               "İlk programınızı yazın ve çalıştırın"
             ],
-            "codeSnippet": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    fmt.Println(\"Merhaba, Dünya!\")\n}",
+            "codeSnippet": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    fmt.Println(\"Merhaba, D\u00fcnya!\")\n}",
             "resources": [
               { "title": "Go Resmi Kurulum Kılavuzu", "url": "https://go.dev/doc/install" },
               { "title": "Go Playground", "url": "https://go.dev/play/" }
@@ -50,7 +50,7 @@
               "int, float64, string, bool tiplerini öğrenme",
               "fmt.Printf ile formatlı çıktı"
             ],
-            "codeSnippet": "name := \"Ali\"\nage := 25\nheight := 1.75\nisStudent := true\nfmt.Printf(\"%s %d yaşında, %v cm boyunda\\n\", name, age, height)",
+            "codeSnippet": "name := \"Ali\"\nage := 25\nheight := 1.75\nisStudent := true\nfmt.Printf(\"%s %d ya\u015f\u0131nda, %v cm boyunda\\\n\", name, age, height)",
             "resources": [
               { "title": "Go by Example: Variables", "url": "https://gobyexample.com/variables" },
               { "title": "Go Tour: Basic Types", "url": "https://go.dev/tour/basics/11" }
@@ -99,7 +99,7 @@
               "Parametreler ve dönüş değerleri",
               "Çoklu dönüş değerleri"
             ],
-            "codeSnippet": "func toplam(a, b int) int {\n    return a + b\n}\n\nfunc bolme(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, fmt.Errorf(\"sıfıra bölünemez\")\n    }\n    return a / b, nil\n}",
+            "codeSnippet": "func toplam(a, b int) int {\n    return a + b\n}\n\nfunc bolme(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, fmt.Errorf(\"s\u0131f\u0131ra b\u00f6l\u00fcnemez\")\n    }\n    return a / b, nil\n}",
             "resources": [
               { "title": "Go by Example: Functions", "url": "https://gobyexample.com/functions" },
               { "title": "Effective Go: Functions", "url": "https://go.dev/doc/effective_go#functions" }
@@ -141,7 +141,7 @@
             "title": "Map'ler",
             "goal": "Anahtar-değer çiftlerini kullanmak",
             "activities": ["Map oluşturma ve kontrol"],
-            "codeSnippet": "ages := make(map[string]int)\nages[\"Ali\"] = 25\nages[\"Ayşe\"] = 30\n\n// Literal\nscores := map[string]int{\n    \"Matematik\": 85,\n    \"Fizik\": 90,\n}\n\n// Kontrol\nif score, exists := scores[\"Kimya\"]; exists {\n    fmt.Println(score)\n}",
+            "codeSnippet": "ages := make(map[string]int)\nages[\"Ali\"] = 25\nages[\"Ay\u015fe\"] = 30\n\n// Literal\nscores := map[string]int{\n    \"Matematik\": 85,\n    \"Fizik\": 90,\n}\n\n// Kontrol\nif score, exists := scores[\"Kimya\"]; exists {\n    fmt.Println(score)\n}",
             "resources": [{ "title": "Go by Example: Maps", "url": "https://gobyexample.com/maps" }],
             "practice": "Kelime sayacı yapın (bir metindeki kelimelerin frekansı)."
           },
@@ -151,9 +151,7 @@
             "title": "Struct'lar",
             "goal": "Kendi veri tiplerini oluşturmak",
             "activities": ["Struct tanımlama ve Method ekleme"],
-            "codeSnippet": "type Person struct {\n    Name string\n    Age  int\n    City string\n}\n\nperson := Person{\n    Name: \"Ali\",\n    Age:  25,\n    City: \"İstanbul\",
-}\n\n// Method\nfunc (p Person) Greet() string {\n    return \"Merhaba, ben \" + p.Name
-}",
+            "codeSnippet": "type Person struct {\n    Name string\n    Age  int\n    City string\n}\n\nperson := Person{\n    Name: \"Ali\",\n    Age:  25,\n    City: \"\u0130stanbul\",\n}\n\n// Method\nfunc (p Person) Greet() string {\n    return \"Merhaba, ben \" + p.Name\n}",
             "resources": [
               { "title": "Go by Example: Structs", "url": "https://gobyexample.com/structs" },
               { "title": "Go by Example: Methods", "url": "https://gobyexample.com/methods" }
@@ -166,8 +164,7 @@
             "title": "Pointer'lar",
             "goal": "Bellek referanslarını anlamak",
             "activities": ["Adres ve defer operatörleri"],
-            "codeSnippet": "x := 10\np := &x  // x'in adresi\n*p = 20  // x'in değerini değiştir\n\nfunc increment(n *int) {\n    *n++
-}",
+            "codeSnippet": "x := 10\np := &x  // x'in adresi\n*p = 20  // x'in de\u011ferini de\u011fi\u015ftir\n\nfunc increment(n *int) {\n    *n++\n}",
             "resources": [
               { "title": "Go by Example: Pointers", "url": "https://gobyexample.com/pointers" },
               { "title": "Go Tour: Pointers", "url": "https://go.dev/tour/moretypes/1" }
@@ -186,8 +183,7 @@
             "title": "Error Handling",
             "goal": "Go'nun hata yönetim paradigması",
             "activities": ["Error interface", "Hata kontrolü"],
-            "codeSnippet": "func divide(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, errors.New(\"division by zero\")\n    }\n    return a / b, nil\n}\n\nresult, err := divide(10, 0)\nif err != nil {\n    log.Fatal(err)
-}",
+            "codeSnippet": "func divide(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, errors.New(\"division by zero\")\n    }\n    return a / b, nil\n}\n\nresult, err := divide(10, 0)\nif err != nil {\n    log.Fatal(err)\n}",
             "resources": [
               { "title": "Go by Example: Errors", "url": "https://gobyexample.com/errors" },
               { "title": "Error handling in Go", "url": "https://go.dev/blog/error-handling-and-go" }
@@ -200,8 +196,7 @@
             "title": "Dosya Okuma",
             "goal": "Dosya sistemini kullanmak",
             "activities": ["os.ReadFile", "bufio.Scanner"],
-            "codeSnippet": "// Tümünü okuma\ndata, err := os.ReadFile(\"dosya.txt\")\nif err != nil {\n    log.Fatal(err)\n}\n\n// Satır satır okuma\nfile, _ := os.Open(\"dosya.txt\")\nscanner := bufio.NewScanner(file)\nfor scanner.Scan() {\n    fmt.Println(scanner.Text())
-}",
+            "codeSnippet": "// T\u00fcm\u00fcn\u00fc okuma\ndata, err := os.ReadFile(\"dosya.txt\")\nif err != nil {\n    log.Fatal(err)\n}\n\n// Sat\u0131r sat\u0131r okuma\nfile, _ := os.Open(\"dosya.txt\")\nscanner := bufio.NewScanner(file)\nfor scanner.Scan() {\n    fmt.Println(scanner.Text())\n}",
             "resources": [{ "title": "Go by Example: Reading Files", "url": "https://gobyexample.com/reading-files" }],
             "practice": "Log dosyası analiz eden program yazın."
           },
@@ -211,7 +206,7 @@
             "title": "Dosya Yazma",
             "goal": "Dosyaya veri yazmak",
             "activities": ["os.WriteFile", "os.OpenFile"],
-            "codeSnippet": "// Basit yazma\nerr := os.WriteFile(\"output.txt\", []byte(\"içerik\"), 0644)\n\n// Append\nfile, _ := os.OpenFile(\"log.txt\", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)\nfile.WriteString(\"yeni satır\\n\")\nfile.Close()",
+            "codeSnippet": "// Basit yazma\nerr := os.WriteFile(\"output.txt\", []byte(\"i\u00e7erik\"), 0644)\n\n// Append\nfile, _ := os.OpenFile(\"log.txt\", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)\nfile.WriteString(\"yeni sat\u0131r\\\n\")\nfile.Close()",
             "resources": [{ "title": "Go by Example: Writing Files", "url": "https://gobyexample.com/writing-files" }],
             "practice": "Basit bir günlük (journal) uygulaması yapın."
           },
@@ -221,13 +216,7 @@
             "title": "JSON İşlemleri",
             "goal": "JSON encode/decode",
             "activities": ["Struct tagleri", "Marshal/Unmarshal"],
-            "codeSnippet": "type User struct {\n    Name  string `json:\"name\"`\n    Email string `json:\"email\"`\n    Age   int    `json:\"age\"`
-}
-
-// Marshal\nuser := User{Name: \"Ali\", Email: \"ali@example.com\", Age: 25}
-jsonData, _ := json.Marshal(user)
-
-// Unmarshal\nvar newUser User\njson.Unmarshal(jsonData, &newUser)",
+            "codeSnippet": "type User struct {\n    Name  string `json:\"name\"`\n    Email string `json:\"email\"`\n    Age   int    `json:\"age\"`\n}\n\n// Marshal\nuser := User{Name: \"Ali\", Email: \"ali@example.com\", Age: 25}\njsonData, _ := json.Marshal(user)\n\n// Unmarshal\nvar newUser User\njson.Unmarshal(jsonData, &newUser)",
             "resources": [
               { "title": "Go by Example: JSON", "url": "https://gobyexample.com/json" },
               { "title": "JSON and Go", "url": "https://go.dev/blog/json" }
@@ -240,7 +229,7 @@ jsonData, _ := json.Marshal(user)
             "title": "String İşlemleri",
             "goal": "strings ve strconv paketleri",
             "activities": ["Contains, Split, ToUpper", "Atoi, Itoa"],
-            "codeSnippet": "import \"strings\"\n\ns := \"Merhaba Dünya\"\nstrings.Contains(s, \"Dünya\")      // true\nstrings.Split(s, \" \")             // [\"Merhaba\", \"Dünya\"]\nstrings.ToUpper(s)                // \"MERHABA DÜNYA\"\nstrings.ReplaceAll(s, \"a\", \"e\")   // \"Merhebe Dünye\"\n\n// Strconv\nnum, _ := strconv.Atoi(\"42\")\nstr := strconv.Itoa(42)",
+            "codeSnippet": "import \"strings\"\n\ns := \"Merhaba D\u00fcnya\"\nstrings.Contains(s, \"D\u00fcnya\")      // true\nstrings.Split(s, \" \")             // [\"Merhaba\", \"D\u00fcnya\"]\nstrings.ToUpper(s)                // \"MERHABA D\u00dcNYA\"\nstrings.ReplaceAll(s, \"a\", \"e\")   // \"Merhebe D\u00fcnye\"\n\n// Strconv\nnum, _ := strconv.Atoi(\"42\")\nstr := strconv.Itoa(42)",
             "resources": [
               { "title": "Go by Example: String Functions", "url": "https://gobyexample.com/string-functions" },
               { "title": "strings package", "url": "https://pkg.go.dev/strings" }
@@ -259,16 +248,7 @@ jsonData, _ := json.Marshal(user)
             "title": "Interface Temelleri",
             "goal": "Interface kavramını anlamak",
             "activities": ["Interface tanımlama", "Implementasyon"],
-            "codeSnippet": "type Shape interface {\n    Area() float64\n    Perimeter() float64
-}
-
-type Rectangle struct {
-    Width, Height float64
-}
-
-func (r Rectangle) Area() float64 {
-    return r.Width * r.Height
-}",
+            "codeSnippet": "type Shape interface {\n    Area() float64\n    Perimeter() float64\n}\n\ntype Rectangle struct {\n    Width, Height float64\n}\n\nfunc (r Rectangle) Area() float64 {\n    return r.Width * r.Height\n}",
             "resources": [
               { "title": "Go by Example: Interfaces", "url": "https://gobyexample.com/interfaces" }
             ],
@@ -280,9 +260,7 @@ func (r Rectangle) Area() float64 {
             "title": "Interface Kullanım Senaryoları",
             "goal": "Pratik interface kullanımı",
             "activities": ["Reader/Writer interface'leri", "Type assertion", "Empty interface (any)"],
-            "codeSnippet": "func PrintAnything(v any) {\n    switch v.(type) {\n    case string:\n        fmt.Println(\"String:\", v)\n    case int:\n        fmt.Println(\"Integer:\", v)\n    default:\n        fmt.Println(\"Unknown type\")
-    }
-}",
+            "codeSnippet": "func PrintAnything(v any) {\n    switch v.(type) {\n    case string:\n        fmt.Println(\"String:\", v)\n    case int:\n        fmt.Println(\"Integer:\", v)\n    default:\n        fmt.Println(\"Unknown type\")\n    }\n}",
             "resources": [{ "title": "Go Tour: Type assertions", "url": "https://go.dev/tour/methods/15" }],
             "practice": "Farklı veri tiplerini işleyen generic fonksiyon."
           },
@@ -292,13 +270,7 @@ func (r Rectangle) Area() float64 {
             "title": "Defer, Panic, Recover",
             "goal": "Program akış kontrolü",
             "activities": ["Defer kullanımı", "Panic/Recover mekanizması"],
-            "codeSnippet": "// Defer\nfunc example() {\n    defer fmt.Println(\"Son işlem\")\n    fmt.Println(\"İlk işlem\")
-}
-
-// Panic ve Recover\nfunc safeDivide(a, b int) (result int) {\n    defer func() {\n        if r := recover(); r != nil {\n            fmt.Println(\"Recovered:\", r)\n            result = 0
-        }
-    }()\n    return a / b
-}",
+            "codeSnippet": "// Defer\nfunc example() {\n    defer fmt.Println(\"Son i\u015flem\")\n    fmt.Println(\"\u0130lk i\u015flem\")\n}\n\n// Panic ve Recover\nfunc safeDivide(a, b int) (result int) {\n    defer func() {\n        if r := recover(); r != nil {\n            fmt.Println(\"Recovered:\", r)\n            result = 0\n        }\n    }()\n    return a / b\n}",
             "resources": [{ "title": "Go by Example: Defer", "url": "https://gobyexample.com/defer" }],
             "practice": "Güvenli dosya işlemleri yapan fonksiyonlar."
           },
@@ -308,12 +280,7 @@ func (r Rectangle) Area() float64 {
             "title": "Goroutine'ler",
             "goal": "Eşzamanlı programlamaya giriş",
             "activities": ["Go keyword'ü", "Eşzamanlılık vs Paralellik"],
-            "codeSnippet": "func say(s string) {\n    for i := 0; i < 3; i++ {\n        fmt.Println(s)\n        time.Sleep(100 * time.Millisecond)
-    }
-}
-
-func main() {\n    go say(\"Merhaba\")  // Eşzamanlı\n    say(\"Dünya\")       // Senkron
-}",
+            "codeSnippet": "func say(s string) {\n    for i := 0; i < 3; i++ {\n        fmt.Println(s)\n        time.Sleep(100 * time.Millisecond)\n    }\n}\n\nfunc main() {\n    go say(\"Merhaba\")  // E\u015fzamanl\u0131\n    say(\"D\u00fcnya\")       // Senkron\n}",
             "resources": [{ "title": "Go by Example: Goroutines", "url": "https://gobyexample.com/goroutines" }],
             "practice": "Birden fazla görevi eşzamanlı çalıştırın."
           },
@@ -323,12 +290,7 @@ func main() {\n    go say(\"Merhaba\")  // Eşzamanlı\n    say(\"Dünya\")     
             "title": "Channel'lar",
             "goal": "Goroutine'ler arası iletişim",
             "activities": ["Channel oluşturma", "Veri gönderme/alma"],
-            "codeSnippet": "func worker(jobs <-chan int, results chan<- int) {\n    for job := range jobs {\n        results <- job * 2
-    }
-}
-
-func main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n    go worker(jobs, results)\n    // ...
-}",
+            "codeSnippet": "func worker(jobs <-chan int, results chan<- int) {\n    for job := range jobs {\n        results <- job * 2\n    }\n}\n\nfunc main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n    go worker(jobs, results)\n    // ...\n}",
             "resources": [{ "title": "Go by Example: Channels", "url": "https://gobyexample.com/channels" }],
             "practice": "Producer-Consumer pattern implementasyonu."
           }
@@ -354,7 +316,7 @@ func main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n
             "title": "Paket Organizasyonu",
             "goal": "İyi proje yapısı oluşturmak",
             "activities": ["cmd/, internal/, pkg/ yapısı"],
-            "codeSnippet": "myapp/\n├── cmd/\n│   └── main.go\n├── internal/\n│   ├── models/\n│   └── handlers/\n├── pkg/\n│   └── utils/\n├── go.mod\n└── go.sum",
+            "codeSnippet": "myapp/\n\u251c\u2500\u2500 cmd/\n\u2502   \u2514\u2500\u2500 main.go\n\u251c\u2500\u2500 internal/\n\u2502   \u251c\u2500\u2500 models/\n\u2502   \u2514\u2500\u2500 handlers/\n\u251c\u2500\u2500 pkg/\n\u2502   \u2514\u2500\u2500 utils/\n\u251c\u2500\u2500 go.mod\n\u2514\u2500\u2500 go.sum",
             "resources": [{ "title": "Go Project Layout", "url": "https://github.com/golang-standards/project-layout" }],
             "practice": "Mevcut projenizi yeniden organize edin."
           },
@@ -364,9 +326,7 @@ func main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n
             "title": "Unit Testing",
             "goal": "Test yazmaya başlamak",
             "activities": ["testing paketi", "Test fonksiyonları"],
-            "codeSnippet": "func TestAdd(t *testing.T) {\n    result := Add(2, 3)\n    expected := 5\n    if result != expected {\n        t.Errorf(\"Add(2,3) = %d; want %d\", result, expected)
-    }
-}",
+            "codeSnippet": "func TestAdd(t *testing.T) {\n    result := Add(2, 3)\n    expected := 5\n    if result != expected {\n        t.Errorf(\"Add(2,3) = %d; want %d\", result, expected)\n    }\n}",
             "resources": [{ "title": "Go by Example: Testing", "url": "https://gobyexample.com/testing" }],
             "practice": "Önceki fonksiyonlarınız için testler yazın."
           },
@@ -376,12 +336,7 @@ func main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n
             "title": "Table-Driven Tests",
             "goal": "Etkili test stratejileri",
             "activities": ["Struct slice ile test caseleri", "t.Run"],
-            "codeSnippet": "func TestAddTableDriven(t *testing.T) {\n    tests := []struct {\n        name     string\n        a, b     int\n        expected int
-    }{
-        {"positive", 2, 3, 5},
-        {"negative", -2, -3, -5},
-    }
-    // loop over tests...",
+            "codeSnippet": "func TestAddTableDriven(t *testing.T) {\n    tests := []struct {\n        name     string\n        a, b     int\n        expected int\n    }{\n        {\"positive\", 2, 3, 5},\n        {\"negative\", -2, -3, -5},\n    }\n    // loop over tests...",
             "resources": [{ "title": "Table Driven Tests", "url": "https://go.dev/wiki/TableDrivenTests" }],
             "practice": "String işlemleri için table-driven test yazın."
           },
@@ -391,9 +346,7 @@ func main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n
             "title": "Benchmarking",
             "goal": "Performans ölçümü",
             "activities": ["testing.B", "go test -bench"],
-            "codeSnippet": "func BenchmarkAdd(b *testing.B) {\n    for i := 0; i < b.N; i++ {\n        Add(2, 3)
-    }
-}",
+            "codeSnippet": "func BenchmarkAdd(b *testing.B) {\n    for i := 0; i < b.N; i++ {\n        Add(2, 3)\n    }\n}",
             "resources": [{ "title": "Go by Example: Testing and Benchmarking", "url": "https://gobyexample.com/testing-and-benchmarking" }],
             "practice": "İki farklı string birleştirme yöntemini karşılaştırın."
           }
@@ -409,11 +362,7 @@ func main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n
             "title": "HTTP Server Temelleri",
             "goal": "Basit web sunucusu oluşturmak",
             "activities": ["http.HandleFunc", "http.ListenAndServe"],
-            "codeSnippet": "func handler(w http.ResponseWriter, r *http.Request) {\n    fmt.Fprintf(w, "Merhaba, %s!", r.URL.Path[1:])
-}
-
-func main() {\n    http.HandleFunc("/", handler)\n    http.ListenAndServe(":8080", nil)
-}",
+            "codeSnippet": "func handler(w http.ResponseWriter, r *http.Request) {\n    fmt.Fprintf(w, \"Merhaba, %s!\", r.URL.Path[1:])\n}\n\nfunc main() {\n    http.HandleFunc(\"/\", handler)\n    http.ListenAndServe(\":8080\", nil)\n}",
             "resources": [{ "title": "Go by Example: HTTP Servers", "url": "https://gobyexample.com/http-servers" }],
             "practice": "Farklı route'ları olan basit server."
           },
@@ -423,7 +372,7 @@ func main() {\n    http.HandleFunc("/", handler)\n    http.ListenAndServe(":8080
             "title": "HTTP Handlers ve Mux",
             "goal": "Route yönetimi",
             "activities": ["http.NewServeMux"],
-            "codeSnippet": "mux := http.NewServeMux()\nmux.HandleFunc("/", homeHandler)\nmux.HandleFunc("/about", aboutHandler)\nhttp.ListenAndServe(":8080", mux)",
+            "codeSnippet": "mux := http.NewServeMux()\nmux.HandleFunc(\"/\", homeHandler)\nmux.HandleFunc(\"/about\", aboutHandler)\nhttp.ListenAndServe(\":8080\", mux)",
             "resources": [{ "title": "net/http package", "url": "https://pkg.go.dev/net/http" }],
             "practice": "RESTful endpoint'ler oluşturun."
           },
@@ -433,10 +382,7 @@ func main() {\n    http.HandleFunc("/", handler)\n    http.ListenAndServe(":8080
             "title": "JSON API",
             "goal": "JSON response döndürmek",
             "activities": ["Content-Type header", "json.NewEncoder"],
-            "codeSnippet": "func usersHandler(w http.ResponseWriter, r *http.Request) {\n    users := []User{{ID: 1, Name: "Ali"}}
-    w.Header().Set("Content-Type", "application/json")
-    json.NewEncoder(w).Encode(users)
-}",
+            "codeSnippet": "func usersHandler(w http.ResponseWriter, r *http.Request) {\n    users := []User{{ID: 1, Name: \"Ali\"}}\n    w.Header().Set(\"Content-Type\", \"application/json\")\n    json.NewEncoder(w).Encode(users)\n}",
             "resources": [{ "title": "Building a RESTful API", "url": "https://tutorialedge.net/golang/creating-restful-api-with-golang/" }],
             "practice": "CRUD API endpoint'leri yapın."
           },
@@ -446,9 +392,7 @@ func main() {\n    http.HandleFunc("/", handler)\n    http.ListenAndServe(":8080
             "title": "Middleware",
             "goal": "Request/response işleme",
             "activities": ["Wrapping handlers", "Logging middleware"],
-            "codeSnippet": "func loggingMiddleware(next http.Handler) http.Handler {\n    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n        log.Printf(\"%s %s\", r.Method, r.URL.Path)\n        next.ServeHTTP(w, r)
-    })
-}",
+            "codeSnippet": "func loggingMiddleware(next http.Handler) http.Handler {\n    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n        log.Printf(\"%s %s\", r.Method, r.URL.Path)\n        next.ServeHTTP(w, r)\n    })\n}",
             "resources": [{ "title": "Making and Using Middleware", "url": "https://www.alexedwards.net/blog/making-and-using-middleware" }],
             "practice": "Authentication middleware yazın."
           },
@@ -474,9 +418,7 @@ func main() {\n    http.HandleFunc("/", handler)\n    http.ListenAndServe(":8080
             "title": "database/sql Paketi",
             "goal": "SQL database'e bağlanmak",
             "activities": ["sql.Open", "Driver kullanımı (sqlite3)"],
-            "codeSnippet": "import (\n    \"database/sql\"\n    _ \"github.com/mattn/go-sqlite3\"\n)
-
-db, err := sql.Open(\"sqlite3\", \"test.db\")\nerr = db.Ping()",
+            "codeSnippet": "import (\n    \"database/sql\"\n    _ \"github.com/mattn/go-sqlite3\"\n)\n\ndb, err := sql.Open(\"sqlite3\", \"test.db\")\nerr = db.Ping()",
             "resources": [{ "title": "Go database/sql tutorial", "url": "http://go-database-sql.org/" }],
             "practice": "SQLite veritabanı oluşturun ve bağlanın."
           },
@@ -486,8 +428,7 @@ db, err := sql.Open(\"sqlite3\", \"test.db\")\nerr = db.Ping()",
             "title": "CRUD - Create & Read",
             "goal": "Veri ekleme ve okuma",
             "activities": ["Exec", "Query", "Scan"],
-            "codeSnippet": "// Insert\nstmt, _ := db.Prepare(\"INSERT INTO users(name) VALUES(?)\")\nstmt.Exec(\"Ali\")\n\n// Read\nrows, _ := db.Query(\"SELECT name FROM users\")\nfor rows.Next() {\n    rows.Scan(&name)
-}",
+            "codeSnippet": "// Insert\nstmt, _ := db.Prepare(\"INSERT INTO users(name) VALUES(?)\")\nstmt.Exec(\"Ali\")\n\n// Read\nrows, _ := db.Query(\"SELECT name FROM users\")\nfor rows.Next() {\n    rows.Scan(&name)\n}",
             "resources": [{ "title": "Go by Example: SQL", "url": "https://gobyexample.com/sql" }],
             "practice": "Kullanıcı tablosu oluşturup veri ekleyin."
           },
@@ -497,9 +438,7 @@ db, err := sql.Open(\"sqlite3\", \"test.db\")\nerr = db.Ping()",
             "title": "CRUD - Update & Delete",
             "goal": "Veri güncelleme ve silme",
             "activities": ["Update query", "Delete query"],
-            "codeSnippet": "// Update\nstmt, _ := db.Prepare(\"UPDATE users SET email = ? WHERE id = ?\")\nstmt.Exec(\"new@example.com\", 1)
-
-// Delete\nstmt, _ = db.Prepare(\"DELETE FROM users WHERE id = ?\")\nstmt.Exec(1)",
+            "codeSnippet": "// Update\nstmt, _ := db.Prepare(\"UPDATE users SET email = ? WHERE id = ?\")\nstmt.Exec(\"new@example.com\", 1)\n\n// Delete\nstmt, _ = db.Prepare(\"DELETE FROM users WHERE id = ?\")\nstmt.Exec(1)",
             "resources": [],
             "practice": "Tam CRUD fonksiyonları yazın."
           },
@@ -509,9 +448,7 @@ db, err := sql.Open(\"sqlite3\", \"test.db\")\nerr = db.Ping()",
             "title": "Transactions",
             "goal": "Güvenli ve atomik işlemler",
             "activities": ["db.Begin", "Commit", "Rollback"],
-            "codeSnippet": "tx, _ := db.Begin()\nstmt, _ := tx.Prepare(\"INSERT INTO users(name) VALUES(?)\")\n_, err := stmt.Exec(\"Ali\")\nif err != nil {\n    tx.Rollback()\n    return
-}
-tx.Commit()",
+            "codeSnippet": "tx, _ := db.Begin()\nstmt, _ := tx.Prepare(\"INSERT INTO users(name) VALUES(?)\")\n_, err := stmt.Exec(\"Ali\")\nif err != nil {\n    tx.Rollback()\n    return\n}\ntx.Commit()",
             "resources": [{ "title": "SQL Injection Prevention", "url": "https://go.dev/doc/database/sql-injection" }],
             "practice": "Transaction ile güvenli transfer işlemi."
           },
@@ -521,11 +458,7 @@ tx.Commit()",
             "title": "ORM - GORM Temelleri",
             "goal": "GORM ile database işlemleri",
             "activities": ["AutoMigrate", "GORM metodları"],
-            "codeSnippet": "db.AutoMigrate(&User{})
-
-// Create\ndb.Create(&User{Name: \"Ali\"})
-
-// Find\ndb.First(&user, 1)",
+            "codeSnippet": "db.AutoMigrate(&User{})\n\n// Create\ndb.Create(&User{Name: \"Ali\"})\n\n// Find\ndb.First(&user, 1)",
             "resources": [{ "title": "GORM Docs", "url": "https://gorm.io/docs/" }],
             "practice": "GORM ile basit blog modeli oluşturun."
           }
@@ -541,10 +474,7 @@ tx.Commit()",
             "title": "Environment Variables",
             "goal": "Konfigürasyon yönetimi",
             "activities": ["os.Getenv", "godotenv"],
-            "codeSnippet": "port := os.Getenv(\"PORT\")\nif port == \"\" {\n    port = \"8080\"
-}
-
-// .env load\ngodotenv.Load()",
+            "codeSnippet": "port := os.Getenv(\"PORT\")\nif port == \"\" {\n    port = \"8080\"\n}\n\n// .env load\ngodotenv.Load()",
             "resources": [{ "title": "Managing env vars", "url": "https://dev.to/craicoverflow/a-no-nonsense-guide-to-environment-variables-in-go-a2f" }],
             "practice": "Config struct oluşturup env'den yükleyin."
           },
@@ -554,9 +484,7 @@ tx.Commit()",
             "title": "Logging",
             "goal": "Etkili log yönetimi",
             "activities": ["log paketi", "Structured logging (zerolog)"],
-            "codeSnippet": "log.Printf(\"User %s logged in\", user)
-
-// Zerolog\nlog.Info().Str(\"user\", \"ali\").Msg(\"Login\")",
+            "codeSnippet": "log.Printf(\"User %s logged in\", user)\n\n// Zerolog\nlog.Info().Str(\"user\", \"ali\").Msg(\"Login\")",
             "resources": [{ "title": "zerolog", "url": "https://github.com/rs/zerolog" }],
             "practice": "Farklı log seviyelerini destekleyen sistem yapın."
           },
@@ -566,8 +494,7 @@ tx.Commit()",
             "title": "HTTP Client",
             "goal": "API çağrıları yapmak",
             "activities": ["http.Get", "http.Post", "Custom Client"],
-            "codeSnippet": "resp, err := http.Get(\"https://api.example.com/users\")\n
-// Post\nhttp.Post(url, \"application/json\", body)",
+            "codeSnippet": "resp, err := http.Get(\"https://api.example.com/users\")\n\n// Post\nhttp.Post(url, \"application/json\", body)",
             "resources": [{ "title": "Go by Example: HTTP Clients", "url": "https://gobyexample.com/http-clients" }],
             "practice": "Hava durumu API'sinden veri çeken program."
           },
@@ -577,9 +504,7 @@ tx.Commit()",
             "title": "Working with Time",
             "goal": "Tarih ve saat işlemleri",
             "activities": ["time.Now", "Formatting", "Duration", "Tickers"],
-            "codeSnippet": "now := time.Now()\nfmt.Println(now.Format(\"2006-01-02\"))
-
-timer := time.NewTimer(2 * time.Second)\n<-timer.C",
+            "codeSnippet": "now := time.Now()\nfmt.Println(now.Format(\"2006-01-02\"))\n\ntimer := time.NewTimer(2 * time.Second)\n<-timer.C",
             "resources": [{ "title": "Go by Example: Time", "url": "https://gobyexample.com/time" }],
             "practice": "Geri sayım zamanlayıcısı veya pomodoro timer yapın."
           },
@@ -589,7 +514,7 @@ timer := time.NewTimer(2 * time.Second)\n<-timer.C",
             "title": "Regular Expressions",
             "goal": "Metin pattern matching",
             "activities": ["regexp.MustCompile", "MatchString", "ReplaceAllString"],
-            "codeSnippet": "emailRegex := regexp.MustCompile(`^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$`)\nisValid := emailRegex.MatchString(\"test@example.com\")",
+            "codeSnippet": "emailRegex := regexp.MustCompile(`^[a-z0-9._%+\\-]+@[a-z0-9.\\-]+\\.[a-z]{2,}$`)\nisValid := emailRegex.MatchString(\"test@example.com\")",
             "resources": [{ "title": "Go by Example: Regex", "url": "https://gobyexample.com/regular-expressions" }],
             "practice": "Email, telefon, URL validator yapın."
           },
@@ -599,10 +524,7 @@ timer := time.NewTimer(2 * time.Second)\n<-timer.C",
             "title": "Context Package",
             "goal": "İptal ve timeout yönetimi",
             "activities": ["WithTimeout", "ctx.Done()"],
-            "codeSnippet": "ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)\ndefer cancel()
-
-select {\ncase <-ctx.Done():\n    fmt.Println(\"Timeout\")
-}",
+            "codeSnippet": "ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)\ndefer cancel()\n\nselect {\ncase <-ctx.Done():\n    fmt.Println(\"Timeout\")\n}",
             "resources": [{ "title": "Go Context", "url": "https://go.dev/blog/context" }],
             "practice": "Timeout'lu database sorguları yapın."
           }
@@ -618,9 +540,7 @@ select {\ncase <-ctx.Done():\n    fmt.Println(\"Timeout\")
             "title": "Worker Pools",
             "goal": "Etkili iş dağıtımı",
             "activities": ["Worker pattern implementasyonu"],
-            "codeSnippet": "func worker(id int, jobs <-chan int, results chan<- int) {\n    for j := range jobs {\n        results <- j * 2
-    }
-}",
+            "codeSnippet": "func worker(id int, jobs <-chan int, results chan<- int) {\n    for j := range jobs {\n        results <- j * 2\n    }\n}",
             "resources": [{ "title": "Go by Example: Worker Pools", "url": "https://gobyexample.com/worker-pools" }],
             "practice": "Paralel image processing worker pool."
           },
@@ -630,8 +550,7 @@ select {\ncase <-ctx.Done():\n    fmt.Println(\"Timeout\")
             "title": "Rate Limiting",
             "goal": "İstek hızını kontrol etmek",
             "activities": ["time.Tick", "Bursty limiter"],
-            "codeSnippet": "limiter := time.Tick(200 * time.Millisecond)\nfor req := range requests {\n    <-limiter\n    go handle(req)
-}",
+            "codeSnippet": "limiter := time.Tick(200 * time.Millisecond)\nfor req := range requests {\n    <-limiter\n    go handle(req)\n}",
             "resources": [{ "title": "Go by Example: Rate Limiting", "url": "https://gobyexample.com/rate-limiting" }],
             "practice": "API rate limiter middleware yapın."
           },
@@ -641,8 +560,7 @@ select {\ncase <-ctx.Done():\n    fmt.Println(\"Timeout\")
             "title": "Select Statement",
             "goal": "Çoklu channel operasyonları",
             "activities": ["Select-case yapısı", "Timeout handling"],
-            "codeSnippet": "select {\ncase msg1 := <-c1:\n    fmt.Println(msg1)\ncase <-time.After(1 * time.Second):\n    fmt.Println(\"Timeout\")
-}",
+            "codeSnippet": "select {\ncase msg1 := <-c1:\n    fmt.Println(msg1)\ncase <-time.After(1 * time.Second):\n    fmt.Println(\"Timeout\")\n}",
             "resources": [{ "title": "Go by Example: Select", "url": "https://gobyexample.com/select" }],
             "practice": "Birden fazla kaynaktan veri toplayan sistem."
           },
@@ -652,9 +570,7 @@ select {\ncase <-ctx.Done():\n    fmt.Println(\"Timeout\")
             "title": "Mutex ve Sync",
             "goal": "Thread-safe kod yazmak",
             "activities": ["sync.Mutex", "sync.WaitGroup"],
-            "codeSnippet": "c.mu.Lock()\nc.value++\nc.mu.Unlock()
-
-var wg sync.WaitGroup\nwg.Add(1)\nwg.Done()\nwg.Wait()",
+            "codeSnippet": "c.mu.Lock()\nc.value++\nc.mu.Unlock()\n\nvar wg sync.WaitGroup\nwg.Add(1)\nwg.Done()\nwg.Wait()",
             "resources": [{ "title": "Go by Example: Mutexes", "url": "https://gobyexample.com/mutexes" }],
             "practice": "Thread-safe cache implementasyonu."
           },
@@ -680,8 +596,7 @@ var wg sync.WaitGroup\nwg.Add(1)\nwg.Done()\nwg.Wait()",
             "title": "Gin Framework",
             "goal": "Popüler web framework'ü öğrenmek",
             "activities": ["Gin setup", "Basic routing"],
-            "codeSnippet": "r := gin.Default()\nr.GET(\"/ping\", func(c *gin.Context) {\n    c.JSON(200, gin.H{\"message\": \"pong\"})
-})\nr.Run()",
+            "codeSnippet": "r := gin.Default()\nr.GET(\"/ping\", func(c *gin.Context) {\n    c.JSON(200, gin.H{\"message\": \"pong\"})\n})\nr.Run()",
             "resources": [{ "title": "Gin Documentation", "url": "https://gin-gonic.com/docs/" }],
             "practice": "Gin ile RESTful API oluşturun."
           },
@@ -691,8 +606,7 @@ var wg sync.WaitGroup\nwg.Add(1)\nwg.Done()\nwg.Wait()",
             "title": "Middleware in Gin",
             "goal": "Gin middleware'leri",
             "activities": ["Custom middleware", "Group routing"],
-            "codeSnippet": "func AuthMiddleware() gin.HandlerFunc { ... }\n
-api := r.Group(\"/api\")\napi.Use(AuthMiddleware())",
+            "codeSnippet": "func AuthMiddleware() gin.HandlerFunc { ... }\n\napi := r.Group(\"/api\")\napi.Use(AuthMiddleware())",
             "resources": [{ "title": "Gin Middleware", "url": "https://gin-gonic.com/docs/examples/using-middleware/" }],
             "practice": "Auth, logging, CORS middleware'leri ekleyin."
           },
@@ -702,10 +616,7 @@ api := r.Group(\"/api\")\napi.Use(AuthMiddleware())",
             "title": "Validation",
             "goal": "Input validasyonu",
             "activities": ["validator package", "Binding tags"],
-            "codeSnippet": "type User struct {\n    Email string `binding:\"required,email\"`
-}
-
-if err := c.ShouldBindJSON(&user); err != nil { ... }",
+            "codeSnippet": "type User struct {\n    Email string `binding:\"required,email\"`\n}\n\nif err := c.ShouldBindJSON(&user); err != nil { ... }",
             "resources": [{ "title": "validator package", "url": "https://github.com/go-playground/validator" }],
             "practice": "Comprehensive validation kuralları ekleyin."
           },
@@ -715,8 +626,7 @@ if err := c.ShouldBindJSON(&user); err != nil { ... }",
             "title": "Error Handling Patterns",
             "goal": "Profesyonel hata yönetimi",
             "activities": ["Custom errors", "errors.Is", "errors.As"],
-            "codeSnippet": "if errors.Is(err, sql.ErrNoRows) {\n    // handle not found
-}",
+            "codeSnippet": "if errors.Is(err, sql.ErrNoRows) {\n    // handle not found\n}",
             "resources": [{ "title": "Error handling in Go", "url": "https://go.dev/blog/error-handling-and-go" }],
             "practice": "Tutarlı error handling stratejisi uygulayın."
           },
@@ -798,9 +708,7 @@ if err := c.ShouldBindJSON(&user); err != nil { ... }",
             "title": "Performance Optimization",
             "goal": "Profiling ve optimizasyon",
             "activities": ["pprof", "sync.Pool", "strings.Builder"],
-            "codeSnippet": "import _ \"net/http/pprof\"
-
-var pool = sync.Pool{...}",
+            "codeSnippet": "import _ \"net/http/pprof\"\n\nvar pool = sync.Pool{...}",
             "resources": [{ "title": "Profiling Go Programs", "url": "https://go.dev/blog/pprof" }],
             "practice": "pprof ile uygulamanızı analiz edin."
           },
