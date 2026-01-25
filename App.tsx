@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 import { Sidebar } from './components/Sidebar';
 import { DayView } from './components/DayView';
-import { COURSE_CONTENT } from './constants';
+import { useLanguage } from './contexts/LanguageContext';
 import { DayTask } from './types';
-import { Menu, X } from 'lucide-react';
 
 const App: React.FC = () => {
+  const { courseContent } = useLanguage();
   // Persistence state
   const [completedDays, setCompletedDays] = useState<Set<number>>(() => {
     const saved = localStorage.getItem('goMasterCompleted');
@@ -61,7 +62,7 @@ const App: React.FC = () => {
   let activeDay: DayTask | undefined;
   let activeWeekId = 0;
   
-  for (const week of COURSE_CONTENT.weeks) {
+  for (const week of courseContent.weeks) {
     const day = week.days.find(d => d.id === currentDayId);
     if (day) {
       activeDay = day;
@@ -97,7 +98,6 @@ const App: React.FC = () => {
         ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
         <Sidebar 
-          courseData={COURSE_CONTENT}
           completedDays={completedDays}
           currentDayId={currentDayId}
           onDaySelect={handleDaySelect}
