@@ -4,31 +4,33 @@ import { Sidebar } from './components/Sidebar';
 import { DayView } from './components/DayView';
 import { useLanguage } from './contexts/LanguageContext';
 import { DayTask } from './types';
+import { CourseSwitcher } from './components/CourseSwitcher';
 
 const App: React.FC = () => {
-  const { courseContent } = useLanguage();
+  const { courseContent, course, t } = useLanguage();
   // Persistence state
-  const [completedDays, setCompletedDays] = useState<Set<number>>(() => {
-    const saved = localStorage.getItem('goMasterCompleted');
-    return saved ? new Set(JSON.parse(saved)) : new Set();
-  });
-
-  const [currentDayId, setCurrentDayId] = useState<number>(() => {
-    const saved = localStorage.getItem('goMasterCurrentDay');
-    return saved ? parseInt(saved) : 1;
-  });
+  const [completedDays, setCompletedDays] = useState<Set<number>>(new Set());
+  const [currentDayId, setCurrentDayId] = useState<number>(1);
 
   const [expandedWeeks, setExpandedWeeks] = useState<Set<number>>(new Set([1]));
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Persistence effects
   useEffect(() => {
-    localStorage.setItem('goMasterCompleted', JSON.stringify(Array.from(completedDays)));
-  }, [completedDays]);
+    const saved = localStorage.getItem(`${course}MasterCompleted`);
+    setCompletedDays(saved ? new Set(JSON.parse(saved)) : new Set());
+    const savedDay = localStorage.getItem(`${course}MasterCurrentDay`);
+    setCurrentDayId(savedDay ? parseInt(savedDay) : 1);
+    setExpandedWeeks(new Set([1]));
+  }, [course]);
 
   useEffect(() => {
-    localStorage.setItem('goMasterCurrentDay', currentDayId.toString());
-  }, [currentDayId]);
+    localStorage.setItem(`${course}MasterCompleted`, JSON.stringify(Array.from(completedDays)));
+  }, [completedDays, course]);
+
+  useEffect(() => {
+    localStorage.setItem(`${course}MasterCurrentDay`, currentDayId.toString());
+  }, [currentDayId, course]);
 
   // Handlers
   const handleToggleComplete = () => {
@@ -83,13 +85,18 @@ const App: React.FC = () => {
       
       {/* Mobile Header */}
       <div className="md:hidden fixed top-0 w-full z-50 bg-bg-secondary/90 backdrop-blur border-b border-border p-4 flex justify-between items-center">
-        <span className="font-bold text-lg text-text-primary">GoMaster 30</span>
-        <button 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="p-2 text-text-secondary hover:text-text-primary"
-        >
-          {isMobileMenuOpen ? <X /> : <Menu />}
-        </button>
+        <span className="font-bold text-lg text-text-primary">
+          {course === 'go' ? t('goMaster30') : t('pythonMaster30')}
+        </span>
+        <div className="flex items-center gap-2">
+          <CourseSwitcher />
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2 text-text-secondary hover:text-text-primary"
+          >
+            {isMobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
       {/* Sidebar (Desktop & Mobile) */}
@@ -116,6 +123,9 @@ const App: React.FC = () => {
 
       {/* Main Content */}
       <main className="flex-1 w-full pt-16 md:pt-0 overflow-x-hidden">
+        <div className="hidden md:flex justify-end px-6 py-4 sticky top-0 z-20 bg-bg-primary/80 backdrop-blur border-b border-border">
+          <CourseSwitcher />
+        </div>
         {activeDay ? (
           <DayView 
             day={activeDay} 

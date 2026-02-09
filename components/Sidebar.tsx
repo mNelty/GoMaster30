@@ -19,7 +19,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   expandedWeeks,
   toggleWeek,
 }) => {
-  const { t, courseContent } = useLanguage();
+  const { t, course, courseContent } = useLanguage();
 
   // Calculate total progress
   const totalDays = courseContent.weeks.reduce((acc, week) => acc + week.days.length, 0);
@@ -32,7 +32,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <div className="bg-accent-subtle-bg p-2 rounded-lg">
             <BookOpen className="w-6 h-6 text-accent-subtle-text" />
           </div>
-          <h1 className="font-bold text-xl text-text-primary tracking-tight">{t('goMaster30')}</h1>
+          <h1 className="font-bold text-xl text-text-primary tracking-tight">
+            {course === 'go' ? t('goMaster30') : t('pythonMaster30')}
+          </h1>
         </div>
         
         <div className="space-y-2">
@@ -112,7 +114,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
       <ThemeSwitcher />
       
       <div className="p-4 border-t border-border text-center text-xs text-text-muted">
-        <a href="https://go.dev" target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">{t('goProgrammingLanguage')}</a>
+        <a
+          href={course === 'go' ? 'https://go.dev' : 'https://www.python.org/'}
+          target="_blank"
+          rel="noreferrer"
+          className="hover:text-accent transition-colors"
+        >
+          {course === 'go' ? t('goProgrammingLanguage') : t('pythonProgrammingLanguage')}
+        </a>
       </div>
     </div>
   );

@@ -14,736 +14,2608 @@
     "practiceAndHomework": "Practice & Homework",
     "markAsCompleted": "Complete",
     "completed": "Completed",
-    "dayLabel": "Day {0}:"
+    "dayLabel": "Day {0}:",
+    "pythonMaster30": "PyMaster 30",
+    "pythonProgrammingLanguage": "Python Programming Language",
+    "switchToPython": "Switch to Python",
+    "switchToGo": "Switch to Go"
   },
-  "COURSE_CONTENT": {
-    "title": "Go Learning Guide - 30 Minutes/Day",
-    "weeks": [
-      {
-        "id": 1,
-        "title": "Week 1: Hello, Go & Basic Concepts",
-        "days": [
-          {
-            "id": 1,
-            "dayNumber": 1,
-            "title": "Setup and First Program",
-            "goal": "Install Go and write 'Hello, World!'",
-            "activities": [
-              "Download and install Go (golang.org/dl)",
-              "Install VS Code + Go extension",
-              "Write and run your first program"
-            ],
-            "codeSnippet": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    fmt.Println(\"Hello, World!\")\n}",
-            "resources": [
-              { "title": "Go Official Installation Guide", "url": "https://go.dev/doc/install" },
-              { "title": "Go Playground", "url": "https://go.dev/play/" }
-            ],
-            "practice": "Run the \"Hello, World!\" program with 3 different messages."
-          },
-          {
-            "id": 2,
-            "dayNumber": 2,
-            "title": "Variables and Data Types",
-            "goal": "Understand basic data types",
-            "activities": [
-              "Declare variables with var and :=",
-              "Learn int, float64, string, bool types",
-              "Formatted output with fmt.Printf"
-            ],
-            "codeSnippet": "name := \"Alex\"\nage := 25\nheight := 1.75\nisStudent := true\nfmt.Printf(\"%s is %d years old, %.2f meters tall\n\", name, age, height)",
-            "resources": [
-              { "title": "Go by Example: Variables", "url": "https://gobyexample.com/variables" },
-              { "title": "Go Tour: Basic Types", "url": "https://go.dev/tour/basics/11" }
-            ],
-            "practice": "Write a program that contains your own information."
-          },
-          {
-            "id": 3,
-            "dayNumber": 3,
-            "title": "Operators and Conditionals",
-            "goal": "if/else structures and comparisons",
-            "activities": [
-              "Arithmetic operators (+, -, *, /, %)",
-              "Comparison operators (==, !=, <, >)",
-              "if, else if, else structures"
-            ],
-            "codeSnippet": "score := 85\nif score >= 90 {\n    fmt.Println(\"A\")\n} else if score >= 75 {\n    fmt.Println(\"B\")\n} else {\n    fmt.Println(\"C\")\n}",
-            "resources": [
-              { "title": "Go by Example: If/Else", "url": "https://gobyexample.com/if-else" }
-            ],
-            "practice": "Make a simple calculator (2 numbers + operator)."
-          },
-          {
-            "id": 4,
-            "dayNumber": 4,
-            "title": "Loops",
-            "goal": "Mastering the for loop",
-            "activities": [
-              "Classic for loop",
-              "While-like usage",
-              "Iteration with range"
-            ],
-            "codeSnippet": "// Classic\nfor i := 0; i < 5; i++ {\n    fmt.Println(i)\n}\n\n// While-like\nj := 0\nfor j < 5 {\n    fmt.Println(j)\n    j++\n}",
-            "resources": [
-              { "title": "Go by Example: For", "url": "https://gobyexample.com/for" }
-            ],
-            "practice": "Print odd numbers from 1-100, create a FizzBuzz game."
-          },
-          {
-            "id": 5,
-            "dayNumber": 5,
-            "title": "Functions",
-            "goal": "Define and use functions",
-            "activities": [
-              "Simple functions",
-              "Parameters and return values",
-              "Multiple return values"
-            ],
-            "codeSnippet": "func add(a, b int) int {\n    return a + b\n}\n\nfunc divide(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, fmt.Errorf(\"cannot divide by zero\")\n    }\n    return a / b, nil\n}",
-            "resources": [
-              { "title": "Go by Example: Functions", "url": "https://gobyexample.com/functions" },
-              { "title": "Effective Go: Functions", "url": "https://go.dev/doc/effective_go#functions" }
-            ],
-            "practice": "Create a function library for math operations."
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "title": "Week 2: Data Structures",
-        "days": [
-          {
-            "id": 6,
-            "dayNumber": 6,
-            "title": "Arrays",
-            "goal": "Learn fixed-size arrays",
-            "activities": ["Array declaration and access"],
-            "codeSnippet": "var numbers [5]int\nnumbers[0] = 10\nnumbers[1] = 20\n\ntemperatures := [7]float64{22.5, 23.1, 21.8, 24.0, 23.5, 22.0, 21.5}",
-            "resources": [{ "title": "Go by Example: Arrays", "url": "https://gobyexample.com/arrays" }],
-            "practice": "Calculate the average of a week's temperature values."
-          },
-          {
-            "id": 7,
-            "dayNumber": 7,
-            "title": "Slices",
-            "goal": "Understand dynamic arrays",
-            "activities": ["Creating slices (make, literal)", "append, len, cap", "Slicing"],
-            "codeSnippet": "numbers := []int{1, 2, 3}\nnumbers = append(numbers, 4, 5)\n\nsubset := numbers[1:4] // [2, 3, 4]",
-            "resources": [
-              { "title": "Go by Example: Slices", "url": "https://gobyexample.com/slices" },
-              { "title": "Go Slices: usage and internals", "url": "https://go.dev/blog/slices-intro" }
-            ],
-            "practice": "Create a to-do list (add, delete)."
-          },
-          {
-            "id": 8,
-            "dayNumber": 8,
-            "title": "Maps",
-            "goal": "Using key-value pairs",
-            "activities": ["Map creation and checking existence"],
-            "codeSnippet": "ages := make(map[string]int)\nages[\"Alice\"] = 25\nages[\"Bob\"] = 30\n\n// Literal\nscores := map[string]int{\n    \"Math\": 85,\n    \"Physics\": 90,\n}\n\n// Check\nif score, exists := scores[\"Chemistry\"]; exists {\n    fmt.Println(score)\n}",
-            "resources": [{ "title": "Go by Example: Maps", "url": "https://gobyexample.com/maps" }],
-            "practice": "Make a word counter (frequency of words in a text)."
-          },
-          {
-            "id": 9,
-            "dayNumber": 9,
-            "title": "Structs",
-            "goal": "Create your own data types",
-            "activities": ["Struct definition and adding methods"],
-            "codeSnippet": "type Person struct {\n    Name string\n    Age  int\n    City string\n}\n\nperson := Person{\n    Name: \"Alex\",\n    Age:  25,\n    City: \"Istanbul\",\n}\n\n// Method\nfunc (p Person) Greet() string {\n    return \"Hello, I am \" + p.Name\n}",
-            "resources": [
-              { "title": "Go by Example: Structs", "url": "https://gobyexample.com/structs" },
-              { "title": "Go by Example: Methods", "url": "https://gobyexample.com/methods" }
-            ],
-            "practice": "Student information system (struct + method)."
-          },
-          {
-            "id": 10,
-            "dayNumber": 10,
-            "title": "Pointers",
-            "goal": "Understand memory references",
-            "activities": ["Address (&) and dereference (*) operators"],
-            "codeSnippet": "x := 10\np := &x  // address of x\n*p = 20  // change the value of x\n\nfunc increment(n *int) {\n    *n++\n}",
-            "resources": [
-              { "title": "Go by Example: Pointers", "url": "https://gobyexample.com/pointers" },
-              { "title": "Go Tour: Pointers", "url": "https://go.dev/tour/moretypes/1" }
-            ],
-            "practice": "Write functions that modify structs using pointers."
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "title": "Week 3: Error Handling and File I/O",
-        "days": [
-          {
-            "id": 11,
-            "dayNumber": 11,
-            "title": "Error Handling",
-            "goal": "Go's error handling paradigm",
-            "activities": ["The error interface", "Checking for errors"],
-            "codeSnippet": "func divide(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, errors.New(\"division by zero\")\n    }\n    return a / b, nil\n}\n\nresult, err := divide(10, 0)\nif err != nil {\n    log.Fatal(err)\n}",
-            "resources": [
-              { "title": "Go by Example: Errors", "url": "https://gobyexample.com/errors" },
-              { "title": "Error handling in Go", "url": "https://go.dev/blog/error-handling-and-go" }
-            ],
-            "practice": "Write a safe file reading function."
-          },
-          {
-            "id": 12,
-            "dayNumber": 12,
-            "title": "Reading Files",
-            "goal": "Using the file system",
-            "activities": ["os.ReadFile", "bufio.Scanner"],
-            "codeSnippet": "// Read all\ndata, err := os.ReadFile(\"file.txt\")\nif err != nil {\n    log.Fatal(err)\n}\n\n// Read line by line\nfile, _ := os.Open(\"file.txt\")\nscanner := bufio.NewScanner(file)\nfor scanner.Scan() {\n    fmt.Println(scanner.Text())\n}",
-            "resources": [{ "title": "Go by Example: Reading Files", "url": "https://gobyexample.com/reading-files" }],
-            "practice": "Write a program to analyze a log file."
-          },
-          {
-            "id": 13,
-            "dayNumber": 13,
-            "title": "Writing Files",
-            "goal": "Write data to a file",
-            "activities": ["os.WriteFile", "os.OpenFile"],
-            "codeSnippet": "// Simple write\nerr := os.WriteFile(\"output.txt\", []byte(\"content\"), 0644)\n\n// Append\nfile, _ := os.OpenFile(\"log.txt\", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)\nfile.WriteString(\"new line\\\n\")\nfile.Close()",
-            "resources": [{ "title": "Go by Example: Writing Files", "url": "https://gobyexample.com/writing-files" }],
-            "practice": "Create a simple journal application."
-          },
-          {
-            "id": 14,
-            "dayNumber": 14,
-            "title": "JSON Operations",
-            "goal": "JSON encode/decode",
-            "activities": ["Struct tags", "Marshal/Unmarshal"],
-            "codeSnippet": "type User struct {\n    Name  string `json:\"name\"`\n    Email string `json:\"email\"`\n    Age   int    `json:\"age\"`\n}\n\n// Marshal\nuser := User{Name: \"Alex\", Email: \"alex@example.com\", Age: 25}\njsonData, _ := json.Marshal(user)\n\n// Unmarshal\nvar newUser User\njson.Unmarshal(jsonData, &newUser)",
-            "resources": [
-              { "title": "Go by Example: JSON", "url": "https://gobyexample.com/json" },
-              { "title": "JSON and Go", "url": "https://go.dev/blog/json" }
-            ],
-            "practice": "Build a system that reads and writes a config file."
-          },
-          {
-            "id": 15,
-            "dayNumber": 15,
-            "title": "String Manipulation",
-            "goal": "strings and strconv packages",
-            "activities": ["Contains, Split, ToUpper", "Atoi, Itoa"],
-            "codeSnippet": "import \"strings\"\n\ns := \"Hello World\"\nstrings.Contains(s, \"World\")      // true\nstrings.Split(s, \" \")             // [\"Hello\", \"World\"]\nstrings.ToUpper(s)                // \"HELLO WORLD\"\nstrings.ReplaceAll(s, \"l\", \"x\")   // \"Hexxo Worxd\"\n\n// Strconv\nnum, _ := strconv.Atoi(\"42\")\nstr := strconv.Itoa(42)",
-            "resources": [
-              { "title": "Go by Example: String Functions", "url": "https://gobyexample.com/string-functions" },
-              { "title": "strings package", "url": "https://pkg.go.dev/strings" }
-            ],
-            "practice": "Text cleaning tool (trim, lowercase, etc.)."
-          }
-        ]
-      },
-      {
-        "id": 4,
-        "title": "Week 4: Interfaces & Advanced Concepts",
-        "days": [
-          {
-            "id": 16,
-            "dayNumber": 16,
-            "title": "Interface Basics",
-            "goal": "Understand the interface concept",
-            "activities": ["Interface definition", "Implementation"],
-            "codeSnippet": "type Shape interface {\n    Area() float64\n    Perimeter() float64\n}\n\ntype Rectangle struct {\n    Width, Height float64\n}\n\nfunc (r Rectangle) Area() float64 {\n    return r.Width * r.Height\n}",
-            "resources": [
-              { "title": "Go by Example: Interfaces", "url": "https://gobyexample.com/interfaces" }
-            ],
-            "practice": "Create a common interface for different shapes."
-          },
-          {
-            "id": 17,
-            "dayNumber": 17,
-            "title": "Interface Use Cases",
-            "goal": "Practical interface usage",
-            "activities": ["Reader/Writer interfaces", "Type assertion", "Empty interface (any)"],
-            "codeSnippet": "func PrintAnything(v any) {\n    switch v.(type) {\n    case string:\n        fmt.Println(\"String:\", v)\n    case int:\n        fmt.Println(\"Integer:\", v)\n    default:\n        fmt.Println(\"Unknown type\")\n    }\n}",
-            "resources": [{ "title": "Go Tour: Type assertions", "url": "https://go.dev/tour/methods/15" }],
-            "practice": "A generic function that handles different data types."
-          },
-          {
-            "id": 18,
-            "dayNumber": 18,
-            "title": "Defer, Panic, Recover",
-            "goal": "Program flow control",
-            "activities": ["Using defer", "Panic/Recover mechanism"],
-            "codeSnippet": "// Defer\nfunc example() {\n    defer fmt.Println(\"Last operation\")\n    fmt.Println(\"First operation\")\n}\n\n// Panic and Recover\nfunc safeDivide(a, b int) (result int) {\n    defer func() {\n        if r := recover(); r != nil {\n            fmt.Println(\"Recovered:\", r)\n            result = 0\n        }\n    }()\n    return a / b\n}",
-            "resources": [{ "title": "Go by Example: Defer", "url": "https://gobyexample.com/defer" }],
-            "practice": "Functions that perform safe file operations."
-          },
-          {
-            "id": 19,
-            "dayNumber": 19,
-            "title": "Goroutines",
-            "goal": "Introduction to concurrent programming",
-            "activities": ["The 'go' keyword", "Concurrency vs Parallelism"],
-            "codeSnippet": "func say(s string) {\n    for i := 0; i < 3; i++ {\n        fmt.Println(s)\n        time.Sleep(100 * time.Millisecond)\n    }\n}\n\nfunc main() {\n    go say(\"Hello\")  // Concurrent\n    say(\"World\")     // Synchronous\n}",
-            "resources": [{ "title": "Go by Example: Goroutines", "url": "https://gobyexample.com/goroutines" }],
-            "practice": "Run multiple tasks concurrently."
-          },
-          {
-            "id": 20,
-            "dayNumber": 20,
-            "title": "Channels",
-            "goal": "Communication between goroutines",
-            "activities": ["Channel creation", "Sending/receiving data"],
-            "codeSnippet": "func worker(jobs <-chan int, results chan<- int) {\n    for job := range jobs {\n        results <- job * 2\n    }\n}\n\nfunc main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n    go worker(jobs, results)\n    // ...\n}",
-            "resources": [{ "title": "Go by Example: Channels", "url": "https://gobyexample.com/channels" }],
-            "practice": "Implement the Producer-Consumer pattern."
-          }
-        ]
-      },
-      {
-        "id": 5,
-        "title": "Week 5: Package Management and Testing",
-        "days": [
-          {
-            "id": 21,
-            "dayNumber": 21,
-            "title": "Go Modules",
-            "goal": "Project structure and dependency management",
-            "activities": ["go mod init", "go get", "go mod tidy"],
-            "codeSnippet": "go mod init github.com/user/project\ngo get github.com/gorilla/mux\ngo mod tidy",
-            "resources": [{ "title": "Using Go Modules", "url": "https://go.dev/blog/using-go-modules" }],
-            "practice": "Create your own module and add a 3rd party package."
-          },
-          {
-            "id": 22,
-            "dayNumber": 22,
-            "title": "Package Organization",
-            "goal": "Create a good project structure",
-            "activities": ["cmd/, internal/, pkg/ structure"],
-            "codeSnippet": "myapp/\n\u251c\u2500\u2500 cmd/\n\u2502   \u2514\u2500\u2500 main.go\n\u251c\u2500\u2500 internal/\n\u2502   \u251c\u2500\u2500 models/\n\u2502   \u2514\u2500\u2500 handlers/\n\u251c\u2500\u2500 pkg/\n\u2502   \u2514\u2500\u2500 utils/\n\u251c\u2500\u2500 go.mod\n\u2514\u2500\u2500 go.sum",
-            "resources": [{ "title": "Go Project Layout", "url": "https://github.com/golang-standards/project-layout" }],
-            "practice": "Reorganize your existing project."
-          },
-          {
-            "id": 23,
-            "dayNumber": 23,
-            "title": "Unit Testing",
-            "goal": "Start writing tests",
-            "activities": ["'testing' package", "Test functions"],
-            "codeSnippet": "func TestAdd(t *testing.T) {\n    result := Add(2, 3)\n    expected := 5\n    if result != expected {\n        t.Errorf(\"Add(2,3) = %d; want %d\", result, expected)\n    }\n}",
-            "resources": [{ "title": "Go by Example: Testing", "url": "https://gobyexample.com/testing" }],
-            "practice": "Write tests for your previous functions."
-          },
-          {
-            "id": 24,
-            "dayNumber": 24,
-            "title": "Table-Driven Tests",
-            "goal": "Effective testing strategies",
-            "activities": ["Test cases with struct slices", "t.Run"],
-            "codeSnippet": "func TestAddTableDriven(t *testing.T) {\n    tests := []struct {\n        name     string\n        a, b     int\n        expected int\n    }{\n        {\"positive\", 2, 3, 5},\n        {\"negative\", -2, -3, -5},\n    }\n    // loop over tests...\n}",
-            "resources": [{ "title": "Table Driven Tests", "url": "https://go.dev/wiki/TableDrivenTests" }],
-            "practice": "Write a table-driven test for string operations."
-          },
-          {
-            "id": 25,
-            "dayNumber": 25,
-            "title": "Benchmarking",
-            "goal": "Performance measurement",
-            "activities": ["testing.B", "go test -bench"],
-            "codeSnippet": "func BenchmarkAdd(b *testing.B) {\n    for i := 0; i < b.N; i++ {\n        Add(2, 3)\n    }\n}",
-            "resources": [{ "title": "Go by Example: Testing and Benchmarking", "url": "https://gobyexample.com/testing-and-benchmarking" }],
-            "practice": "Compare two different string concatenation methods."
-          }
-        ]
-      },
-      {
-        "id": 6,
-        "title": "Week 6: Web Development Basics",
-        "days": [
-          {
-            "id": 26,
-            "dayNumber": 26,
-            "title": "HTTP Server Basics",
-            "goal": "Create a simple web server",
-            "activities": ["http.HandleFunc", "http.ListenAndServe"],
-            "codeSnippet": "func handler(w http.ResponseWriter, r *http.Request) {\n    fmt.Fprintf(w, \"Hello, %s!\", r.URL.Path[1:])\n}\n\nfunc main() {\n    http.HandleFunc(\"/%\", handler)\n    http.ListenAndServe(\":8080\", nil)\n}",
-            "resources": [{ "title": "Go by Example: HTTP Servers", "url": "https://gobyexample.com/http-servers" }],
-            "practice": "A simple server with different routes."
-          },
-          {
-            "id": 27,
-            "dayNumber": 27,
-            "title": "HTTP Handlers and Mux",
-            "goal": "Route management",
-            "activities": ["http.NewServeMux"],
-            "codeSnippet": "mux := http.NewServeMux()\nmux.HandleFunc(\"/%\", homeHandler)\nmux.HandleFunc(\"/about\", aboutHandler)\nhttp.ListenAndServe(\":8080\", mux)",
-            "resources": [{ "title": "net/http package", "url": "https://pkg.go.dev/net/http" }],
-            "practice": "Create RESTful endpoints."
-          },
-          {
-            "id": 28,
-            "dayNumber": 28,
-            "title": "JSON API",
-            "goal": "Return a JSON response",
-            "activities": ["Content-Type header", "json.NewEncoder"],
-            "codeSnippet": "func usersHandler(w http.ResponseWriter, r *http.Request) {\n    users := []User{{ID: 1, Name: \"Alex\"}}\n    w.Header().Set(\"Content-Type\", \"application/json\")\n    json.NewEncoder(w).Encode(users)\n}",
-            "resources": [{ "title": "Building a RESTful API", "url": "https://tutorialedge.net/golang/creating-restful-api-with-golang/" }],
-            "practice": "Create CRUD API endpoints."
-          },
-          {
-            "id": 29,
-            "dayNumber": 29,
-            "title": "Middleware",
-            "goal": "Request/response processing",
-            "activities": ["Wrapping handlers", "Logging middleware"],
-            "codeSnippet": "func loggingMiddleware(next http.Handler) http.Handler {\n    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n        log.Printf(\"%s %s\", r.Method, r.URL.Path)\n        next.ServeHTTP(w, r)\n    })\n}",
-            "resources": [{ "title": "Making and Using Middleware", "url": "https://www.alexedwards.net/blog/making-and-using-middleware" }],
-            "practice": "Write an authentication middleware."
-          },
-          {
-            "id": 30,
-            "dayNumber": 30,
-            "title": "Gorilla Mux",
-            "goal": "Advanced routing",
-            "activities": ["URL parameters", "Method restriction"],
-            "codeSnippet": "r := mux.NewRouter()\nr.HandleFunc(\"/users/{id}\", getUserHandler).Methods(\"GET\")\n\nvars := mux.Vars(r)\nid := vars[\"id\"]",
-            "resources": [{ "title": "Gorilla Mux Docs", "url": "https://github.com/gorilla/mux" }],
-            "practice": "Develop an API with parameterized routes."
-          }
-        ]
-      },
-      {
-        "id": 7,
-        "title": "Week 7: Database Operations",
-        "days": [
-          {
-            "id": 31,
-            "dayNumber": 31,
-            "title": "database/sql Package",
-            "goal": "Connect to a SQL database",
-            "activities": ["sql.Open", "Driver usage (sqlite3)"],
-            "codeSnippet": "import (\n    \"database/sql\"\n    _ \"github.com/mattn/go-sqlite3\"\n)\n\ndb, err := sql.Open(\"sqlite3\", \"test.db\")\nerr = db.Ping()",
-            "resources": [{ "title": "Go database/sql tutorial", "url": "http://go-database-sql.org/" }],
-            "practice": "Create and connect to a SQLite database."
-          },
-          {
-            "id": 32,
-            "dayNumber": 32,
-            "title": "CRUD - Create & Read",
-            "goal": "Adding and reading data",
-            "activities": ["Exec", "Query", "Scan"],
-            "codeSnippet": "// Insert\nstmt, _ := db.Prepare(\"INSERT INTO users(name) VALUES(?)\")\nstmt.Exec(\"Alex\")\n\n// Read\nrows, _ := db.Query(\"SELECT name FROM users\")\nfor rows.Next() {\n    rows.Scan(&name)\n}",
-            "resources": [{ "title": "Go by Example: SQL", "url": "https://gobyexample.com/sql" }],
-            "practice": "Create a user table and add data."
-          },
-          {
-            "id": 33,
-            "dayNumber": 33,
-            "title": "CRUD - Update & Delete",
-            "goal": "Updating and deleting data",
-            "activities": ["Update query", "Delete query"],
-            "codeSnippet": "// Update\nstmt, _ := db.Prepare(\"UPDATE users SET email = ? WHERE id = ?\")\nstmt.Exec(\"new@example.com\", 1)\n\n// Delete\nstmt, _ = db.Prepare(\"DELETE FROM users WHERE id = ?\")\nstmt.Exec(1)",
-            "resources": [],
-            "practice": "Write full CRUD functions."
-          },
-          {
-            "id": 34,
-            "dayNumber": 34,
-            "title": "Transactions",
-            "goal": "Safe and atomic operations",
-            "activities": ["db.Begin", "Commit", "Rollback"],
-            "codeSnippet": "tx, _ := db.Begin()\nstmt, _ := tx.Prepare(\"INSERT INTO users(name) VALUES(?)\")\n_, err := stmt.Exec(\"Alex\")\nif err != nil {\n    tx.Rollback()\n    return\n}\ntx.Commit()",
-            "resources": [{ "title": "SQL Injection Prevention", "url": "https://go.dev/doc/database/sql-injection" }],
-            "practice": "A safe transfer operation with a transaction."
-          },
-          {
-            "id": 35,
-            "dayNumber": 35,
-            "title": "ORM - GORM Basics",
-            "goal": "Database operations with GORM",
-            "activities": ["AutoMigrate", "GORM methods"],
-            "codeSnippet": "db.AutoMigrate(&User{})\n\n// Create\ndb.Create(&User{Name: \"Alex\"})\n\n// Find\ndb.First(&user, 1)",
-            "resources": [{ "title": "GORM Docs", "url": "https://gorm.io/docs/" }],
-            "practice": "Create a simple blog model with GORM."
-          }
-        ]
-      },
-      {
-        "id": 8,
-        "title": "Week 8: Real World Applications",
-        "days": [
-          {
-            "id": 36,
-            "dayNumber": 36,
-            "title": "Environment Variables",
-            "goal": "Configuration management",
-            "activities": ["os.Getenv", "godotenv"],
-            "codeSnippet": "port := os.Getenv(\"PORT\")\nif port == \"\" {\n    port = \"8080\"\n}\n\n// .env load\ngodotenv.Load()",
-            "resources": [{ "title": "Managing env vars", "url": "https://dev.to/craicoverflow/a-no-nonsense-guide-to-environment-variables-in-go-a2f" }],
-            "practice": "Create a config struct and load it from env."
-          },
-          {
-            "id": 37,
-            "dayNumber": 37,
-            "title": "Logging",
-            "goal": "Effective log management",
-            "activities": ["'log' package", "Structured logging (zerolog)"],
-            "codeSnippet": "log.Printf(\"User %s logged in\", user)\n\n// Zerolog\nlog.Info().Str(\"user\", \"alex\").Msg(\"Login\")",
-            "resources": [{ "title": "zerolog", "url": "https://github.com/rs/zerolog" }],
-            "practice": "Build a system that supports different log levels."
-          },
-          {
-            "id": 38,
-            "dayNumber": 38,
-            "title": "HTTP Client",
-            "goal": "Making API calls",
-            "activities": ["http.Get", "http.Post", "Custom Client"],
-            "codeSnippet": "resp, err := http.Get(\"https://api.example.com/users\")\n\n// Post\nhttp.Post(url, \"application/json\", body)",
-            "resources": [{ "title": "Go by Example: HTTP Clients", "url": "https://gobyexample.com/http-clients" }],
-            "practice": "A program that fetches data from a weather API."
-          },
-          {
-            "id": 39,
-            "dayNumber": 39,
-            "title": "Working with Time",
-            "goal": "Date and time operations",
-            "activities": ["time.Now", "Formatting", "Duration", "Tickers"],
-            "codeSnippet": "now := time.Now()\nfmt.Println(now.Format(\"2006-01-02\"))\n\ntimer := time.NewTimer(2 * time.Second)\n<-timer.C",
-            "resources": [{ "title": "Go by Example: Time", "url": "https://gobyexample.com/time" }],
-            "practice": "Create a countdown timer or a pomodoro timer."
-          },
-          {
-            "id": 40,
-            "dayNumber": 40,
-            "title": "Regular Expressions",
-            "goal": "Text pattern matching",
-            "activities": ["regexp.MustCompile", "MatchString", "ReplaceAllString"],
-            "codeSnippet": "emailRegex := regexp.MustCompile(`^[a-z0-9._%+\\-]+@[a-z0-9.\\-]+\\.[a-z]{2,}$`)\nisValid := emailRegex.MatchString(\"test@example.com\")",
-            "resources": [{ "title": "Go by Example: Regex", "url": "https://gobyexample.com/regular-expressions" }],
-            "practice": "Create an email, phone, and URL validator."
-          },
-          {
-            "id": 41,
-            "dayNumber": 41,
-            "title": "Context Package",
-            "goal": "Cancellation and timeout management",
-            "activities": ["WithTimeout", "ctx.Done()"],
-            "codeSnippet": "ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)\ndefer cancel()\n\nselect {\ncase <-ctx.Done():\n    fmt.Println(\"Timeout\")\n}",
-            "resources": [{ "title": "Go Context", "url": "https://go.dev/blog/context" }],
-            "practice": "Make database queries with timeouts."
-          }
-        ]
-      },
-      {
-        "id": 9,
-        "title": "Week 9: Advanced Concurrency",
-        "days": [
-          {
-            "id": 42,
-            "dayNumber": 42,
-            "title": "Worker Pools",
-            "goal": "Effective job distribution",
-            "activities": ["Worker pattern implementation"],
-            "codeSnippet": "func worker(id int, jobs <-chan int, results chan<- int) {\n    for j := range jobs {\n        results <- j * 2\n    }\n}",
-            "resources": [{ "title": "Go by Example: Worker Pools", "url": "https://gobyexample.com/worker-pools" }],
-            "practice": "Parallel image processing worker pool."
-          },
-          {
-            "id": 43,
-            "dayNumber": 43,
-            "title": "Rate Limiting",
-            "goal": "Control request speed",
-            "activities": ["time.Tick", "Bursty limiter"],
-            "codeSnippet": "limiter := time.Tick(200 * time.Millisecond)\nfor req := range requests {\n    <-limiter\n    go handle(req)\n}",
-            "resources": [{ "title": "Go by Example: Rate Limiting", "url": "https://gobyexample.com/rate-limiting" }],
-            "practice": "Create an API rate limiter middleware."
-          },
-          {
-            "id": 44,
-            "dayNumber": 44,
-            "title": "Select Statement",
-            "goal": "Multiple channel operations",
-            "activities": ["Select-case structure", "Timeout handling"],
-            "codeSnippet": "select {\ncase msg1 := <-c1:\n    fmt.Println(msg1)\ncase <-time.After(1 * time.Second):\n    fmt.Println(\"Timeout\")\n}",
-            "resources": [{ "title": "Go by Example: Select", "url": "https://gobyexample.com/select" }],
-            "practice": "A system that collects data from multiple sources."
-          },
-          {
-            "id": 45,
-            "dayNumber": 45,
-            "title": "Mutex and Sync",
-            "goal": "Writing thread-safe code",
-            "activities": ["sync.Mutex", "sync.WaitGroup"],
-            "codeSnippet": "c.mu.Lock()\nc.value++\nc.mu.Unlock()\n\nvar wg sync.WaitGroup\nwg.Add(1)\nwg.Done()\nwg.Wait()",
-            "resources": [{ "title": "Go by Example: Mutexes", "url": "https://gobyexample.com/mutexes" }],
-            "practice": "Thread-safe cache implementation."
-          },
-          {
-            "id": 46,
-            "dayNumber": 46,
-            "title": "Atomic Operations",
-            "goal": "Lock-free programming",
-            "activities": ["sync/atomic", "AddInt64", "Load/Store"],
-            "codeSnippet": "atomic.AddInt64(&counter, 1)\nval := atomic.LoadInt64(&counter)",
-            "resources": [{ "title": "Go by Example: Atomic Counters", "url": "https://gobyexample.com/atomic-counters" }],
-            "practice": "Create a performance counter system."
-          }
-        ]
-      },
-      {
-        "id": 10,
-        "title": "Week 10: Web Frameworks",
-        "days": [
-          {
-            "id": 47,
-            "dayNumber": 47,
-            "title": "Gin Framework",
-            "goal": "Learn a popular web framework",
-            "activities": ["Gin setup", "Basic routing"],
-            "codeSnippet": "r := gin.Default()\nr.GET(\"/ping\", func(c *gin.Context) {\n    c.JSON(200, gin.H{\"message\": \"pong\"})\n})\nr.Run()",
-            "resources": [{ "title": "Gin Documentation", "url": "https://gin-gonic.com/docs/" }],
-            "practice": "Create a RESTful API with Gin."
-          },
-          {
-            "id": 48,
-            "dayNumber": 48,
-            "title": "Middleware in Gin",
-            "goal": "Gin middlewares",
-            "activities": ["Custom middleware", "Group routing"],
-            "codeSnippet": "func AuthMiddleware() gin.HandlerFunc { ... }\n\napi := r.Group(\"/api\")\napi.Use(AuthMiddleware())",
-            "resources": [{ "title": "Gin Middleware", "url": "https://gin-gonic.com/docs/examples/using-middleware/" }],
-            "practice": "Add Auth, logging, CORS middlewares."
-          },
-          {
-            "id": 49,
-            "dayNumber": 49,
-            "title": "Validation",
-            "goal": "Input validation",
-            "activities": ["'validator' package", "Binding tags"],
-            "codeSnippet": "type User struct {\n    Email string `binding:\"required,email\"`\n}\n\nif err := c.ShouldBindJSON(&user); err != nil { ... }",
-            "resources": [{ "title": "validator package", "url": "https://github.com/go-playground/validator" }],
-            "practice": "Add comprehensive validation rules."
-          },
-          {
-            "id": 50,
-            "dayNumber": 50,
-            "title": "Error Handling Patterns",
-            "goal": "Professional error handling",
-            "activities": ["Custom errors", "errors.Is", "errors.As"],
-            "codeSnippet": "if errors.Is(err, sql.ErrNoRows) {\n    // handle not found\n}",
-            "resources": [{ "title": "Error handling in Go", "url": "https://go.dev/blog/error-handling-and-go" }],
-            "practice": "Implement a consistent error handling strategy."
-          },
-          {
-            "id": 51,
-            "dayNumber": 51,
-            "title": "Code Organization",
-            "goal": "Clean architecture principles",
-            "activities": ["Domain/Repo/Service layers"],
-            "codeSnippet": "internal/\n  domain/\n  repository/\n  service/\n  handler/",
-            "resources": [{ "title": "Clean Architecture in Go", "url": "https://medium.com/@hatajoe/clean-architecture-in-go-4030f11ec1b1" }],
-            "practice": "Refactor your existing project."
-          }
-        ]
-      },
-      {
-        "id": 11,
-        "title": "Week 11: Deployment and DevOps",
-        "days": [
-          {
-            "id": 52,
-            "dayNumber": 52,
-            "title": "Docker Basics",
-            "goal": "Containerize applications",
-            "activities": ["Dockerfile creation", "Multi-stage builds"],
-            "codeSnippet": "FROM golang:1.21-alpine AS builder\n...\nFROM alpine:latest\nCOPY --from=builder /app/main .",
-            "resources": [{ "title": "Dockerizing Go", "url": "https://docs.docker.com/language/golang/" }],
-            "practice": "Run your application in a Docker container."
-          },
-          {
-            "id": 53,
-            "dayNumber": 53,
-            "title": "Docker Compose",
-            "goal": "Multi-container applications",
-            "activities": ["docker-compose.yml", "Service linking"],
-            "codeSnippet": "services:\n  app:\n    depends_on:\n      - postgres",
-            "resources": [{ "title": "Docker Compose", "url": "https://docs.docker.com/compose/" }],
-            "practice": "App + Database + Redis compose setup."
-          },
-          {
-            "id": 54,
-            "dayNumber": 54,
-            "title": "Environment Config",
-            "goal": "Config management with Viper",
-            "activities": ["Viper setup", "Reading config"],
-            "codeSnippet": "viper.SetConfigName(\"config\")\nviper.ReadInConfig()",
-            "resources": [{ "title": "Viper", "url": "https://github.com/spf13/viper" }],
-            "practice": "Create dev, staging, production configs."
-          },
-          {
-            "id": 55,
-            "dayNumber": 55,
-            "title": "Graceful Shutdown",
-            "goal": "Safe shutdown",
-            "activities": ["Signal catching", "srv.Shutdown"],
-            "codeSnippet": "quit := make(chan os.Signal, 1)\nsignal.Notify(quit, syscall.SIGINT)\n<-quit\nsrv.Shutdown(ctx)",
-            "resources": [{ "title": "Graceful Shutdown", "url": "https://medium.com/honestbee-tw-engineer/gracefully-shutdown-in-go-http-server-5f5e6b83da5a" }],
-            "practice": "Shutdown that cleanly closes database connections."
-          },
-          {
-            "id": 56,
-            "dayNumber": 56,
-            "title": "Monitoring",
-            "goal": "Prometheus metrics",
-            "activities": ["Prometheus client", "Instrumentation"],
-            "codeSnippet": "httpRequestsTotal.Inc()",
-            "resources": [{ "title": "Prometheus Go", "url": "https://github.com/prometheus/client_golang" }],
-            "practice": "Add and visualize Prometheus metrics."
-          }
-        ]
-      },
-      {
-        "id": 12,
-        "title": "Week 12: Advanced & Final",
-        "days": [
-          {
-            "id": 57,
-            "dayNumber": 57,
-            "title": "Performance Optimization",
-            "goal": "Profiling and optimization",
-            "activities": ["pprof", "sync.Pool", "strings.Builder"],
-            "codeSnippet": "import _ \"net/http/pprof\"\n\nvar pool = sync.Pool{...}",
-            "resources": [{ "title": "Profiling Go Programs", "url": "https://go.dev/blog/pprof" }],
-            "practice": "Analyze your application with pprof."
-          },
-          {
-            "id": 58,
-            "dayNumber": 58,
-            "title": "Security Best Practices",
-            "goal": "Writing secure code",
-            "activities": ["bcrypt", "JWT", "Input sanitization"],
-            "codeSnippet": "bcrypt.GenerateFromPassword([]byte(pass), 14)",
-            "resources": [{ "title": "Go Security Cheat Sheet", "url": "https://cheatsheetseries.owasp.org/cheatsheets/Go_SPA_Cheat_Sheet.html" }],
-            "practice": "Implement a JWT auth system."
-          },
-          {
-            "id": 59,
-            "dayNumber": 59,
-            "title": "WebSockets",
-            "goal": "Real-time communication",
-            "activities": ["Gorilla websocket", "Upgrade connection"],
-            "codeSnippet": "upgrader.Upgrade(w, r, nil)\nconn.ReadMessage()",
-            "resources": [{ "title": "Gorilla WebSocket", "url": "https://github.com/gorilla/websocket" }],
-            "practice": "Create a simple chat application."
-          },
-          {
-            "id": 60,
-            "dayNumber": 60,
-            "title": "CLI Applications",
-            "goal": "CLI tools with Cobra",
-            "activities": ["Cobra setup", "Commands & Flags"],
-            "codeSnippet": "var rootCmd = &cobra.Command{Use: \"app\"}\nrootCmd.Execute()",
-            "resources": [{ "title": "Cobra", "url": "https://github.com/spf13/cobra" }],
-            "practice": "Create a multi-command CLI tool."
-          }
-        ]
-      }
-    ]
+  "COURSES": {
+    "go": {
+      "title": "Go Learning Guide - 30 Minutes/Day",
+      "weeks": [
+        {
+          "id": 1,
+          "title": "Week 1: Hello, Go & Basic Concepts",
+          "days": [
+            {
+              "id": 1,
+              "dayNumber": 1,
+              "title": "Setup and First Program",
+              "goal": "Install Go and write 'Hello, World!'",
+              "activities": [
+                "Download and install Go (golang.org/dl)",
+                "Install VS Code + Go extension",
+                "Write and run your first program"
+              ],
+              "codeSnippet": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    fmt.Println(\"Hello, World!\")\n}",
+              "resources": [
+                {
+                  "title": "Go Official Installation Guide",
+                  "url": "https://go.dev/doc/install"
+                },
+                {
+                  "title": "Go Playground",
+                  "url": "https://go.dev/play/"
+                }
+              ],
+              "practice": "Run the \"Hello, World!\" program with 3 different messages."
+            },
+            {
+              "id": 2,
+              "dayNumber": 2,
+              "title": "Variables and Data Types",
+              "goal": "Understand basic data types",
+              "activities": [
+                "Declare variables with var and :=",
+                "Learn int, float64, string, bool types",
+                "Formatted output with fmt.Printf"
+              ],
+              "codeSnippet": "name := \"Alex\"\nage := 25\nheight := 1.75\nisStudent := true\nfmt.Printf(\"%s is %d years old, %.2f meters tall\n\", name, age, height)",
+              "resources": [
+                {
+                  "title": "Go by Example: Variables",
+                  "url": "https://gobyexample.com/variables"
+                },
+                {
+                  "title": "Go Tour: Basic Types",
+                  "url": "https://go.dev/tour/basics/11"
+                }
+              ],
+              "practice": "Write a program that contains your own information."
+            },
+            {
+              "id": 3,
+              "dayNumber": 3,
+              "title": "Operators and Conditionals",
+              "goal": "if/else structures and comparisons",
+              "activities": [
+                "Arithmetic operators (+, -, *, /, %)",
+                "Comparison operators (==, !=, <, >)",
+                "if, else if, else structures"
+              ],
+              "codeSnippet": "score := 85\nif score >= 90 {\n    fmt.Println(\"A\")\n} else if score >= 75 {\n    fmt.Println(\"B\")\n} else {\n    fmt.Println(\"C\")\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: If/Else",
+                  "url": "https://gobyexample.com/if-else"
+                }
+              ],
+              "practice": "Make a simple calculator (2 numbers + operator)."
+            },
+            {
+              "id": 4,
+              "dayNumber": 4,
+              "title": "Loops",
+              "goal": "Mastering the for loop",
+              "activities": [
+                "Classic for loop",
+                "While-like usage",
+                "Iteration with range"
+              ],
+              "codeSnippet": "// Classic\nfor i := 0; i < 5; i++ {\n    fmt.Println(i)\n}\n\n// While-like\nj := 0\nfor j < 5 {\n    fmt.Println(j)\n    j++\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: For",
+                  "url": "https://gobyexample.com/for"
+                }
+              ],
+              "practice": "Print odd numbers from 1-100, create a FizzBuzz game."
+            },
+            {
+              "id": 5,
+              "dayNumber": 5,
+              "title": "Functions",
+              "goal": "Define and use functions",
+              "activities": [
+                "Simple functions",
+                "Parameters and return values",
+                "Multiple return values"
+              ],
+              "codeSnippet": "func add(a, b int) int {\n    return a + b\n}\n\nfunc divide(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, fmt.Errorf(\"cannot divide by zero\")\n    }\n    return a / b, nil\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Functions",
+                  "url": "https://gobyexample.com/functions"
+                },
+                {
+                  "title": "Effective Go: Functions",
+                  "url": "https://go.dev/doc/effective_go#functions"
+                }
+              ],
+              "practice": "Create a function library for math operations."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Week 2: Data Structures",
+          "days": [
+            {
+              "id": 6,
+              "dayNumber": 6,
+              "title": "Arrays",
+              "goal": "Learn fixed-size arrays",
+              "activities": [
+                "Array declaration and access"
+              ],
+              "codeSnippet": "var numbers [5]int\nnumbers[0] = 10\nnumbers[1] = 20\n\ntemperatures := [7]float64{22.5, 23.1, 21.8, 24.0, 23.5, 22.0, 21.5}",
+              "resources": [
+                {
+                  "title": "Go by Example: Arrays",
+                  "url": "https://gobyexample.com/arrays"
+                }
+              ],
+              "practice": "Calculate the average of a week's temperature values."
+            },
+            {
+              "id": 7,
+              "dayNumber": 7,
+              "title": "Slices",
+              "goal": "Understand dynamic arrays",
+              "activities": [
+                "Creating slices (make, literal)",
+                "append, len, cap",
+                "Slicing"
+              ],
+              "codeSnippet": "numbers := []int{1, 2, 3}\nnumbers = append(numbers, 4, 5)\n\nsubset := numbers[1:4] // [2, 3, 4]",
+              "resources": [
+                {
+                  "title": "Go by Example: Slices",
+                  "url": "https://gobyexample.com/slices"
+                },
+                {
+                  "title": "Go Slices: usage and internals",
+                  "url": "https://go.dev/blog/slices-intro"
+                }
+              ],
+              "practice": "Create a to-do list (add, delete)."
+            },
+            {
+              "id": 8,
+              "dayNumber": 8,
+              "title": "Maps",
+              "goal": "Using key-value pairs",
+              "activities": [
+                "Map creation and checking existence"
+              ],
+              "codeSnippet": "ages := make(map[string]int)\nages[\"Alice\"] = 25\nages[\"Bob\"] = 30\n\n// Literal\nscores := map[string]int{\n    \"Math\": 85,\n    \"Physics\": 90,\n}\n\n// Check\nif score, exists := scores[\"Chemistry\"]; exists {\n    fmt.Println(score)\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Maps",
+                  "url": "https://gobyexample.com/maps"
+                }
+              ],
+              "practice": "Make a word counter (frequency of words in a text)."
+            },
+            {
+              "id": 9,
+              "dayNumber": 9,
+              "title": "Structs",
+              "goal": "Create your own data types",
+              "activities": [
+                "Struct definition and adding methods"
+              ],
+              "codeSnippet": "type Person struct {\n    Name string\n    Age  int\n    City string\n}\n\nperson := Person{\n    Name: \"Alex\",\n    Age:  25,\n    City: \"Istanbul\",\n}\n\n// Method\nfunc (p Person) Greet() string {\n    return \"Hello, I am \" + p.Name\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Structs",
+                  "url": "https://gobyexample.com/structs"
+                },
+                {
+                  "title": "Go by Example: Methods",
+                  "url": "https://gobyexample.com/methods"
+                }
+              ],
+              "practice": "Student information system (struct + method)."
+            },
+            {
+              "id": 10,
+              "dayNumber": 10,
+              "title": "Pointers",
+              "goal": "Understand memory references",
+              "activities": [
+                "Address (&) and dereference (*) operators"
+              ],
+              "codeSnippet": "x := 10\np := &x  // address of x\n*p = 20  // change the value of x\n\nfunc increment(n *int) {\n    *n++\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Pointers",
+                  "url": "https://gobyexample.com/pointers"
+                },
+                {
+                  "title": "Go Tour: Pointers",
+                  "url": "https://go.dev/tour/moretypes/1"
+                }
+              ],
+              "practice": "Write functions that modify structs using pointers."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Week 3: Error Handling and File I/O",
+          "days": [
+            {
+              "id": 11,
+              "dayNumber": 11,
+              "title": "Error Handling",
+              "goal": "Go's error handling paradigm",
+              "activities": [
+                "The error interface",
+                "Checking for errors"
+              ],
+              "codeSnippet": "func divide(a, b float64) (float64, error) {\n    if b == 0 {\n        return 0, errors.New(\"division by zero\")\n    }\n    return a / b, nil\n}\n\nresult, err := divide(10, 0)\nif err != nil {\n    log.Fatal(err)\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Errors",
+                  "url": "https://gobyexample.com/errors"
+                },
+                {
+                  "title": "Error handling in Go",
+                  "url": "https://go.dev/blog/error-handling-and-go"
+                }
+              ],
+              "practice": "Write a safe file reading function."
+            },
+            {
+              "id": 12,
+              "dayNumber": 12,
+              "title": "Reading Files",
+              "goal": "Using the file system",
+              "activities": [
+                "os.ReadFile",
+                "bufio.Scanner"
+              ],
+              "codeSnippet": "// Read all\ndata, err := os.ReadFile(\"file.txt\")\nif err != nil {\n    log.Fatal(err)\n}\n\n// Read line by line\nfile, _ := os.Open(\"file.txt\")\nscanner := bufio.NewScanner(file)\nfor scanner.Scan() {\n    fmt.Println(scanner.Text())\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Reading Files",
+                  "url": "https://gobyexample.com/reading-files"
+                }
+              ],
+              "practice": "Write a program to analyze a log file."
+            },
+            {
+              "id": 13,
+              "dayNumber": 13,
+              "title": "Writing Files",
+              "goal": "Write data to a file",
+              "activities": [
+                "os.WriteFile",
+                "os.OpenFile"
+              ],
+              "codeSnippet": "// Simple write\nerr := os.WriteFile(\"output.txt\", []byte(\"content\"), 0644)\n\n// Append\nfile, _ := os.OpenFile(\"log.txt\", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)\nfile.WriteString(\"new line\\\n\")\nfile.Close()",
+              "resources": [
+                {
+                  "title": "Go by Example: Writing Files",
+                  "url": "https://gobyexample.com/writing-files"
+                }
+              ],
+              "practice": "Create a simple journal application."
+            },
+            {
+              "id": 14,
+              "dayNumber": 14,
+              "title": "JSON Operations",
+              "goal": "JSON encode/decode",
+              "activities": [
+                "Struct tags",
+                "Marshal/Unmarshal"
+              ],
+              "codeSnippet": "type User struct {\n    Name  string `json:\"name\"`\n    Email string `json:\"email\"`\n    Age   int    `json:\"age\"`\n}\n\n// Marshal\nuser := User{Name: \"Alex\", Email: \"alex@example.com\", Age: 25}\njsonData, _ := json.Marshal(user)\n\n// Unmarshal\nvar newUser User\njson.Unmarshal(jsonData, &newUser)",
+              "resources": [
+                {
+                  "title": "Go by Example: JSON",
+                  "url": "https://gobyexample.com/json"
+                },
+                {
+                  "title": "JSON and Go",
+                  "url": "https://go.dev/blog/json"
+                }
+              ],
+              "practice": "Build a system that reads and writes a config file."
+            },
+            {
+              "id": 15,
+              "dayNumber": 15,
+              "title": "String Manipulation",
+              "goal": "strings and strconv packages",
+              "activities": [
+                "Contains, Split, ToUpper",
+                "Atoi, Itoa"
+              ],
+              "codeSnippet": "import \"strings\"\n\ns := \"Hello World\"\nstrings.Contains(s, \"World\")      // true\nstrings.Split(s, \" \")             // [\"Hello\", \"World\"]\nstrings.ToUpper(s)                // \"HELLO WORLD\"\nstrings.ReplaceAll(s, \"l\", \"x\")   // \"Hexxo Worxd\"\n\n// Strconv\nnum, _ := strconv.Atoi(\"42\")\nstr := strconv.Itoa(42)",
+              "resources": [
+                {
+                  "title": "Go by Example: String Functions",
+                  "url": "https://gobyexample.com/string-functions"
+                },
+                {
+                  "title": "strings package",
+                  "url": "https://pkg.go.dev/strings"
+                }
+              ],
+              "practice": "Text cleaning tool (trim, lowercase, etc.)."
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Week 4: Interfaces & Advanced Concepts",
+          "days": [
+            {
+              "id": 16,
+              "dayNumber": 16,
+              "title": "Interface Basics",
+              "goal": "Understand the interface concept",
+              "activities": [
+                "Interface definition",
+                "Implementation"
+              ],
+              "codeSnippet": "type Shape interface {\n    Area() float64\n    Perimeter() float64\n}\n\ntype Rectangle struct {\n    Width, Height float64\n}\n\nfunc (r Rectangle) Area() float64 {\n    return r.Width * r.Height\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Interfaces",
+                  "url": "https://gobyexample.com/interfaces"
+                }
+              ],
+              "practice": "Create a common interface for different shapes."
+            },
+            {
+              "id": 17,
+              "dayNumber": 17,
+              "title": "Interface Use Cases",
+              "goal": "Practical interface usage",
+              "activities": [
+                "Reader/Writer interfaces",
+                "Type assertion",
+                "Empty interface (any)"
+              ],
+              "codeSnippet": "func PrintAnything(v any) {\n    switch v.(type) {\n    case string:\n        fmt.Println(\"String:\", v)\n    case int:\n        fmt.Println(\"Integer:\", v)\n    default:\n        fmt.Println(\"Unknown type\")\n    }\n}",
+              "resources": [
+                {
+                  "title": "Go Tour: Type assertions",
+                  "url": "https://go.dev/tour/methods/15"
+                }
+              ],
+              "practice": "A generic function that handles different data types."
+            },
+            {
+              "id": 18,
+              "dayNumber": 18,
+              "title": "Defer, Panic, Recover",
+              "goal": "Program flow control",
+              "activities": [
+                "Using defer",
+                "Panic/Recover mechanism"
+              ],
+              "codeSnippet": "// Defer\nfunc example() {\n    defer fmt.Println(\"Last operation\")\n    fmt.Println(\"First operation\")\n}\n\n// Panic and Recover\nfunc safeDivide(a, b int) (result int) {\n    defer func() {\n        if r := recover(); r != nil {\n            fmt.Println(\"Recovered:\", r)\n            result = 0\n        }\n    }()\n    return a / b\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Defer",
+                  "url": "https://gobyexample.com/defer"
+                }
+              ],
+              "practice": "Functions that perform safe file operations."
+            },
+            {
+              "id": 19,
+              "dayNumber": 19,
+              "title": "Goroutines",
+              "goal": "Introduction to concurrent programming",
+              "activities": [
+                "The 'go' keyword",
+                "Concurrency vs Parallelism"
+              ],
+              "codeSnippet": "func say(s string) {\n    for i := 0; i < 3; i++ {\n        fmt.Println(s)\n        time.Sleep(100 * time.Millisecond)\n    }\n}\n\nfunc main() {\n    go say(\"Hello\")  // Concurrent\n    say(\"World\")     // Synchronous\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Goroutines",
+                  "url": "https://gobyexample.com/goroutines"
+                }
+              ],
+              "practice": "Run multiple tasks concurrently."
+            },
+            {
+              "id": 20,
+              "dayNumber": 20,
+              "title": "Channels",
+              "goal": "Communication between goroutines",
+              "activities": [
+                "Channel creation",
+                "Sending/receiving data"
+              ],
+              "codeSnippet": "func worker(jobs <-chan int, results chan<- int) {\n    for job := range jobs {\n        results <- job * 2\n    }\n}\n\nfunc main() {\n    jobs := make(chan int, 5)\n    results := make(chan int, 5)\n    go worker(jobs, results)\n    // ...\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Channels",
+                  "url": "https://gobyexample.com/channels"
+                }
+              ],
+              "practice": "Implement the Producer-Consumer pattern."
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Week 5: Package Management and Testing",
+          "days": [
+            {
+              "id": 21,
+              "dayNumber": 21,
+              "title": "Go Modules",
+              "goal": "Project structure and dependency management",
+              "activities": [
+                "go mod init",
+                "go get",
+                "go mod tidy"
+              ],
+              "codeSnippet": "go mod init github.com/user/project\ngo get github.com/gorilla/mux\ngo mod tidy",
+              "resources": [
+                {
+                  "title": "Using Go Modules",
+                  "url": "https://go.dev/blog/using-go-modules"
+                }
+              ],
+              "practice": "Create your own module and add a 3rd party package."
+            },
+            {
+              "id": 22,
+              "dayNumber": 22,
+              "title": "Package Organization",
+              "goal": "Create a good project structure",
+              "activities": [
+                "cmd/, internal/, pkg/ structure"
+              ],
+              "codeSnippet": "myapp/\n├── cmd/\n│   └── main.go\n├── internal/\n│   ├── models/\n│   └── handlers/\n├── pkg/\n│   └── utils/\n├── go.mod\n└── go.sum",
+              "resources": [
+                {
+                  "title": "Go Project Layout",
+                  "url": "https://github.com/golang-standards/project-layout"
+                }
+              ],
+              "practice": "Reorganize your existing project."
+            },
+            {
+              "id": 23,
+              "dayNumber": 23,
+              "title": "Unit Testing",
+              "goal": "Start writing tests",
+              "activities": [
+                "'testing' package",
+                "Test functions"
+              ],
+              "codeSnippet": "func TestAdd(t *testing.T) {\n    result := Add(2, 3)\n    expected := 5\n    if result != expected {\n        t.Errorf(\"Add(2,3) = %d; want %d\", result, expected)\n    }\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Testing",
+                  "url": "https://gobyexample.com/testing"
+                }
+              ],
+              "practice": "Write tests for your previous functions."
+            },
+            {
+              "id": 24,
+              "dayNumber": 24,
+              "title": "Table-Driven Tests",
+              "goal": "Effective testing strategies",
+              "activities": [
+                "Test cases with struct slices",
+                "t.Run"
+              ],
+              "codeSnippet": "func TestAddTableDriven(t *testing.T) {\n    tests := []struct {\n        name     string\n        a, b     int\n        expected int\n    }{\n        {\"positive\", 2, 3, 5},\n        {\"negative\", -2, -3, -5},\n    }\n    // loop over tests...\n}",
+              "resources": [
+                {
+                  "title": "Table Driven Tests",
+                  "url": "https://go.dev/wiki/TableDrivenTests"
+                }
+              ],
+              "practice": "Write a table-driven test for string operations."
+            },
+            {
+              "id": 25,
+              "dayNumber": 25,
+              "title": "Benchmarking",
+              "goal": "Performance measurement",
+              "activities": [
+                "testing.B",
+                "go test -bench"
+              ],
+              "codeSnippet": "func BenchmarkAdd(b *testing.B) {\n    for i := 0; i < b.N; i++ {\n        Add(2, 3)\n    }\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Testing and Benchmarking",
+                  "url": "https://gobyexample.com/testing-and-benchmarking"
+                }
+              ],
+              "practice": "Compare two different string concatenation methods."
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "Week 6: Web Development Basics",
+          "days": [
+            {
+              "id": 26,
+              "dayNumber": 26,
+              "title": "HTTP Server Basics",
+              "goal": "Create a simple web server",
+              "activities": [
+                "http.HandleFunc",
+                "http.ListenAndServe"
+              ],
+              "codeSnippet": "func handler(w http.ResponseWriter, r *http.Request) {\n    fmt.Fprintf(w, \"Hello, %s!\", r.URL.Path[1:])\n}\n\nfunc main() {\n    http.HandleFunc(\"/%\", handler)\n    http.ListenAndServe(\":8080\", nil)\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: HTTP Servers",
+                  "url": "https://gobyexample.com/http-servers"
+                }
+              ],
+              "practice": "A simple server with different routes."
+            },
+            {
+              "id": 27,
+              "dayNumber": 27,
+              "title": "HTTP Handlers and Mux",
+              "goal": "Route management",
+              "activities": [
+                "http.NewServeMux"
+              ],
+              "codeSnippet": "mux := http.NewServeMux()\nmux.HandleFunc(\"/%\", homeHandler)\nmux.HandleFunc(\"/about\", aboutHandler)\nhttp.ListenAndServe(\":8080\", mux)",
+              "resources": [
+                {
+                  "title": "net/http package",
+                  "url": "https://pkg.go.dev/net/http"
+                }
+              ],
+              "practice": "Create RESTful endpoints."
+            },
+            {
+              "id": 28,
+              "dayNumber": 28,
+              "title": "JSON API",
+              "goal": "Return a JSON response",
+              "activities": [
+                "Content-Type header",
+                "json.NewEncoder"
+              ],
+              "codeSnippet": "func usersHandler(w http.ResponseWriter, r *http.Request) {\n    users := []User{{ID: 1, Name: \"Alex\"}}\n    w.Header().Set(\"Content-Type\", \"application/json\")\n    json.NewEncoder(w).Encode(users)\n}",
+              "resources": [
+                {
+                  "title": "Building a RESTful API",
+                  "url": "https://tutorialedge.net/golang/creating-restful-api-with-golang/"
+                }
+              ],
+              "practice": "Create CRUD API endpoints."
+            },
+            {
+              "id": 29,
+              "dayNumber": 29,
+              "title": "Middleware",
+              "goal": "Request/response processing",
+              "activities": [
+                "Wrapping handlers",
+                "Logging middleware"
+              ],
+              "codeSnippet": "func loggingMiddleware(next http.Handler) http.Handler {\n    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {\n        log.Printf(\"%s %s\", r.Method, r.URL.Path)\n        next.ServeHTTP(w, r)\n    })\n}",
+              "resources": [
+                {
+                  "title": "Making and Using Middleware",
+                  "url": "https://www.alexedwards.net/blog/making-and-using-middleware"
+                }
+              ],
+              "practice": "Write an authentication middleware."
+            },
+            {
+              "id": 30,
+              "dayNumber": 30,
+              "title": "Gorilla Mux",
+              "goal": "Advanced routing",
+              "activities": [
+                "URL parameters",
+                "Method restriction"
+              ],
+              "codeSnippet": "r := mux.NewRouter()\nr.HandleFunc(\"/users/{id}\", getUserHandler).Methods(\"GET\")\n\nvars := mux.Vars(r)\nid := vars[\"id\"]",
+              "resources": [
+                {
+                  "title": "Gorilla Mux Docs",
+                  "url": "https://github.com/gorilla/mux"
+                }
+              ],
+              "practice": "Develop an API with parameterized routes."
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "Week 7: Database Operations",
+          "days": [
+            {
+              "id": 31,
+              "dayNumber": 31,
+              "title": "database/sql Package",
+              "goal": "Connect to a SQL database",
+              "activities": [
+                "sql.Open",
+                "Driver usage (sqlite3)"
+              ],
+              "codeSnippet": "import (\n    \"database/sql\"\n    _ \"github.com/mattn/go-sqlite3\"\n)\n\ndb, err := sql.Open(\"sqlite3\", \"test.db\")\nerr = db.Ping()",
+              "resources": [
+                {
+                  "title": "Go database/sql tutorial",
+                  "url": "http://go-database-sql.org/"
+                }
+              ],
+              "practice": "Create and connect to a SQLite database."
+            },
+            {
+              "id": 32,
+              "dayNumber": 32,
+              "title": "CRUD - Create & Read",
+              "goal": "Adding and reading data",
+              "activities": [
+                "Exec",
+                "Query",
+                "Scan"
+              ],
+              "codeSnippet": "// Insert\nstmt, _ := db.Prepare(\"INSERT INTO users(name) VALUES(?)\")\nstmt.Exec(\"Alex\")\n\n// Read\nrows, _ := db.Query(\"SELECT name FROM users\")\nfor rows.Next() {\n    rows.Scan(&name)\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: SQL",
+                  "url": "https://gobyexample.com/sql"
+                }
+              ],
+              "practice": "Create a user table and add data."
+            },
+            {
+              "id": 33,
+              "dayNumber": 33,
+              "title": "CRUD - Update & Delete",
+              "goal": "Updating and deleting data",
+              "activities": [
+                "Update query",
+                "Delete query"
+              ],
+              "codeSnippet": "// Update\nstmt, _ := db.Prepare(\"UPDATE users SET email = ? WHERE id = ?\")\nstmt.Exec(\"new@example.com\", 1)\n\n// Delete\nstmt, _ = db.Prepare(\"DELETE FROM users WHERE id = ?\")\nstmt.Exec(1)",
+              "resources": [],
+              "practice": "Write full CRUD functions."
+            },
+            {
+              "id": 34,
+              "dayNumber": 34,
+              "title": "Transactions",
+              "goal": "Safe and atomic operations",
+              "activities": [
+                "db.Begin",
+                "Commit",
+                "Rollback"
+              ],
+              "codeSnippet": "tx, _ := db.Begin()\nstmt, _ := tx.Prepare(\"INSERT INTO users(name) VALUES(?)\")\n_, err := stmt.Exec(\"Alex\")\nif err != nil {\n    tx.Rollback()\n    return\n}\ntx.Commit()",
+              "resources": [
+                {
+                  "title": "SQL Injection Prevention",
+                  "url": "https://go.dev/doc/database/sql-injection"
+                }
+              ],
+              "practice": "A safe transfer operation with a transaction."
+            },
+            {
+              "id": 35,
+              "dayNumber": 35,
+              "title": "ORM - GORM Basics",
+              "goal": "Database operations with GORM",
+              "activities": [
+                "AutoMigrate",
+                "GORM methods"
+              ],
+              "codeSnippet": "db.AutoMigrate(&User{})\n\n// Create\ndb.Create(&User{Name: \"Alex\"})\n\n// Find\ndb.First(&user, 1)",
+              "resources": [
+                {
+                  "title": "GORM Docs",
+                  "url": "https://gorm.io/docs/"
+                }
+              ],
+              "practice": "Create a simple blog model with GORM."
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "Week 8: Real World Applications",
+          "days": [
+            {
+              "id": 36,
+              "dayNumber": 36,
+              "title": "Environment Variables",
+              "goal": "Configuration management",
+              "activities": [
+                "os.Getenv",
+                "godotenv"
+              ],
+              "codeSnippet": "port := os.Getenv(\"PORT\")\nif port == \"\" {\n    port = \"8080\"\n}\n\n// .env load\ngodotenv.Load()",
+              "resources": [
+                {
+                  "title": "Managing env vars",
+                  "url": "https://dev.to/craicoverflow/a-no-nonsense-guide-to-environment-variables-in-go-a2f"
+                }
+              ],
+              "practice": "Create a config struct and load it from env."
+            },
+            {
+              "id": 37,
+              "dayNumber": 37,
+              "title": "Logging",
+              "goal": "Effective log management",
+              "activities": [
+                "'log' package",
+                "Structured logging (zerolog)"
+              ],
+              "codeSnippet": "log.Printf(\"User %s logged in\", user)\n\n// Zerolog\nlog.Info().Str(\"user\", \"alex\").Msg(\"Login\")",
+              "resources": [
+                {
+                  "title": "zerolog",
+                  "url": "https://github.com/rs/zerolog"
+                }
+              ],
+              "practice": "Build a system that supports different log levels."
+            },
+            {
+              "id": 38,
+              "dayNumber": 38,
+              "title": "HTTP Client",
+              "goal": "Making API calls",
+              "activities": [
+                "http.Get",
+                "http.Post",
+                "Custom Client"
+              ],
+              "codeSnippet": "resp, err := http.Get(\"https://api.example.com/users\")\n\n// Post\nhttp.Post(url, \"application/json\", body)",
+              "resources": [
+                {
+                  "title": "Go by Example: HTTP Clients",
+                  "url": "https://gobyexample.com/http-clients"
+                }
+              ],
+              "practice": "A program that fetches data from a weather API."
+            },
+            {
+              "id": 39,
+              "dayNumber": 39,
+              "title": "Working with Time",
+              "goal": "Date and time operations",
+              "activities": [
+                "time.Now",
+                "Formatting",
+                "Duration",
+                "Tickers"
+              ],
+              "codeSnippet": "now := time.Now()\nfmt.Println(now.Format(\"2006-01-02\"))\n\ntimer := time.NewTimer(2 * time.Second)\n<-timer.C",
+              "resources": [
+                {
+                  "title": "Go by Example: Time",
+                  "url": "https://gobyexample.com/time"
+                }
+              ],
+              "practice": "Create a countdown timer or a pomodoro timer."
+            },
+            {
+              "id": 40,
+              "dayNumber": 40,
+              "title": "Regular Expressions",
+              "goal": "Text pattern matching",
+              "activities": [
+                "regexp.MustCompile",
+                "MatchString",
+                "ReplaceAllString"
+              ],
+              "codeSnippet": "emailRegex := regexp.MustCompile(`^[a-z0-9._%+\\-]+@[a-z0-9.\\-]+\\.[a-z]{2,}$`)\nisValid := emailRegex.MatchString(\"test@example.com\")",
+              "resources": [
+                {
+                  "title": "Go by Example: Regex",
+                  "url": "https://gobyexample.com/regular-expressions"
+                }
+              ],
+              "practice": "Create an email, phone, and URL validator."
+            },
+            {
+              "id": 41,
+              "dayNumber": 41,
+              "title": "Context Package",
+              "goal": "Cancellation and timeout management",
+              "activities": [
+                "WithTimeout",
+                "ctx.Done()"
+              ],
+              "codeSnippet": "ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)\ndefer cancel()\n\nselect {\ncase <-ctx.Done():\n    fmt.Println(\"Timeout\")\n}",
+              "resources": [
+                {
+                  "title": "Go Context",
+                  "url": "https://go.dev/blog/context"
+                }
+              ],
+              "practice": "Make database queries with timeouts."
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "Week 9: Advanced Concurrency",
+          "days": [
+            {
+              "id": 42,
+              "dayNumber": 42,
+              "title": "Worker Pools",
+              "goal": "Effective job distribution",
+              "activities": [
+                "Worker pattern implementation"
+              ],
+              "codeSnippet": "func worker(id int, jobs <-chan int, results chan<- int) {\n    for j := range jobs {\n        results <- j * 2\n    }\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Worker Pools",
+                  "url": "https://gobyexample.com/worker-pools"
+                }
+              ],
+              "practice": "Parallel image processing worker pool."
+            },
+            {
+              "id": 43,
+              "dayNumber": 43,
+              "title": "Rate Limiting",
+              "goal": "Control request speed",
+              "activities": [
+                "time.Tick",
+                "Bursty limiter"
+              ],
+              "codeSnippet": "limiter := time.Tick(200 * time.Millisecond)\nfor req := range requests {\n    <-limiter\n    go handle(req)\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Rate Limiting",
+                  "url": "https://gobyexample.com/rate-limiting"
+                }
+              ],
+              "practice": "Create an API rate limiter middleware."
+            },
+            {
+              "id": 44,
+              "dayNumber": 44,
+              "title": "Select Statement",
+              "goal": "Multiple channel operations",
+              "activities": [
+                "Select-case structure",
+                "Timeout handling"
+              ],
+              "codeSnippet": "select {\ncase msg1 := <-c1:\n    fmt.Println(msg1)\ncase <-time.After(1 * time.Second):\n    fmt.Println(\"Timeout\")\n}",
+              "resources": [
+                {
+                  "title": "Go by Example: Select",
+                  "url": "https://gobyexample.com/select"
+                }
+              ],
+              "practice": "A system that collects data from multiple sources."
+            },
+            {
+              "id": 45,
+              "dayNumber": 45,
+              "title": "Mutex and Sync",
+              "goal": "Writing thread-safe code",
+              "activities": [
+                "sync.Mutex",
+                "sync.WaitGroup"
+              ],
+              "codeSnippet": "c.mu.Lock()\nc.value++\nc.mu.Unlock()\n\nvar wg sync.WaitGroup\nwg.Add(1)\nwg.Done()\nwg.Wait()",
+              "resources": [
+                {
+                  "title": "Go by Example: Mutexes",
+                  "url": "https://gobyexample.com/mutexes"
+                }
+              ],
+              "practice": "Thread-safe cache implementation."
+            },
+            {
+              "id": 46,
+              "dayNumber": 46,
+              "title": "Atomic Operations",
+              "goal": "Lock-free programming",
+              "activities": [
+                "sync/atomic",
+                "AddInt64",
+                "Load/Store"
+              ],
+              "codeSnippet": "atomic.AddInt64(&counter, 1)\nval := atomic.LoadInt64(&counter)",
+              "resources": [
+                {
+                  "title": "Go by Example: Atomic Counters",
+                  "url": "https://gobyexample.com/atomic-counters"
+                }
+              ],
+              "practice": "Create a performance counter system."
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "Week 10: Web Frameworks",
+          "days": [
+            {
+              "id": 47,
+              "dayNumber": 47,
+              "title": "Gin Framework",
+              "goal": "Learn a popular web framework",
+              "activities": [
+                "Gin setup",
+                "Basic routing"
+              ],
+              "codeSnippet": "r := gin.Default()\nr.GET(\"/ping\", func(c *gin.Context) {\n    c.JSON(200, gin.H{\"message\": \"pong\"})\n})\nr.Run()",
+              "resources": [
+                {
+                  "title": "Gin Documentation",
+                  "url": "https://gin-gonic.com/docs/"
+                }
+              ],
+              "practice": "Create a RESTful API with Gin."
+            },
+            {
+              "id": 48,
+              "dayNumber": 48,
+              "title": "Middleware in Gin",
+              "goal": "Gin middlewares",
+              "activities": [
+                "Custom middleware",
+                "Group routing"
+              ],
+              "codeSnippet": "func AuthMiddleware() gin.HandlerFunc { ... }\n\napi := r.Group(\"/api\")\napi.Use(AuthMiddleware())",
+              "resources": [
+                {
+                  "title": "Gin Middleware",
+                  "url": "https://gin-gonic.com/docs/examples/using-middleware/"
+                }
+              ],
+              "practice": "Add Auth, logging, CORS middlewares."
+            },
+            {
+              "id": 49,
+              "dayNumber": 49,
+              "title": "Validation",
+              "goal": "Input validation",
+              "activities": [
+                "'validator' package",
+                "Binding tags"
+              ],
+              "codeSnippet": "type User struct {\n    Email string `binding:\"required,email\"`\n}\n\nif err := c.ShouldBindJSON(&user); err != nil { ... }",
+              "resources": [
+                {
+                  "title": "validator package",
+                  "url": "https://github.com/go-playground/validator"
+                }
+              ],
+              "practice": "Add comprehensive validation rules."
+            },
+            {
+              "id": 50,
+              "dayNumber": 50,
+              "title": "Error Handling Patterns",
+              "goal": "Professional error handling",
+              "activities": [
+                "Custom errors",
+                "errors.Is",
+                "errors.As"
+              ],
+              "codeSnippet": "if errors.Is(err, sql.ErrNoRows) {\n    // handle not found\n}",
+              "resources": [
+                {
+                  "title": "Error handling in Go",
+                  "url": "https://go.dev/blog/error-handling-and-go"
+                }
+              ],
+              "practice": "Implement a consistent error handling strategy."
+            },
+            {
+              "id": 51,
+              "dayNumber": 51,
+              "title": "Code Organization",
+              "goal": "Clean architecture principles",
+              "activities": [
+                "Domain/Repo/Service layers"
+              ],
+              "codeSnippet": "internal/\n  domain/\n  repository/\n  service/\n  handler/",
+              "resources": [
+                {
+                  "title": "Clean Architecture in Go",
+                  "url": "https://medium.com/@hatajoe/clean-architecture-in-go-4030f11ec1b1"
+                }
+              ],
+              "practice": "Refactor your existing project."
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "title": "Week 11: Deployment and DevOps",
+          "days": [
+            {
+              "id": 52,
+              "dayNumber": 52,
+              "title": "Docker Basics",
+              "goal": "Containerize applications",
+              "activities": [
+                "Dockerfile creation",
+                "Multi-stage builds"
+              ],
+              "codeSnippet": "FROM golang:1.21-alpine AS builder\n...\nFROM alpine:latest\nCOPY --from=builder /app/main .",
+              "resources": [
+                {
+                  "title": "Dockerizing Go",
+                  "url": "https://docs.docker.com/language/golang/"
+                }
+              ],
+              "practice": "Run your application in a Docker container."
+            },
+            {
+              "id": 53,
+              "dayNumber": 53,
+              "title": "Docker Compose",
+              "goal": "Multi-container applications",
+              "activities": [
+                "docker-compose.yml",
+                "Service linking"
+              ],
+              "codeSnippet": "services:\n  app:\n    depends_on:\n      - postgres",
+              "resources": [
+                {
+                  "title": "Docker Compose",
+                  "url": "https://docs.docker.com/compose/"
+                }
+              ],
+              "practice": "App + Database + Redis compose setup."
+            },
+            {
+              "id": 54,
+              "dayNumber": 54,
+              "title": "Environment Config",
+              "goal": "Config management with Viper",
+              "activities": [
+                "Viper setup",
+                "Reading config"
+              ],
+              "codeSnippet": "viper.SetConfigName(\"config\")\nviper.ReadInConfig()",
+              "resources": [
+                {
+                  "title": "Viper",
+                  "url": "https://github.com/spf13/viper"
+                }
+              ],
+              "practice": "Create dev, staging, production configs."
+            },
+            {
+              "id": 55,
+              "dayNumber": 55,
+              "title": "Graceful Shutdown",
+              "goal": "Safe shutdown",
+              "activities": [
+                "Signal catching",
+                "srv.Shutdown"
+              ],
+              "codeSnippet": "quit := make(chan os.Signal, 1)\nsignal.Notify(quit, syscall.SIGINT)\n<-quit\nsrv.Shutdown(ctx)",
+              "resources": [
+                {
+                  "title": "Graceful Shutdown",
+                  "url": "https://medium.com/honestbee-tw-engineer/gracefully-shutdown-in-go-http-server-5f5e6b83da5a"
+                }
+              ],
+              "practice": "Shutdown that cleanly closes database connections."
+            },
+            {
+              "id": 56,
+              "dayNumber": 56,
+              "title": "Monitoring",
+              "goal": "Prometheus metrics",
+              "activities": [
+                "Prometheus client",
+                "Instrumentation"
+              ],
+              "codeSnippet": "httpRequestsTotal.Inc()",
+              "resources": [
+                {
+                  "title": "Prometheus Go",
+                  "url": "https://github.com/prometheus/client_golang"
+                }
+              ],
+              "practice": "Add and visualize Prometheus metrics."
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "title": "Week 12: Advanced & Final",
+          "days": [
+            {
+              "id": 57,
+              "dayNumber": 57,
+              "title": "Performance Optimization",
+              "goal": "Profiling and optimization",
+              "activities": [
+                "pprof",
+                "sync.Pool",
+                "strings.Builder"
+              ],
+              "codeSnippet": "import _ \"net/http/pprof\"\n\nvar pool = sync.Pool{...}",
+              "resources": [
+                {
+                  "title": "Profiling Go Programs",
+                  "url": "https://go.dev/blog/pprof"
+                }
+              ],
+              "practice": "Analyze your application with pprof."
+            },
+            {
+              "id": 58,
+              "dayNumber": 58,
+              "title": "Security Best Practices",
+              "goal": "Writing secure code",
+              "activities": [
+                "bcrypt",
+                "JWT",
+                "Input sanitization"
+              ],
+              "codeSnippet": "bcrypt.GenerateFromPassword([]byte(pass), 14)",
+              "resources": [
+                {
+                  "title": "Go Security Cheat Sheet",
+                  "url": "https://cheatsheetseries.owasp.org/cheatsheets/Go_SPA_Cheat_Sheet.html"
+                }
+              ],
+              "practice": "Implement a JWT auth system."
+            },
+            {
+              "id": 59,
+              "dayNumber": 59,
+              "title": "WebSockets",
+              "goal": "Real-time communication",
+              "activities": [
+                "Gorilla websocket",
+                "Upgrade connection"
+              ],
+              "codeSnippet": "upgrader.Upgrade(w, r, nil)\nconn.ReadMessage()",
+              "resources": [
+                {
+                  "title": "Gorilla WebSocket",
+                  "url": "https://github.com/gorilla/websocket"
+                }
+              ],
+              "practice": "Create a simple chat application."
+            },
+            {
+              "id": 60,
+              "dayNumber": 60,
+              "title": "CLI Applications",
+              "goal": "CLI tools with Cobra",
+              "activities": [
+                "Cobra setup",
+                "Commands & Flags"
+              ],
+              "codeSnippet": "var rootCmd = &cobra.Command{Use: \"app\"}\nrootCmd.Execute()",
+              "resources": [
+                {
+                  "title": "Cobra",
+                  "url": "https://github.com/spf13/cobra"
+                }
+              ],
+              "practice": "Create a multi-command CLI tool."
+            }
+          ]
+        }
+      ]
+    },
+    "python": {
+      "title": "Python Learning Guide - 30 Minutes/Day",
+      "weeks": [
+        {
+          "id": 1,
+          "title": "Week 1: Python Setup & Core Syntax",
+          "days": [
+            {
+              "id": 1,
+              "dayNumber": 1,
+              "title": "Setup and First Script",
+              "goal": "Install Python and run the first script",
+              "activities": [
+                "Install Python 3 and create a virtual environment",
+                "Install VS Code + Python extension",
+                "Run a simple print script"
+              ],
+              "resources": [
+                {
+                  "title": "Python.org Downloads",
+                  "url": "https://www.python.org/downloads/"
+                },
+                {
+                  "title": "Virtual Environments",
+                  "url": "https://docs.python.org/3/tutorial/venv.html"
+                }
+              ],
+              "practice": "Write a 5-bullet summary of what you learned today.",
+              "codeSnippet": "print('Hello, Python!')"
+            },
+            {
+              "id": 2,
+              "dayNumber": 2,
+              "title": "Variables and Data Types",
+              "goal": "Learn core data types and assignments",
+              "activities": [
+                "Practice int/float/str/bool",
+                "Use type() to inspect",
+                "Format output with f-strings"
+              ],
+              "resources": [
+                {
+                  "title": "Python Data Types",
+                  "url": "https://docs.python.org/3/library/stdtypes.html"
+                },
+                {
+                  "title": "f-strings",
+                  "url": "https://realpython.com/python-f-strings/"
+                }
+              ],
+              "practice": "Create a small script that stores your profile info in variables."
+            },
+            {
+              "id": 3,
+              "dayNumber": 3,
+              "title": "Operators and Strings",
+              "goal": "Apply arithmetic and string operations",
+              "activities": [
+                "Use arithmetic and comparison operators",
+                "Slice and concatenate strings",
+                "Take user input and transform it"
+              ],
+              "resources": [
+                {
+                  "title": "String Methods",
+                  "url": "https://docs.python.org/3/library/stdtypes.html#string-methods"
+                },
+                {
+                  "title": "Input/Output",
+                  "url": "https://docs.python.org/3/tutorial/inputoutput.html"
+                }
+              ],
+              "practice": "Build a script that uppercases a user-provided name."
+            },
+            {
+              "id": 4,
+              "dayNumber": 4,
+              "title": "Control Flow",
+              "goal": "Use if/for/while for flow control",
+              "activities": [
+                "Write if/elif/else rules",
+                "Practice for/while loops",
+                "Try break/continue"
+              ],
+              "resources": [
+                {
+                  "title": "Control Flow",
+                  "url": "https://docs.python.org/3/tutorial/controlflow.html"
+                },
+                {
+                  "title": "Loops in Python",
+                  "url": "https://realpython.com/python-for-loop/"
+                }
+              ],
+              "practice": "Print 1-100 and filter numbers by 3 and 5."
+            },
+            {
+              "id": 5,
+              "dayNumber": 5,
+              "title": "Functions + Weekend Homework",
+              "goal": "Write reusable functions",
+              "activities": [
+                "Create functions with def",
+                "Practice parameters and return",
+                "Active recall: write 5 Q&A notes"
+              ],
+              "resources": [
+                {
+                  "title": "Defining Functions",
+                  "url": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions"
+                },
+                {
+                  "title": "Python Functions",
+                  "url": "https://realpython.com/defining-your-own-python-function/"
+                }
+              ],
+              "practice": "Weekend homework: build a simple CLI calculator."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Week 2: Collections and File I/O",
+          "days": [
+            {
+              "id": 6,
+              "dayNumber": 6,
+              "title": "Lists",
+              "goal": "Create and manipulate lists",
+              "activities": [
+                "Create lists and add/remove items",
+                "Use slicing and indexing",
+                "Solve a short list exercise"
+              ],
+              "resources": [
+                {
+                  "title": "Python Lists",
+                  "url": "https://docs.python.org/3/tutorial/datastructures.html#more-on-lists"
+                },
+                {
+                  "title": "List Comprehension",
+                  "url": "https://realpython.com/list-comprehension-python/"
+                }
+              ],
+              "practice": "List your top 5 books and sort them alphabetically."
+            },
+            {
+              "id": 7,
+              "dayNumber": 7,
+              "title": "Tuples and Sets",
+              "goal": "Work with immutable and unique collections",
+              "activities": [
+                "Create tuples and unpack",
+                "Use sets for unique values",
+                "Try union/intersection"
+              ],
+              "resources": [
+                {
+                  "title": "Tuples",
+                  "url": "https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences"
+                },
+                {
+                  "title": "Sets",
+                  "url": "https://docs.python.org/3/tutorial/datastructures.html#sets"
+                }
+              ],
+              "practice": "Extract unique words from a short paragraph."
+            },
+            {
+              "id": 8,
+              "dayNumber": 8,
+              "title": "Dictionaries",
+              "goal": "Understand key-value storage",
+              "activities": [
+                "Create dictionaries and access values",
+                "Use get/items/keys",
+                "Build a mini dictionary app"
+              ],
+              "resources": [
+                {
+                  "title": "Dictionaries",
+                  "url": "https://docs.python.org/3/tutorial/datastructures.html#dictionaries"
+                },
+                {
+                  "title": "Dicts Guide",
+                  "url": "https://realpython.com/python-dicts/"
+                }
+              ],
+              "practice": "Track daily expenses as date:amount pairs."
+            },
+            {
+              "id": 9,
+              "dayNumber": 9,
+              "title": "Comprehensions",
+              "goal": "Write concise transformations",
+              "activities": [
+                "Write list and dict comprehensions",
+                "Combine filter + transform",
+                "Refactor a loop into comprehension"
+              ],
+              "resources": [
+                {
+                  "title": "Comprehensions",
+                  "url": "https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions"
+                },
+                {
+                  "title": "Comprehension Tips",
+                  "url": "https://realpython.com/list-comprehension-python/"
+                }
+              ],
+              "practice": "Compute squares of even numbers from 1-50."
+            },
+            {
+              "id": 10,
+              "dayNumber": 10,
+              "title": "File I/O + Weekend Homework",
+              "goal": "Read and write files",
+              "activities": [
+                "Read/write with open()",
+                "Use with context manager",
+                "Create a simple log file"
+              ],
+              "resources": [
+                {
+                  "title": "Reading/Writing Files",
+                  "url": "https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files"
+                },
+                {
+                  "title": "Pathlib",
+                  "url": "https://docs.python.org/3/library/pathlib.html"
+                }
+              ],
+              "practice": "Weekend homework: build a mini journal app that writes notes to a file."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Week 3: Object-Oriented Programming",
+          "days": [
+            {
+              "id": 11,
+              "dayNumber": 11,
+              "title": "Classes and Objects",
+              "goal": "Learn class/object basics",
+              "activities": [
+                "Create classes and instances",
+                "Use __init__",
+                "Design a simple class"
+              ],
+              "resources": [
+                {
+                  "title": "Classes",
+                  "url": "https://docs.python.org/3/tutorial/classes.html"
+                },
+                {
+                  "title": "OOP in Python",
+                  "url": "https://realpython.com/python3-object-oriented-programming/"
+                }
+              ],
+              "practice": "Build a Todo class and add sample items."
+            },
+            {
+              "id": 12,
+              "dayNumber": 12,
+              "title": "Methods and Properties",
+              "goal": "Add behavior to classes",
+              "activities": [
+                "Write instance methods",
+                "Use @property",
+                "Refactor a class"
+              ],
+              "resources": [
+                {
+                  "title": "Property",
+                  "url": "https://docs.python.org/3/library/functions.html#property"
+                },
+                {
+                  "title": "Python OOP Patterns",
+                  "url": "https://realpython.com/python3-object-oriented-programming/"
+                }
+              ],
+              "practice": "Add a discount calculation method to a Product class."
+            },
+            {
+              "id": 13,
+              "dayNumber": 13,
+              "title": "Inheritance and Composition",
+              "goal": "Compare inheritance vs composition",
+              "activities": [
+                "Create base and subclass",
+                "Use super()",
+                "Try a composition example"
+              ],
+              "resources": [
+                {
+                  "title": "Inheritance",
+                  "url": "https://docs.python.org/3/tutorial/classes.html#inheritance"
+                },
+                {
+                  "title": "Composition vs Inheritance",
+                  "url": "https://realpython.com/inheritance-composition-python/"
+                }
+              ],
+              "practice": "Create Employee and Manager classes."
+            },
+            {
+              "id": 14,
+              "dayNumber": 14,
+              "title": "Modules and Packages",
+              "goal": "Organize code with modules",
+              "activities": [
+                "Create a module and import it",
+                "Set up a package structure",
+                "Review __init__.py"
+              ],
+              "resources": [
+                {
+                  "title": "Modules",
+                  "url": "https://docs.python.org/3/tutorial/modules.html"
+                },
+                {
+                  "title": "Packages",
+                  "url": "https://docs.python.org/3/tutorial/modules.html#packages"
+                }
+              ],
+              "practice": "Build a small utils package."
+            },
+            {
+              "id": 15,
+              "dayNumber": 15,
+              "title": "Project Structure + Weekend Homework",
+              "goal": "Prepare a mini project layout",
+              "activities": [
+                "Attach venv to the project",
+                "Add README and requirements.txt",
+                "Plan weekend project scope"
+              ],
+              "resources": [
+                {
+                  "title": "Python Packaging",
+                  "url": "https://packaging.python.org/"
+                },
+                {
+                  "title": "Project Structure",
+                  "url": "https://realpython.com/python-application-layouts/"
+                }
+              ],
+              "practice": "Weekend homework: build a simple OOP-based notes app."
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Week 4: Errors, Logging, and Testing",
+          "days": [
+            {
+              "id": 16,
+              "dayNumber": 16,
+              "title": "Exception Handling",
+              "goal": "Handle errors with try/except",
+              "activities": [
+                "Write try/except blocks",
+                "Catch specific exceptions",
+                "Use finally"
+              ],
+              "resources": [
+                {
+                  "title": "Errors and Exceptions",
+                  "url": "https://docs.python.org/3/tutorial/errors.html"
+                },
+                {
+                  "title": "Python Exceptions",
+                  "url": "https://realpython.com/python-exceptions/"
+                }
+              ],
+              "practice": "Write a script that handles invalid user input gracefully."
+            },
+            {
+              "id": 17,
+              "dayNumber": 17,
+              "title": "Logging and Debugging",
+              "goal": "Capture app output with logs",
+              "activities": [
+                "Use logging module",
+                "Try different log levels",
+                "Create a simple error report"
+              ],
+              "resources": [
+                {
+                  "title": "Logging HOWTO",
+                  "url": "https://docs.python.org/3/howto/logging.html"
+                },
+                {
+                  "title": "Debugging",
+                  "url": "https://realpython.com/python-debugging-pdb/"
+                }
+              ],
+              "practice": "Produce a small log file from an error scenario."
+            },
+            {
+              "id": 18,
+              "dayNumber": 18,
+              "title": "Testing with pytest",
+              "goal": "Write unit tests",
+              "activities": [
+                "Install pytest and write a test",
+                "Use assert",
+                "Test a simple function"
+              ],
+              "resources": [
+                {
+                  "title": "pytest",
+                  "url": "https://docs.pytest.org/en/stable/"
+                },
+                {
+                  "title": "Testing in Python",
+                  "url": "https://realpython.com/python-testing/"
+                }
+              ],
+              "practice": "Write three tests for a calculation function."
+            },
+            {
+              "id": 19,
+              "dayNumber": 19,
+              "title": "Type Hints",
+              "goal": "Improve readability with typing",
+              "activities": [
+                "Use typing module",
+                "Add type hints to functions",
+                "Learn the idea of mypy"
+              ],
+              "resources": [
+                {
+                  "title": "Typing",
+                  "url": "https://docs.python.org/3/library/typing.html"
+                },
+                {
+                  "title": "Type Checking",
+                  "url": "https://realpython.com/python-type-checking/"
+                }
+              ],
+              "practice": "Add type hints to an existing function and review it."
+            },
+            {
+              "id": 20,
+              "dayNumber": 20,
+              "title": "Package Management + Weekend Homework",
+              "goal": "Manage dependencies with pip",
+              "activities": [
+                "Install/remove packages with pip",
+                "Create requirements.txt",
+                "List dependencies for weekend project"
+              ],
+              "resources": [
+                {
+                  "title": "pip",
+                  "url": "https://pip.pypa.io/en/stable/"
+                },
+                {
+                  "title": "Requirements Files",
+                  "url": "https://pip.pypa.io/en/stable/user_guide/#requirements-files"
+                }
+              ],
+              "practice": "Weekend homework: fetch data from an API and save it to a file (requests)."
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "title": "Week 5: Advanced Python",
+          "days": [
+            {
+              "id": 21,
+              "dayNumber": 21,
+              "title": "Lambda and Functional Tools",
+              "goal": "Use lambda/map/filter",
+              "activities": [
+                "Write lambda functions",
+                "Transform data with map/filter",
+                "Compare with for loops"
+              ],
+              "resources": [
+                {
+                  "title": "Functional Programming",
+                  "url": "https://docs.python.org/3/howto/functional.html"
+                },
+                {
+                  "title": "Lambda",
+                  "url": "https://realpython.com/python-lambda/"
+                }
+              ],
+              "practice": "Transform a list of numbers with map/filter."
+            },
+            {
+              "id": 22,
+              "dayNumber": 22,
+              "title": "Iterators and Generators",
+              "goal": "Understand lazy evaluation",
+              "activities": [
+                "Review iterator protocol",
+                "Write a generator function",
+                "Practice yield"
+              ],
+              "resources": [
+                {
+                  "title": "Iterators",
+                  "url": "https://docs.python.org/3/tutorial/classes.html#iterators"
+                },
+                {
+                  "title": "Generators",
+                  "url": "https://realpython.com/introduction-to-python-generators/"
+                }
+              ],
+              "practice": "Write a generator for odd numbers 1-100."
+            },
+            {
+              "id": 23,
+              "dayNumber": 23,
+              "title": "Decorators",
+              "goal": "Extend function behavior",
+              "activities": [
+                "Write a simple decorator",
+                "Use @wraps",
+                "Time a function"
+              ],
+              "resources": [
+                {
+                  "title": "Decorators",
+                  "url": "https://realpython.com/primer-on-python-decorators/"
+                },
+                {
+                  "title": "functools.wraps",
+                  "url": "https://docs.python.org/3/library/functools.html#functools.wraps"
+                }
+              ],
+              "practice": "Build a decorator that measures execution time."
+            },
+            {
+              "id": 24,
+              "dayNumber": 24,
+              "title": "Context Managers",
+              "goal": "Deepen with statement usage",
+              "activities": [
+                "Use contextlib",
+                "Write a custom context manager",
+                "Improve file handling"
+              ],
+              "resources": [
+                {
+                  "title": "Context Managers",
+                  "url": "https://docs.python.org/3/reference/datamodel.html#context-managers"
+                },
+                {
+                  "title": "contextlib",
+                  "url": "https://docs.python.org/3/library/contextlib.html"
+                }
+              ],
+              "practice": "Create a timer context manager."
+            },
+            {
+              "id": 25,
+              "dayNumber": 25,
+              "title": "Dataclasses + Weekend Homework",
+              "goal": "Model data cleanly with dataclass",
+              "activities": [
+                "Use @dataclass",
+                "Add default values",
+                "Plan weekend mini project"
+              ],
+              "resources": [
+                {
+                  "title": "Dataclasses",
+                  "url": "https://docs.python.org/3/library/dataclasses.html"
+                },
+                {
+                  "title": "Dataclass Guide",
+                  "url": "https://realpython.com/python-data-classes/"
+                }
+              ],
+              "practice": "Weekend homework: build a small inventory model using dataclasses."
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "title": "Week 6: Standard Library and HTTP",
+          "days": [
+            {
+              "id": 26,
+              "dayNumber": 26,
+              "title": "Pathlib and OS",
+              "goal": "Handle filesystem tasks modernly",
+              "activities": [
+                "Manage files/folders with pathlib",
+                "Compare with os module",
+                "Write a mini search script"
+              ],
+              "resources": [
+                {
+                  "title": "pathlib",
+                  "url": "https://docs.python.org/3/library/pathlib.html"
+                },
+                {
+                  "title": "os",
+                  "url": "https://docs.python.org/3/library/os.html"
+                }
+              ],
+              "practice": "List all .txt files in a directory."
+            },
+            {
+              "id": 27,
+              "dayNumber": 27,
+              "title": "Datetime",
+              "goal": "Manage dates and times",
+              "activities": [
+                "Create dates with datetime",
+                "Use strftime/strptime",
+                "Review time zones"
+              ],
+              "resources": [
+                {
+                  "title": "datetime",
+                  "url": "https://docs.python.org/3/library/datetime.html"
+                },
+                {
+                  "title": "Real Python datetime",
+                  "url": "https://realpython.com/python-datetime/"
+                }
+              ],
+              "practice": "Build a daily schedule timeline."
+            },
+            {
+              "id": 28,
+              "dayNumber": 28,
+              "title": "JSON and CSV",
+              "goal": "Practice serialization",
+              "activities": [
+                "Load/save JSON",
+                "Read CSV files",
+                "Convert data formats"
+              ],
+              "resources": [
+                {
+                  "title": "json",
+                  "url": "https://docs.python.org/3/library/json.html"
+                },
+                {
+                  "title": "csv",
+                  "url": "https://docs.python.org/3/library/csv.html"
+                }
+              ],
+              "practice": "Write a script that converts CSV to JSON."
+            },
+            {
+              "id": 29,
+              "dayNumber": 29,
+              "title": "HTTP Requests",
+              "goal": "Fetch data from APIs",
+              "activities": [
+                "Send GET requests with requests",
+                "Check response status",
+                "Extract simple data"
+              ],
+              "resources": [
+                {
+                  "title": "requests",
+                  "url": "https://requests.readthedocs.io/en/latest/"
+                },
+                {
+                  "title": "HTTP Status Codes",
+                  "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status"
+                }
+              ],
+              "practice": "Fetch data from a public API and print it."
+            },
+            {
+              "id": 30,
+              "dayNumber": 30,
+              "title": "CLI Tools + Weekend Homework",
+              "goal": "Build command-line interfaces",
+              "activities": [
+                "Use argparse for arguments",
+                "Add help text",
+                "Plan weekend CLI tool"
+              ],
+              "resources": [
+                {
+                  "title": "argparse",
+                  "url": "https://docs.python.org/3/library/argparse.html"
+                },
+                {
+                  "title": "Typer",
+                  "url": "https://typer.tiangolo.com/"
+                }
+              ],
+              "practice": "Weekend homework: build a file-search CLI tool."
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "title": "Week 7: Data Analysis Foundations",
+          "days": [
+            {
+              "id": 31,
+              "dayNumber": 31,
+              "title": "NumPy Arrays",
+              "goal": "Learn NumPy array basics",
+              "activities": [
+                "Install NumPy and create arrays",
+                "Inspect shape/dtype",
+                "Do basic vector operations"
+              ],
+              "resources": [
+                {
+                  "title": "NumPy Quickstart",
+                  "url": "https://numpy.org/doc/stable/user/quickstart.html"
+                },
+                {
+                  "title": "NumPy Basics",
+                  "url": "https://realpython.com/numpy-tutorial/"
+                }
+              ],
+              "practice": "Create a random array and compute the mean."
+            },
+            {
+              "id": 32,
+              "dayNumber": 32,
+              "title": "Pandas DataFrame",
+              "goal": "Work with tabular data",
+              "activities": [
+                "Create a DataFrame",
+                "Use head/tail",
+                "Filter rows"
+              ],
+              "resources": [
+                {
+                  "title": "Pandas 10 Minutes",
+                  "url": "https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html"
+                },
+                {
+                  "title": "Pandas Tutorial",
+                  "url": "https://realpython.com/pandas-python-explore-dataset/"
+                }
+              ],
+              "practice": "Load a CSV into a DataFrame and inspect it."
+            },
+            {
+              "id": 33,
+              "dayNumber": 33,
+              "title": "Data Cleaning",
+              "goal": "Handle missing data and types",
+              "activities": [
+                "Detect NaN values",
+                "Use fillna/dropna",
+                "Convert data types"
+              ],
+              "resources": [
+                {
+                  "title": "Missing Data",
+                  "url": "https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html"
+                },
+                {
+                  "title": "Cleaning Data",
+                  "url": "https://realpython.com/python-data-cleaning-numpy-pandas/"
+                }
+              ],
+              "practice": "Clean a small dataset with missing values."
+            },
+            {
+              "id": 34,
+              "dayNumber": 34,
+              "title": "Visualization",
+              "goal": "Plot with Matplotlib",
+              "activities": [
+                "Draw line and bar charts",
+                "Apply a basic style",
+                "Save a chart to file"
+              ],
+              "resources": [
+                {
+                  "title": "Matplotlib Tutorial",
+                  "url": "https://matplotlib.org/stable/tutorials/introductory/pyplot.html"
+                },
+                {
+                  "title": "Seaborn",
+                  "url": "https://seaborn.pydata.org/"
+                }
+              ],
+              "practice": "Visualize your data and write a short insight."
+            },
+            {
+              "id": 35,
+              "dayNumber": 35,
+              "title": "Mini Data Analysis + Weekend Homework",
+              "goal": "Produce a small analysis report",
+              "activities": [
+                "Choose a small dataset",
+                "Write exploratory notes",
+                "Plan the weekend report"
+              ],
+              "resources": [
+                {
+                  "title": "EDA Guide",
+                  "url": "https://www.kaggle.com/learn/data-visualization"
+                },
+                {
+                  "title": "Data Analysis Process",
+                  "url": "https://realpython.com/python-data-analysis/"
+                }
+              ],
+              "practice": "Weekend homework: create a 1-page EDA report."
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "title": "Week 8: Machine Learning Basics",
+          "days": [
+            {
+              "id": 36,
+              "dayNumber": 36,
+              "title": "ML Fundamentals",
+              "goal": "Understand train/test workflow",
+              "activities": [
+                "Perform train/test split",
+                "Pick a simple dataset",
+                "Review sklearn workflow"
+              ],
+              "resources": [
+                {
+                  "title": "scikit-learn Getting Started",
+                  "url": "https://scikit-learn.org/stable/getting_started.html"
+                },
+                {
+                  "title": "Train/Test Split",
+                  "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"
+                }
+              ],
+              "practice": "Split the Iris dataset into train/test."
+            },
+            {
+              "id": 37,
+              "dayNumber": 37,
+              "title": "Linear Regression",
+              "goal": "Start with regression models",
+              "activities": [
+                "Train a linear regression model",
+                "Make predictions",
+                "Calculate RMSE"
+              ],
+              "resources": [
+                {
+                  "title": "Linear Regression",
+                  "url": "https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares"
+                },
+                {
+                  "title": "Regression Metrics",
+                  "url": "https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics"
+                }
+              ],
+              "practice": "Build a simple house-price regression example."
+            },
+            {
+              "id": 38,
+              "dayNumber": 38,
+              "title": "Classification",
+              "goal": "Use logistic regression for classification",
+              "activities": [
+                "Train logistic regression",
+                "Create a confusion matrix",
+                "Check precision/recall"
+              ],
+              "resources": [
+                {
+                  "title": "Logistic Regression",
+                  "url": "https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression"
+                },
+                {
+                  "title": "Classification Metrics",
+                  "url": "https://scikit-learn.org/stable/modules/model_evaluation.html#classification-metrics"
+                }
+              ],
+              "practice": "Train a model on a simple binary dataset."
+            },
+            {
+              "id": 39,
+              "dayNumber": 39,
+              "title": "Model Evaluation",
+              "goal": "Interpret accuracy and metrics",
+              "activities": [
+                "Calculate accuracy and F1",
+                "Review overfitting",
+                "Write a short report"
+              ],
+              "resources": [
+                {
+                  "title": "Model Evaluation",
+                  "url": "https://scikit-learn.org/stable/modules/model_evaluation.html"
+                },
+                {
+                  "title": "Cross Validation",
+                  "url": "https://scikit-learn.org/stable/modules/cross_validation.html"
+                }
+              ],
+              "practice": "Summarize model metrics in a table."
+            },
+            {
+              "id": 40,
+              "dayNumber": 40,
+              "title": "Pipelines + Weekend Homework",
+              "goal": "Build sklearn pipelines",
+              "activities": [
+                "Create a pipeline",
+                "Combine preprocessing + model",
+                "Define weekend project"
+              ],
+              "resources": [
+                {
+                  "title": "Pipelines",
+                  "url": "https://scikit-learn.org/stable/modules/compose.html"
+                },
+                {
+                  "title": "Pipeline Example",
+                  "url": "https://scikit-learn.org/stable/auto_examples/compose/plot_column_transformer_mixed_types.html"
+                }
+              ],
+              "practice": "Weekend homework: build a simple ML pipeline and report results."
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "title": "Week 9: Feature Engineering and Tuning",
+          "days": [
+            {
+              "id": 41,
+              "dayNumber": 41,
+              "title": "Preprocessing",
+              "goal": "Scale and encode data",
+              "activities": [
+                "Use StandardScaler",
+                "Apply one-hot encoding",
+                "Add to a pipeline"
+              ],
+              "resources": [
+                {
+                  "title": "Preprocessing",
+                  "url": "https://scikit-learn.org/stable/modules/preprocessing.html"
+                },
+                {
+                  "title": "Encoding Categorical",
+                  "url": "https://scikit-learn.org/stable/modules/preprocessing.html#encoding-categorical-features"
+                }
+              ],
+              "practice": "Transform categorical columns with one-hot encoding."
+            },
+            {
+              "id": 42,
+              "dayNumber": 42,
+              "title": "Feature Selection",
+              "goal": "Learn feature selection techniques",
+              "activities": [
+                "Try variance threshold",
+                "Use SelectKBest",
+                "Compare results"
+              ],
+              "resources": [
+                {
+                  "title": "Feature Selection",
+                  "url": "https://scikit-learn.org/stable/modules/feature_selection.html"
+                },
+                {
+                  "title": "Feature Selection Guide",
+                  "url": "https://www.kaggle.com/learn/feature-engineering"
+                }
+              ],
+              "practice": "Select the top 5 features and explain why."
+            },
+            {
+              "id": 43,
+              "dayNumber": 43,
+              "title": "Cross Validation",
+              "goal": "Evaluate models correctly",
+              "activities": [
+                "Run K-fold CV",
+                "Compare scores",
+                "Write a CV summary"
+              ],
+              "resources": [
+                {
+                  "title": "Cross Validation",
+                  "url": "https://scikit-learn.org/stable/modules/cross_validation.html"
+                },
+                {
+                  "title": "Model Selection",
+                  "url": "https://scikit-learn.org/stable/model_selection.html"
+                }
+              ],
+              "practice": "Run 5-fold CV for a model."
+            },
+            {
+              "id": 44,
+              "dayNumber": 44,
+              "title": "Hyperparameter Tuning",
+              "goal": "Use Grid/Random search",
+              "activities": [
+                "Try GridSearchCV",
+                "Try RandomizedSearchCV",
+                "Interpret best params"
+              ],
+              "resources": [
+                {
+                  "title": "Grid Search",
+                  "url": "https://scikit-learn.org/stable/modules/grid_search.html"
+                },
+                {
+                  "title": "Randomized Search",
+                  "url": "https://scikit-learn.org/stable/modules/grid_search.html#randomized-parameter-optimization"
+                }
+              ],
+              "practice": "Tune a model with hyperparameter search."
+            },
+            {
+              "id": 45,
+              "dayNumber": 45,
+              "title": "Model Persistence + Weekend Homework",
+              "goal": "Save and reload models",
+              "activities": [
+                "Save model with joblib",
+                "Reload and test",
+                "Prepare weekend report"
+              ],
+              "resources": [
+                {
+                  "title": "Model Persistence",
+                  "url": "https://scikit-learn.org/stable/model_persistence.html"
+                },
+                {
+                  "title": "joblib",
+                  "url": "https://joblib.readthedocs.io/en/latest/"
+                }
+              ],
+              "practice": "Weekend homework: save a model, reload it, and record results."
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "title": "Week 10: Intro to Deep Learning",
+          "days": [
+            {
+              "id": 46,
+              "dayNumber": 46,
+              "title": "Neural Network Basics",
+              "goal": "Understand neural network concepts",
+              "activities": [
+                "Learn perceptron and layers",
+                "Review activation functions",
+                "Sketch a simple network"
+              ],
+              "resources": [
+                {
+                  "title": "Deep Learning Book",
+                  "url": "https://www.deeplearningbook.org/"
+                },
+                {
+                  "title": "Neural Networks Explained",
+                  "url": "https://www.youtube.com/watch?v=aircAruvnKk"
+                }
+              ],
+              "practice": "Draw a 2-layer network and explain it."
+            },
+            {
+              "id": 47,
+              "dayNumber": 47,
+              "title": "PyTorch Tensors",
+              "goal": "Handle tensors in PyTorch",
+              "activities": [
+                "Create torch tensors",
+                "Do basic math",
+                "Review GPU availability"
+              ],
+              "resources": [
+                {
+                  "title": "PyTorch Tutorials",
+                  "url": "https://pytorch.org/tutorials/"
+                },
+                {
+                  "title": "Tensor Basics",
+                  "url": "https://pytorch.org/tutorials/beginner/basics/tensorqs_tutorial.html"
+                }
+              ],
+              "practice": "Generate a random tensor and do sum/multiply."
+            },
+            {
+              "id": 48,
+              "dayNumber": 48,
+              "title": "First Neural Network",
+              "goal": "Define a simple model",
+              "activities": [
+                "Create an nn.Module",
+                "Add loss and optimizer",
+                "Run a forward pass"
+              ],
+              "resources": [
+                {
+                  "title": "Build a Model",
+                  "url": "https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html"
+                },
+                {
+                  "title": "Optimization",
+                  "url": "https://pytorch.org/tutorials/beginner/basics/optimization_tutorial.html"
+                }
+              ],
+              "practice": "Write a simple NN class and describe its layers."
+            },
+            {
+              "id": 49,
+              "dayNumber": 49,
+              "title": "Training Loop",
+              "goal": "Practice training loop and overfitting",
+              "activities": [
+                "Understand epochs and batches",
+                "Split train/val",
+                "Review overfitting"
+              ],
+              "resources": [
+                {
+                  "title": "Training Loop",
+                  "url": "https://pytorch.org/tutorials/beginner/basics/optimization_tutorial.html"
+                },
+                {
+                  "title": "Overfitting",
+                  "url": "https://www.tensorflow.org/tutorials/keras/overfit_and_underfit"
+                }
+              ],
+              "practice": "Write pseudo-code for a training loop."
+            },
+            {
+              "id": 50,
+              "dayNumber": 50,
+              "title": "Transfer Learning + Weekend Homework",
+              "goal": "Use pretrained models",
+              "activities": [
+                "Learn transfer learning concept",
+                "Review a pretrained model example",
+                "Plan weekend review"
+              ],
+              "resources": [
+                {
+                  "title": "Transfer Learning",
+                  "url": "https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html"
+                },
+                {
+                  "title": "CNN Basics",
+                  "url": "https://cs231n.github.io/convolutional-networks/"
+                }
+              ],
+              "practice": "Weekend homework: review a simple image classification notebook and take notes."
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "title": "Week 11: NLP and Modern AI",
+          "days": [
+            {
+              "id": 51,
+              "dayNumber": 51,
+              "title": "Text Preprocessing",
+              "goal": "Tokenize and clean text",
+              "activities": [
+                "Lowercase and remove stopwords",
+                "Tokenize text",
+                "Write a cleaning function"
+              ],
+              "resources": [
+                {
+                  "title": "NLTK Book",
+                  "url": "https://www.nltk.org/book/"
+                },
+                {
+                  "title": "Text Preprocessing",
+                  "url": "https://realpython.com/nltk-nlp-python/"
+                }
+              ],
+              "practice": "Clean a short text and compute word counts."
+            },
+            {
+              "id": 52,
+              "dayNumber": 52,
+              "title": "Embeddings",
+              "goal": "Understand word embeddings",
+              "activities": [
+                "Compare Word2Vec vs TF-IDF",
+                "Compute TF-IDF",
+                "Summarize embeddings"
+              ],
+              "resources": [
+                {
+                  "title": "TF-IDF",
+                  "url": "https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction"
+                },
+                {
+                  "title": "Word2Vec",
+                  "url": "https://radimrehurek.com/gensim/models/word2vec.html"
+                }
+              ],
+              "practice": "Compute TF-IDF for a small text set."
+            },
+            {
+              "id": 53,
+              "dayNumber": 53,
+              "title": "Transformers Intro",
+              "goal": "Learn transformer basics",
+              "activities": [
+                "Read about attention",
+                "Use a Hugging Face model",
+                "Run a short demo"
+              ],
+              "resources": [
+                {
+                  "title": "Transformer Models",
+                  "url": "https://huggingface.co/learn/nlp-course/chapter1/1"
+                },
+                {
+                  "title": "Attention Is All You Need",
+                  "url": "https://arxiv.org/abs/1706.03762"
+                }
+              ],
+              "practice": "Run a sentiment analysis demo with a pretrained transformer."
+            },
+            {
+              "id": 54,
+              "dayNumber": 54,
+              "title": "Prompt Design",
+              "goal": "Use prompt engineering techniques",
+              "activities": [
+                "Write goal-focused prompts",
+                "Try few-shot prompts",
+                "Compare results"
+              ],
+              "resources": [
+                {
+                  "title": "Prompt Engineering Guide",
+                  "url": "https://www.promptingguide.ai/"
+                },
+                {
+                  "title": "OpenAI Best Practices",
+                  "url": "https://platform.openai.com/docs/guides/prompt-engineering"
+                }
+              ],
+              "practice": "Try 3 prompts for the same task and compare outputs."
+            },
+            {
+              "id": 55,
+              "dayNumber": 55,
+              "title": "NLP Mini Project + Weekend Homework",
+              "goal": "Plan a small NLP app",
+              "activities": [
+                "Choose a text classification idea",
+                "Define data + model",
+                "Plan the weekend build"
+              ],
+              "resources": [
+                {
+                  "title": "Hugging Face Pipelines",
+                  "url": "https://huggingface.co/docs/transformers/en/main_classes/pipelines"
+                },
+                {
+                  "title": "Datasets",
+                  "url": "https://huggingface.co/docs/datasets/"
+                }
+              ],
+              "practice": "Weekend homework: build a small text classification demo."
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "title": "Week 12: Deployment and Roadmap",
+          "days": [
+            {
+              "id": 56,
+              "dayNumber": 56,
+              "title": "Serve with FastAPI",
+              "goal": "Build a model service",
+              "activities": [
+                "Install FastAPI and create an endpoint",
+                "Add a simple prediction endpoint",
+                "Review Swagger docs"
+              ],
+              "resources": [
+                {
+                  "title": "FastAPI",
+                  "url": "https://fastapi.tiangolo.com/"
+                },
+                {
+                  "title": "FastAPI Tutorial",
+                  "url": "https://fastapi.tiangolo.com/tutorial/"
+                }
+              ],
+              "practice": "Sketch a /predict endpoint for your model."
+            },
+            {
+              "id": 57,
+              "dayNumber": 57,
+              "title": "Docker and Deployment",
+              "goal": "Containerize the service",
+              "activities": [
+                "Write a Dockerfile",
+                "Build an image",
+                "Run the container"
+              ],
+              "resources": [
+                {
+                  "title": "Docker Python",
+                  "url": "https://docs.docker.com/language/python/"
+                },
+                {
+                  "title": "FastAPI Docker",
+                  "url": "https://fastapi.tiangolo.com/deployment/docker/"
+                }
+              ],
+              "practice": "Draft a Dockerfile for your model service."
+            },
+            {
+              "id": 58,
+              "dayNumber": 58,
+              "title": "Monitoring and Metrics",
+              "goal": "Monitor model performance",
+              "activities": [
+                "Define basic metrics",
+                "Standardize logs",
+                "Learn data drift concept"
+              ],
+              "resources": [
+                {
+                  "title": "ML Monitoring",
+                  "url": "https://madewithml.com/courses/mlops/monitoring/"
+                },
+                {
+                  "title": "Evidently",
+                  "url": "https://docs.evidentlyai.com/"
+                }
+              ],
+              "practice": "Pick 3 monitoring metrics for your model."
+            },
+            {
+              "id": 59,
+              "dayNumber": 59,
+              "title": "Ethics and Responsible AI",
+              "goal": "Understand responsible AI principles",
+              "activities": [
+                "Read about bias and fairness",
+                "List model risks",
+                "Create a checklist"
+              ],
+              "resources": [
+                {
+                  "title": "AI Ethics",
+                  "url": "https://www.oecd.org/going-digital/ai/principles/"
+                },
+                {
+                  "title": "Responsible AI",
+                  "url": "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai"
+                }
+              ],
+              "practice": "Create an ethics checklist for your project."
+            },
+            {
+              "id": 60,
+              "dayNumber": 60,
+              "title": "Final Project + Weekend Homework",
+              "goal": "Wrap up with a capstone",
+              "activities": [
+                "Define final project scope",
+                "Plan priorities",
+                "Set the next 90-day goals"
+              ],
+              "resources": [
+                {
+                  "title": "MLOps Roadmap",
+                  "url": "https://madewithml.com/"
+                },
+                {
+                  "title": "Project Checklist",
+                  "url": "https://www.kaggle.com/learn/intro-to-machine-learning"
+                }
+              ],
+              "practice": "Weekend homework: finish the capstone and share a README."
+            }
+          ]
+        }
+      ]
+    }
   }
 }
