@@ -1,18 +1,20 @@
 import React, { createContext, useState, useEffect, useContext, useMemo } from 'react';
 import en from '../locales/en.json';
 import tr from '../locales/tr.json';
-import { CourseData } from '../types';
+import { CourseCollection, CourseData, CourseKey } from '../types';
 
 type Language = 'en' | 'tr';
 
 interface Translations {
   ui: { [key: string]: string };
-  COURSE_CONTENT: CourseData;
+  COURSES: CourseCollection;
 }
 
 interface LanguageContextType {
   lang: Language;
   setLang: (lang: Language) => void;
+  course: CourseKey;
+  setCourse: (course: CourseKey) => void;
   t: (key: string, ...args: (string | number)[]) => string;
   courseContent: CourseData;
 }
@@ -31,10 +33,19 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return ['en', 'tr'].includes(savedLang) ? savedLang : 'en'; // Default to 'en'
   });
 
+  const [course, setCourse] = useState<CourseKey>(() => {
+    const savedCourse = localStorage.getItem('course') as CourseKey;
+    return ['go', 'python'].includes(savedCourse) ? savedCourse : 'go';
+  });
+
   useEffect(() => {
     localStorage.setItem('language', lang);
     document.documentElement.lang = lang;
   }, [lang]);
+
+  useEffect(() => {
+    localStorage.setItem('course', course);
+  }, [course]);
 
   const t = (key: string, ...args: (string | number)[]): string => {
     const translation = getNestedTranslation(translations[lang].ui, key) || key;
@@ -49,9 +60,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     });
   };
   
-  const courseContent = translations[lang].COURSE_CONTENT;
+  const courseContent = translations[lang].COURSES[course];
 
-  const value = useMemo(() => ({ lang, setLang, t, courseContent }), [lang, t, courseContent]);
+  const value = useMemo(
+    () => ({ lang, setLang, course, setCourse, t, courseContent }),
+    [lang, course, t, courseContent]
+  );
 
   return (
     <LanguageContext.Provider value={value}>

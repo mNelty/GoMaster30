@@ -25,3 +25,7 @@ export interface CourseData {
   title: string;
   weeks: Week[];
 }
+
+export type CourseKey = 'go' | 'python';
+
+export type CourseCollection = Record<CourseKey, CourseData>;
